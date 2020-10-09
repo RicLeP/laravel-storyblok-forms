@@ -1,12 +1,11 @@
 <?php
 
-namespace Riclep\Storyblok;
+namespace Riclep\StoryblokForms;
 
 use Illuminate\Support\ServiceProvider;
-use Riclep\Storyblok\Console\BlockMakeCommand;
-use Storyblok\Client;
 
-class StoryblokFormServiceProvider extends ServiceProvider
+
+class StoryblokFormsServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.

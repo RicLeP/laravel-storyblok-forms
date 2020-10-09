@@ -51,7 +51,7 @@
 	"extra": {
 		"laravel": {
 			"providers": [
-				"Riclep\\Storyblok\\StoryblokFormServiceProvider"
+				"Riclep\\StoryblokForms\\StoryblokFormsServiceProvider"
 			]
 		}
 	}

@@ -6,9 +6,10 @@
         "laravel",
         "cms",
         "content management",
-        "headless cms"
+        "headless cms",
+		"forms"
     ],
-    "homepage": "https://github.com/RicLeP/laravel-storyblok/",
+    "homepage": "https://github.com/RicLeP/laravel-storyblok-forms/",
     "license": "MIT",
     "type": "library",
     "authors": [
@@ -18,12 +19,6 @@
             "role": "Developer"
         }
     ],
-	"repositories":[
-		{
-			"type": "vcs",
-			"url": "git@github.com:RicLeP/php-client.git"
-		}
-	],
     "require": {
         "php": "^7.1",
         "ext-json": "*",
@@ -38,12 +33,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Riclep\\Storyblok\\": "src"
+            "Riclep\\StoryblokForms\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Riclep\\Storyblok\\Tests\\": "tests"
+            "Riclep\\StoryblokForms\\Tests\\": "tests"
         }
     },
     "scripts": {

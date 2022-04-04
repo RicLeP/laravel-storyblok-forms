@@ -1,0 +1,96 @@
+{
+	"story": {
+		"name": "home",
+		"created_at": "2020-10-09T11:13:27.266Z",
+		"published_at": null,
+		"alternates": [],
+		"id": 23322447,
+		"uuid": "5272b121-73cf-41bc-936b-9187cd97a9c0",
+		"content": {
+			"_uid": "f06b7840-4803-44ef-8709-56504dd5ef52",
+			"contact": [
+				{
+					"_uid": "8288f43c-2a4f-4f07-bd38-7b7c7b9f2f34",
+					"fields": [
+						{
+							"_uid": "257a5c8d-94df-4b87-bac5-5f01036495a7",
+							"name": "name",
+							"type": "text",
+							"label": "Label",
+							"component": "form-input",
+							"validators": [
+								{
+									"_uid": "5a0ba683-3dfc-4c58-a43a-48e288554bd8",
+									"component": "form-validate-required",
+									"error_message": "This field is required",
+									"_editable": "\u003c!--#storyblok#{\"name\": \"form-validate-required\", \"space\": \"94872\", \"uid\": \"5a0ba683-3dfc-4c58-a43a-48e288554bd8\", \"id\": \"23322447\"}--\u003e"
+								},
+								{
+									"_uid": "6d14424b-bf4b-4105-b2ba-daec8dd45744",
+									"component": "form-validate-numeric",
+									"error_message": "You must enter a number",
+									"_editable": "\u003c!--#storyblok#{\"name\": \"form-validate-numeric\", \"space\": \"94872\", \"uid\": \"6d14424b-bf4b-4105-b2ba-daec8dd45744\", \"id\": \"23322447\"}--\u003e"
+								}
+							],
+							"placeholder": "Enter something",
+							"_editable": "\u003c!--#storyblok#{\"name\": \"form-input\", \"space\": \"94872\", \"uid\": \"257a5c8d-94df-4b87-bac5-5f01036495a7\", \"id\": \"23322447\"}--\u003e"
+						},
+						{
+							"_uid": "6f27982c-2ad7-4e9a-804d-46e5810a2e86",
+							"name": "numeric",
+							"type": "num",
+							"label": "Numeric",
+							"component": "form-input",
+							"validators": [
+								{
+									"_uid": "6d14424b-bf4b-4105-b2ba-daec8dd45744",
+									"component": "form-validate-numeric",
+									"error_message": "",
+									"_editable": "\u003c!--#storyblok#{\"name\": \"form-validate-numeric\", \"space\": \"94872\", \"uid\": \"6d14424b-bf4b-4105-b2ba-daec8dd45744\", \"id\": \"23322447\"}--\u003e"
+								}
+							],
+							"placeholder": "Enter a number",
+							"_editable": "\u003c!--#storyblok#{\"name\": \"form-input\", \"space\": \"94872\", \"uid\": \"6f27982c-2ad7-4e9a-804d-46e5810a2e86\", \"id\": \"23322447\"}--\u003e"
+						},
+						{
+							"_uid": "bc4ea461-b430-495e-8e56-015cd6f88f47",
+							"name": "email",
+							"type": "email",
+							"label": "Email",
+							"component": "form-input",
+							"validators": [
+								{
+									"_uid": "66222895-ffd3-4307-8007-350bd6af8b25",
+									"component": "form-validate-email",
+									"error_message": "",
+									"_editable": "\u003c!--#storyblok#{\"name\": \"form-validate-email\", \"space\": \"94872\", \"uid\": \"66222895-ffd3-4307-8007-350bd6af8b25\", \"id\": \"23322447\"}--\u003e"
+								}
+							],
+							"placeholder": "Enter your email",
+							"_editable": "\u003c!--#storyblok#{\"name\": \"form-input\", \"space\": \"94872\", \"uid\": \"bc4ea461-b430-495e-8e56-015cd6f88f47\", \"id\": \"23322447\"}--\u003e"
+						}
+					],
+					"component": "form",
+					"_editable": "\u003c!--#storyblok#{\"name\": \"form\", \"space\": \"94872\", \"uid\": \"8288f43c-2a4f-4f07-bd38-7b7c7b9f2f34\", \"id\": \"23322447\"}--\u003e"
+				}
+			],
+			"component": "page",
+			"_editable": "\u003c!--#storyblok#{\"name\": \"page\", \"space\": \"94872\", \"uid\": \"f06b7840-4803-44ef-8709-56504dd5ef52\", \"id\": \"23322447\"}--\u003e"
+		},
+		"slug": "home",
+		"full_slug": "home",
+		"default_full_slug": null,
+		"sort_by_date": null,
+		"position": 0,
+		"tag_list": [],
+		"is_startpage": false,
+		"parent_id": 0,
+		"meta_data": null,
+		"group_id": "7b56c652-0396-40a8-833d-007d30e7eb0c",
+		"first_published_at": null,
+		"release_id": null,
+		"lang": "default",
+		"path": null,
+		"translated_slugs": []
+	}
+}

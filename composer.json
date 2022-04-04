@@ -20,10 +20,10 @@
         }
     ],
     "require": {
-        "php": "^7.1",
+        "php": "^7.4|^8.0",
         "ext-json": "*",
-        "illuminate/support": "^6.0|^7.0|^8.0",
-		"storyblok/php-client": "^1.4"
+        "illuminate/support": "^7.0|^8.0|^9.0",
+		"riclep/laravel-storyblok": "dev-develop"
     },
     "require-dev": {
         "mockery/mockery": "^1.2",

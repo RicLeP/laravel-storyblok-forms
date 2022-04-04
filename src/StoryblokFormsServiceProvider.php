@@ -12,6 +12,7 @@ class StoryblokFormsServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+	  //  $this->loadViewsFrom(__DIR__.'/resources/views', 'laravel-storyblok-forms');
     }
 
     /**

@@ -20,12 +20,28 @@ class Validators implements ArrayAccess
 		$this->field = $field;
 	}
 
-	public function getRules() {
+	public function validationRules() {
+		$rules = [];
+
 		$rules[$this->field->name] = array_values($this->rules->map(function ($rule) {
 			return $rule->rule();
 		})->toArray());
 
 		return $rules;
+	}
+
+	public function errorMessages() {
+		$messages = [];
+
+		$this->rules->each(function ($rule) use (&$messages) {
+			if ($rule->errorMessage()) {
+				$messageKey = $this->field->name . '.' . $rule->rule();
+
+				$messages = array_merge($messages, [$messageKey => $rule->errorMessage()]);
+			}
+		})->toArray();
+
+		return $messages;
 	}
 
 	protected function process($validators) {

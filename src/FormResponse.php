@@ -34,7 +34,9 @@ class FormResponse
 		return $this->responses();
 	}
 
-
+	public function json() {
+		return json_encode($this->response());
+	}
 
 	protected function responses() {
 		$input = $this->request->input();

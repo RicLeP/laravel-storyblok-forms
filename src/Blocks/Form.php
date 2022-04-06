@@ -39,16 +39,4 @@ class Form extends \Riclep\Storyblok\Block
 
 		return collect($fields);
 	}
-
-	// TODO move to new class
-	public function responses(Request $request) {
-		$input = $request->input();
-
-		return $this->flattenFields()->map(function ($field) use ($input) {
-			return [
-				'label' => $field->label,
-				'response' => $field->response($input[$field->name]),
-			];
-		})->toArray();
-	}
 }

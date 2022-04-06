@@ -31,6 +31,19 @@ class FormResponse
 	}
 
 	public function response() {
-		return $this->form()->responses($this->request);
+		return $this->responses();
+	}
+
+
+
+	protected function responses() {
+		$input = $this->request->input();
+
+		return $this->form()->flattenFields()->map(function ($field) use ($input) {
+			return [
+				'label' => $field->label,
+				'response' => $field->response($input[$field->name]),
+			];
+		})->toArray();
 	}
 }

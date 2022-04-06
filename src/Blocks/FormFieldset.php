@@ -4,6 +4,11 @@ namespace Riclep\StoryblokForms\Blocks;
 
 class FormFieldset extends \Riclep\Storyblok\Block
 {
+	//// potentially all fields in a fieldset could be name <input name="fieldsetname[fieldname]">
+	/// this would out a multidimensional array in the response.
+	/// makes validation herder?
+
+
 	public function validationRules() {
 		$rules = [];
 

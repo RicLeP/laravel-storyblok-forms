@@ -3,6 +3,7 @@
 namespace Riclep\StoryblokForms;
 
 use Illuminate\Support\ServiceProvider;
+use Riclep\StoryblokForms\Console\InstallCommand;
 
 
 class StoryblokFormsServiceProvider extends ServiceProvider
@@ -12,7 +13,9 @@ class StoryblokFormsServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-	  //  $this->loadViewsFrom(__DIR__.'/resources/views', 'laravel-storyblok-forms');
+	    $this->commands([
+		    InstallCommand::class,
+	    ]);
     }
 
     /**

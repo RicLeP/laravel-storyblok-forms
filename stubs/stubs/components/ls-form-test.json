@@ -1,0 +1,13 @@
+{
+	"component": {
+		"name": "ls-form4",
+		"display_name": "Form4",
+		"is_root": true,
+		"component_group_uuid": "Formsxxxff",
+		"schema": {
+			"fields": {
+				"type": "bloks"
+			}
+		}
+	}
+}

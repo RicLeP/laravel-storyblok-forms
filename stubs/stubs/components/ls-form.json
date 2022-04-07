@@ -1,0 +1,13 @@
+{
+	"component": {
+		"name": "ls-form",
+		"display_name": "Form",
+		"is_root": true,
+		"component_group_uuid": "Forms",
+		"schema": {
+			"fields": {
+				"type": "bloks"
+			}
+		}
+	}
+}

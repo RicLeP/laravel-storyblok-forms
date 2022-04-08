@@ -16,6 +16,7 @@ class StoryblokFormsServiceProvider extends ServiceProvider
 	    if ($this->app->runningInConsole()) {
 		    $this->publishes([
 			    __DIR__.'/../config/storyblok-forms.php' => config_path('storyblok-forms.php'),
+			    __DIR__.'/../stubs/views' => resource_path('views/storyblok')
 		    ], 'storyblok-forms');
 	    }
 

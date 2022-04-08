@@ -12,7 +12,7 @@ class InstallCommand extends Command
 {
 	protected $name  = 'lsf:install';
 
-	protected $description = 'Create the required components in Storyblok';
+	protected $description = 'Create the required components for Storyblok forms';
 
 	protected $managementClient;
 

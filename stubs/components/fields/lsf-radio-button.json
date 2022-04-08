@@ -1,0 +1,31 @@
+{
+	"component": {
+		"name": "lsf-radio-button",
+		"display_name": "Radio button",
+		"is_root": false,
+		"component_group_uuid": "Form fields",
+		"schema": {
+			"label": {
+				"type": "text",
+				"required": true
+			},
+			"name": {
+				"type": "text",
+				"required": true
+			},
+			"radio_buttons": {
+				"type": "textarea",
+				"required": true,
+				"description": "Put each radio button on a new line. To pre-select a box start the line with [X]"
+			},
+			"validators": {
+				"type": "bloks",
+				"restrict_components": true,
+				"restrict_type": "groups",
+				"component_group_whitelist": [
+					"Form validators"
+				]
+			}
+		}
+	}
+}

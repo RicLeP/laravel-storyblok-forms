@@ -1,0 +1,22 @@
+{
+	"component": {
+		"name": "lsf-fieldset",
+		"display_name": "Field Group",
+		"is_root": false,
+		"component_group_uuid": "Form fields",
+		"schema": {
+			"title": {
+				"type": "text",
+				"required": true
+			},
+			"fields": {
+				"type": "bloks",
+				"restrict_components": true,
+				"restrict_type": "groups",
+				"component_group_whitelist": [
+					"Form fields"
+				]
+			}
+		}
+	}
+}

@@ -1,0 +1,18 @@
+{
+	"component": {
+		"name": "lsf-validator-max",
+		"display_name": "Maximum value",
+		"is_root": false,
+		"component_group_uuid": "Form validators",
+		"schema": {
+			"error_message": {
+				"type": "text",
+				"description": "Use {field} to include name in message //TODO"
+			},
+			"parameter": {
+				"type": "number",
+				"display_name": "Maximum value"
+			}
+		}
+	}
+}

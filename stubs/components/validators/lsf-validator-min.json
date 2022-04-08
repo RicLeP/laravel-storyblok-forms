@@ -1,0 +1,18 @@
+{
+	"component": {
+		"name": "lsf-validator-min",
+		"display_name": "Minimum value",
+		"is_root": false,
+		"component_group_uuid": "Form validators",
+		"schema": {
+			"error_message": {
+				"type": "text",
+				"description": "Use {field} to include name in message //TODO"
+			},
+			"parameter": {
+				"type": "number",
+				"display_name": "Minimum value"
+			}
+		}
+	}
+}

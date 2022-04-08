@@ -1,0 +1,52 @@
+{
+	"component": {
+		"name": "lsf-input",
+		"display_name": "Input",
+		"is_root": false,
+		"component_group_uuid": "Form fields",
+		"schema": {
+			"label": {
+				"type": "text",
+				"required": true
+			},
+			"name": {
+				"type": "text",
+				"required": true
+			},
+			"type": {
+				"type": "option",
+				"required": true,
+				"options": [
+					{
+						"value": "text",
+						"name": "Text"
+					},
+					{
+						"value": "email",
+						"name": "Email"
+					},
+					{
+						"value": "telephone",
+						"name": "Telephone"
+					},
+					{
+						"value": "number",
+						"name": "Number"
+					}
+				]
+			},
+			"placeholder": {
+				"type": "text",
+				"required": true
+			},
+			"validators": {
+				"type": "bloks",
+				"restrict_components": true,
+				"restrict_type": "groups",
+				"component_group_whitelist": [
+					"Form validators"
+				]
+			}
+		}
+	}
+}

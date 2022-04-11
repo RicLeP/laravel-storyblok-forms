@@ -27,8 +27,8 @@ class Validator
 		// TODO - custom class - bespoke validator class?
 
 		// single parameter validators
-		if (array_key_exists('param', $this->settings)) {
-			return Str::afterLast($this->settings['component'], '-') . ':' . $this->settings['param'];
+		if (array_key_exists('parameter', $this->settings)) {
+			return Str::afterLast($this->settings['component'], '-') . ':' . $this->settings['parameter'];
 		}
 
 		return Str::afterLast($this->settings['component'], '-');

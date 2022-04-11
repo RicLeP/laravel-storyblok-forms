@@ -101,6 +101,30 @@
 					"validators": [],
 					"radio_buttons": "First\nSecond\n[x]Selected",
 					"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-radio-button\", \"space\": \"94872\", \"uid\": \"9d0e8902-68fa-4171-949f-d961566682a1\", \"id\": \"123026047\"}--\u003e"
+				},
+				{
+					"_uid": "e98140c7-8813-4492-a4b1-1ef9c12c3e06",
+					"name": "min",
+					"type": "number",
+					"label": "Min",
+					"component": "lsf-input",
+					"validators": [
+						{
+							"_uid": "075c7fc3-5b23-4818-967f-cb2b838dfaa0",
+							"component": "lsf-validator-numeric",
+							"error_message": "",
+							"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-numeric\", \"space\": \"94872\", \"uid\": \"075c7fc3-5b23-4818-967f-cb2b838dfaa0\", \"id\": \"123026047\"}--\u003e"
+						},
+						{
+							"_uid": "51aa8399-dacf-4985-bc81-084ae771778b",
+							"component": "lsf-validator-min",
+							"parameter": "10",
+							"error_message": "",
+							"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-min\", \"space\": \"94872\", \"uid\": \"51aa8399-dacf-4985-bc81-084ae771778b\", \"id\": \"123026047\"}--\u003e"
+						}
+					],
+					"placeholder": "",
+					"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-input\", \"space\": \"94872\", \"uid\": \"e98140c7-8813-4492-a4b1-1ef9c12c3e06\", \"id\": \"123026047\"}--\u003e"
 				}
 			],
 			"component": "lsf-form",

@@ -35,23 +35,4 @@ class TestCase extends Orchestra
 		$app['config']->set('view.paths', array_merge(config('view.paths'), [$viewPath]));
 		//dd(config('view.paths'));
 	}
-
-	protected function makePage($file = null) {
-		$story = json_decode(file_get_contents(__DIR__ . '/Fixtures/' . ($file ?: 'all-fields.json')), true);
-
-		if ($file) {
-			$class = config('storyblok.component_class_namespace') . 'Pages\\' . Str::studly($story['story']['content']['component']);
-		} else {
-			$class = config('storyblok.component_class_namespace') . 'Page';
-		}
-
-		return new $class($story['story']);
-	}
-
-	public static function callMethod($obj, $name, array $args) {
-		$class = new ReflectionClass($obj);
-		$method = $class->getMethod($name);
-		$method->setAccessible(true);
-		return $method->invokeArgs($obj, $args);
-	}
 }

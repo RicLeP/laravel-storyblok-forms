@@ -5,7 +5,7 @@ namespace Riclep\StoryblokForms\Blocks;
 use Illuminate\Support\Str;
 use Riclep\StoryblokForms\Validators;
 
-class FormInput extends \Riclep\Storyblok\Block
+class LsfInput extends \Riclep\Storyblok\Block
 {
 	/**
 	 * @var string[]

@@ -3,7 +3,7 @@
 namespace Riclep\StoryblokForms\Tests;
 
 
-use Riclep\StoryblokForms\Blocks\FormInput;
+use Riclep\StoryblokForms\Blocks\LsfInput;
 
 class InputTest extends TestCase
 {
@@ -20,7 +20,7 @@ class InputTest extends TestCase
 
 	/** @test */
 	public function can_get_field_validation_rules() {
-		$formInput = new FormInput($this->getBlockContents(0), null);
+		$formInput = new LsfInput($this->getBlockContents(0), null);
 
 		$this->assertEquals('required', $formInput->validators[0]->rule());
 		$this->assertEquals('numeric', $formInput->validators[1]->rule());
@@ -29,7 +29,7 @@ class InputTest extends TestCase
 
 	/** @test */
 	public function can_get_field_error_messages() {
-		$formInput = new FormInput($this->getBlockContents(0), null);
+		$formInput = new LsfInput($this->getBlockContents(0), null);
 
 		$this->assertEquals('This field is required', $formInput->validators[0]->errorMessage());
 		$this->assertEquals('You must enter a number', $formInput->validators[1]->errorMessage());
@@ -38,7 +38,7 @@ class InputTest extends TestCase
 
 	/** @test */
 	public function can_get_input_validation_array() {
-		$formInput = new FormInput($this->getBlockContents(0), null);
+		$formInput = new LsfInput($this->getBlockContents(0), null);
 
 		$this->assertEquals(['name' => ['required', 'numeric']], $formInput->validators->getRules());
 	}
@@ -46,7 +46,7 @@ class InputTest extends TestCase
 
 	/** @test */
 	public function can_get_validation_array() {
-		$formInput = new FormInput($this->getBlockContents(0), null);
+		$formInput = new LsfInput($this->getBlockContents(0), null);
 
 		$this->assertEquals(['name' => ['required', 'numeric']], $formInput->validationRules());
 	}

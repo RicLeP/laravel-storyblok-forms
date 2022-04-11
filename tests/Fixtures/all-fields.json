@@ -1,92 +1,121 @@
 {
 	"story": {
-		"name": "home",
-		"created_at": "2020-10-09T11:13:27.266Z",
+		"name": "test",
+		"created_at": "2022-04-08T14:34:24.413Z",
 		"published_at": null,
 		"alternates": [],
-		"id": 23322447,
-		"uuid": "5272b121-73cf-41bc-936b-9187cd97a9c0",
+		"id": 123026047,
+		"uuid": "236147cd-24d1-4b09-aa0c-f3eaff744704",
 		"content": {
-			"_uid": "f06b7840-4803-44ef-8709-56504dd5ef52",
-			"contact": [
+			"_uid": "54bcf226-0b53-4307-84b3-821cc7f2fb13",
+			"fields": [
 				{
-					"_uid": "8288f43c-2a4f-4f07-bd38-7b7c7b9f2f34",
+					"_uid": "3a8207c8-09bf-4988-9b34-e245c5585670",
+					"title": "Your name",
 					"fields": [
 						{
-							"_uid": "257a5c8d-94df-4b87-bac5-5f01036495a7",
+							"_uid": "bbd36b1e-096b-4023-b308-79236f3c5b32",
 							"name": "name",
 							"type": "text",
-							"label": "Label",
-							"component": "form-input",
+							"label": "Name",
+							"component": "lsf-input",
 							"validators": [
 								{
-									"_uid": "5a0ba683-3dfc-4c58-a43a-48e288554bd8",
-									"component": "form-validate-required",
-									"error_message": "This field is required",
-									"_editable": "\u003c!--#storyblok#{\"name\": \"form-validate-required\", \"space\": \"94872\", \"uid\": \"5a0ba683-3dfc-4c58-a43a-48e288554bd8\", \"id\": \"23322447\"}--\u003e"
-								},
-								{
-									"_uid": "6d14424b-bf4b-4105-b2ba-daec8dd45744",
-									"component": "form-validate-numeric",
-									"error_message": "You must enter a number",
-									"_editable": "\u003c!--#storyblok#{\"name\": \"form-validate-numeric\", \"space\": \"94872\", \"uid\": \"6d14424b-bf4b-4105-b2ba-daec8dd45744\", \"id\": \"23322447\"}--\u003e"
+									"_uid": "0f87d8de-9f29-4d8b-9a18-2f0b4457af42",
+									"component": "lsf-validator-required",
+									"error_message": "",
+									"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"94872\", \"uid\": \"0f87d8de-9f29-4d8b-9a18-2f0b4457af42\", \"id\": \"123026047\"}--\u003e"
 								}
 							],
-							"placeholder": "Enter something",
-							"_editable": "\u003c!--#storyblok#{\"name\": \"form-input\", \"space\": \"94872\", \"uid\": \"257a5c8d-94df-4b87-bac5-5f01036495a7\", \"id\": \"23322447\"}--\u003e"
+							"placeholder": "",
+							"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-input\", \"space\": \"94872\", \"uid\": \"bbd36b1e-096b-4023-b308-79236f3c5b32\", \"id\": \"123026047\"}--\u003e"
 						},
 						{
-							"_uid": "6f27982c-2ad7-4e9a-804d-46e5810a2e86",
-							"name": "numeric",
-							"type": "num",
-							"label": "Numeric",
-							"component": "form-input",
+							"_uid": "7dc6b861-4e32-47b6-bf45-b65c282801ac",
+							"name": "surname",
+							"type": "text",
+							"label": "Surname",
+							"component": "lsf-input",
 							"validators": [
 								{
-									"_uid": "6d14424b-bf4b-4105-b2ba-daec8dd45744",
-									"component": "form-validate-numeric",
+									"_uid": "57d43436-9f81-429b-bcf4-b77fa51e788c",
+									"component": "lsf-validator-required",
 									"error_message": "",
-									"_editable": "\u003c!--#storyblok#{\"name\": \"form-validate-numeric\", \"space\": \"94872\", \"uid\": \"6d14424b-bf4b-4105-b2ba-daec8dd45744\", \"id\": \"23322447\"}--\u003e"
+									"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"94872\", \"uid\": \"57d43436-9f81-429b-bcf4-b77fa51e788c\", \"id\": \"123026047\"}--\u003e"
 								}
 							],
-							"placeholder": "Enter a number",
-							"_editable": "\u003c!--#storyblok#{\"name\": \"form-input\", \"space\": \"94872\", \"uid\": \"6f27982c-2ad7-4e9a-804d-46e5810a2e86\", \"id\": \"23322447\"}--\u003e"
-						},
-						{
-							"_uid": "bc4ea461-b430-495e-8e56-015cd6f88f47",
-							"name": "email",
-							"type": "email",
-							"label": "Email",
-							"component": "form-input",
-							"validators": [
-								{
-									"_uid": "66222895-ffd3-4307-8007-350bd6af8b25",
-									"component": "form-validate-email",
-									"error_message": "",
-									"_editable": "\u003c!--#storyblok#{\"name\": \"form-validate-email\", \"space\": \"94872\", \"uid\": \"66222895-ffd3-4307-8007-350bd6af8b25\", \"id\": \"23322447\"}--\u003e"
-								}
-							],
-							"placeholder": "Enter your email",
-							"_editable": "\u003c!--#storyblok#{\"name\": \"form-input\", \"space\": \"94872\", \"uid\": \"bc4ea461-b430-495e-8e56-015cd6f88f47\", \"id\": \"23322447\"}--\u003e"
+							"placeholder": "",
+							"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-input\", \"space\": \"94872\", \"uid\": \"7dc6b861-4e32-47b6-bf45-b65c282801ac\", \"id\": \"123026047\"}--\u003e"
 						}
 					],
-					"component": "form",
-					"_editable": "\u003c!--#storyblok#{\"name\": \"form\", \"space\": \"94872\", \"uid\": \"8288f43c-2a4f-4f07-bd38-7b7c7b9f2f34\", \"id\": \"23322447\"}--\u003e"
+					"component": "lsf-fieldset",
+					"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-fieldset\", \"space\": \"94872\", \"uid\": \"3a8207c8-09bf-4988-9b34-e245c5585670\", \"id\": \"123026047\"}--\u003e"
+				},
+				{
+					"_uid": "584f679b-15ef-4f1e-bbcc-9370a0df488b",
+					"name": "job-title",
+					"type": "text",
+					"label": "Job title",
+					"component": "lsf-input",
+					"validators": [],
+					"placeholder": "Enter your job title",
+					"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-input\", \"space\": \"94872\", \"uid\": \"584f679b-15ef-4f1e-bbcc-9370a0df488b\", \"id\": \"123026047\"}--\u003e"
+				},
+				{
+					"_uid": "bf5856b1-cb19-4156-910a-3fa6b1fc34d4",
+					"name": "rmail",
+					"type": "email",
+					"label": "Email",
+					"component": "lsf-input",
+					"validators": [
+						{
+							"_uid": "92a4f6c0-8d6a-4924-ac15-df725d9949b3",
+							"component": "lsf-validator-email",
+							"error_message": "",
+							"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-email\", \"space\": \"94872\", \"uid\": \"92a4f6c0-8d6a-4924-ac15-df725d9949b3\", \"id\": \"123026047\"}--\u003e"
+						},
+						{
+							"_uid": "4dc03c1f-3bcb-42cd-8a30-0295b9dc785f",
+							"component": "lsf-validator-required",
+							"error_message": "",
+							"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"94872\", \"uid\": \"4dc03c1f-3bcb-42cd-8a30-0295b9dc785f\", \"id\": \"123026047\"}--\u003e"
+						}
+					],
+					"placeholder": "",
+					"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-input\", \"space\": \"94872\", \"uid\": \"bf5856b1-cb19-4156-910a-3fa6b1fc34d4\", \"id\": \"123026047\"}--\u003e"
+				},
+				{
+					"_uid": "08a47b02-3739-477d-8ee0-931989ada1cc",
+					"name": "options",
+					"label": "Select options",
+					"component": "lsf-checkbox",
+					"checkboxes": "First\nSecond\n[x]Selected",
+					"validators": [],
+					"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-checkbox\", \"space\": \"94872\", \"uid\": \"08a47b02-3739-477d-8ee0-931989ada1cc\", \"id\": \"123026047\"}--\u003e"
+				},
+				{
+					"_uid": "9d0e8902-68fa-4171-949f-d961566682a1",
+					"name": "radio",
+					"label": "Radio",
+					"component": "lsf-radio-button",
+					"validators": [],
+					"radio_buttons": "First\nSecond\n[x]Selected",
+					"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-radio-button\", \"space\": \"94872\", \"uid\": \"9d0e8902-68fa-4171-949f-d961566682a1\", \"id\": \"123026047\"}--\u003e"
 				}
 			],
-			"component": "page",
-			"_editable": "\u003c!--#storyblok#{\"name\": \"page\", \"space\": \"94872\", \"uid\": \"f06b7840-4803-44ef-8709-56504dd5ef52\", \"id\": \"23322447\"}--\u003e"
+			"component": "lsf-form",
+			"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-form\", \"space\": \"94872\", \"uid\": \"54bcf226-0b53-4307-84b3-821cc7f2fb13\", \"id\": \"123026047\"}--\u003e"
 		},
-		"slug": "home",
-		"full_slug": "home",
+		"slug": "test",
+		"full_slug": "forms/test",
 		"default_full_slug": null,
 		"sort_by_date": null,
 		"position": 0,
 		"tag_list": [],
 		"is_startpage": false,
-		"parent_id": 0,
+		"parent_id": 121950344,
 		"meta_data": null,
-		"group_id": "7b56c652-0396-40a8-833d-007d30e7eb0c",
+		"group_id": "972f25aa-8d42-411c-9aa9-c482c63da995",
 		"first_published_at": null,
 		"release_id": null,
 		"lang": "default",

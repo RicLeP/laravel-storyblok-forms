@@ -16,7 +16,7 @@
 			"radio_buttons": {
 				"type": "textarea",
 				"required": true,
-				"description": "Put each radio button on a new line. To pre-select a box start the line with [X]"
+				"description": "Put each radio button on a new line. To pre-select a box start the line with [x]"
 			},
 			"validators": {
 				"type": "bloks",

@@ -5,7 +5,7 @@ namespace Riclep\StoryblokForms\Blocks;
 use Illuminate\Support\Str;
 use Riclep\StoryblokForms\Validators;
 
-class FormCheckbox extends \Riclep\Storyblok\Block
+class LsfRadioButton extends \Riclep\Storyblok\Block
 {
 	/**
 	 * @var string[]
@@ -15,10 +15,10 @@ class FormCheckbox extends \Riclep\Storyblok\Block
 	/**
 	 * @return \Illuminate\Support\Collection
 	 */
-	public function checkboxes() {
-		return collect(explode(PHP_EOL, $this->checkboxes))->transform(function ($checkbox) {
-			if (str_starts_with($checkbox, '[x]')) {
-				$label = Str::after($checkbox, '[x]');
+	public function radioButtons() {
+		return collect(explode(PHP_EOL, $this->radio_buttons))->transform(function ($radioButton) {
+			if (str_starts_with($radioButton, '[x]')) {
+				$label = Str::after($radioButton, '[x]');
 
 				return [
 					'checked' => true,
@@ -29,8 +29,8 @@ class FormCheckbox extends \Riclep\Storyblok\Block
 
 			return [
 				'checked' => false,
-				'label' => $checkbox,
-				'value' => Str::slug($checkbox),
+				'label' => $radioButton,
+				'value' => Str::slug($radioButton),
 			];
 		});
 	}
@@ -40,20 +40,18 @@ class FormCheckbox extends \Riclep\Storyblok\Block
 	 * @return array
 	 */
 	public function response($input) {
-		return $this->checkboxes()->map(function ($checkbox) use ($input) {
-			if (in_array($checkbox['value'], $input)) {
+		return $this->radioButtons()->map(function ($radioButton) use ($input) {
+			if (in_array($radioButton['value'], $input)) {
 				return [
-					'label' => $checkbox['label'],
+					'label' => $radioButton['label'],
 					'checked' => true,
 				];
 			}
 
-			return [
-				'label' => $checkbox['label'],
-				'checked' => false,
-			];
-		})->toArray();
+			// TODO - store unselected radio button options in another array
+		})->filter()->values()->toArray();
 	}
+
 
 	/**
 	 * @return mixed

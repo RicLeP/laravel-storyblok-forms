@@ -39,7 +39,7 @@ class Form extends \Riclep\Storyblok\Block
 		$fields = [];
 
 		$this->fields->each(function ($field) use (&$fields) {
-			if ($field instanceof \Riclep\StoryblokForms\Blocks\FormFieldset) {
+			if ($field instanceof \Riclep\StoryblokForms\Blocks\LsfFieldset) {
 				$fields = array_merge($fields, $field->fields->toArray());
 			} else {
 				$fields = array_merge($fields, [$field]);

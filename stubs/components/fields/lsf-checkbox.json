@@ -16,7 +16,7 @@
 			"checkboxes": {
 				"type": "textarea",
 				"required": true,
-				"description": "Put each checkbox on a new line. To pre-select a box start the line with [X]"
+				"description": "Put each checkbox on a new line. To pre-select a box start the line with [x]"
 			},
 			"validators": {
 				"type": "bloks",

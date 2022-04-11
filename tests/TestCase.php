@@ -29,7 +29,7 @@ class TestCase extends Orchestra
 		$viewPath = str_replace('..', '', __DIR__ . DIRECTORY_SEPARATOR . 'Fixtures' . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR);
 
 
-		$app['config']->set('storyblok.component_class_namespace', ['Riclep\StoryblokForms\Tests\Fixtures\\']);
+		$app['config']->set('storyblok.component_class_namespace', ['Riclep\StoryblokForms\\']);
 		$app['config']->set('storyblok.view_path', $viewPath);
 
 		$app['config']->set('view.paths', array_merge(config('view.paths'), [$viewPath]));

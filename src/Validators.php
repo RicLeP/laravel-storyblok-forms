@@ -28,16 +28,22 @@ class Validators implements ArrayAccess
 	}
 
 	/**
-	 * @return array
+	 * @return array|false
 	 */
 	public function validationRules() {
 		$rules = [];
 
-		$rules[$this->field->name] = array_values($this->rules->map(function ($rule) {
+
+		$hasRules = array_values($this->rules->map(function ($rule) {
 			return $rule->rule();
 		})->toArray());
 
-		return $rules;
+		if ($hasRules) {
+			$rules[$this->field->name] = $hasRules;
+			return $rules;
+		}
+
+		return false;
 	}
 
 	/**

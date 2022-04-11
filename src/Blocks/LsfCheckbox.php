@@ -16,7 +16,7 @@ class LsfCheckbox extends \Riclep\Storyblok\Block
 	 * @return \Illuminate\Support\Collection
 	 */
 	public function checkboxes() {
-		return collect(explode(PHP_EOL, $this->checkboxes))->transform(function ($checkbox) {
+		return collect(preg_split('/\r\n|\r|\n/', $this->checkboxes))->transform(function ($checkbox) {
 			if (str_starts_with($checkbox, '[x]')) {
 				$label = Str::after($checkbox, '[x]');
 

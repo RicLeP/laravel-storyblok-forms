@@ -63,7 +63,7 @@
 				},
 				{
 					"_uid": "bf5856b1-cb19-4156-910a-3fa6b1fc34d4",
-					"name": "rmail",
+					"name": "email",
 					"type": "email",
 					"label": "Email",
 					"component": "lsf-input",

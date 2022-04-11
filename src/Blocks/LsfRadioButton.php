@@ -16,7 +16,7 @@ class LsfRadioButton extends \Riclep\Storyblok\Block
 	 * @return \Illuminate\Support\Collection
 	 */
 	public function radioButtons() {
-		return collect(explode(PHP_EOL, $this->radio_buttons))->transform(function ($radioButton) {
+		return collect(preg_split('/\r\n|\r|\n/', $this->radio_buttons))->transform(function ($radioButton) {
 			if (str_starts_with($radioButton, '[x]')) {
 				$label = Str::after($radioButton, '[x]');
 

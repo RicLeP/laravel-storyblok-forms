@@ -135,12 +135,12 @@ class InputTest extends TestCase
 		$form = new LsfForm($this->getPageContents(), null);
 
 
-		$this->assertInstanceOf(LsfInput::class, $form->flattenFields()->toArray()[0]);
-		$this->assertInstanceOf(LsfInput::class, $form->flattenFields()->toArray()[1]);
-		$this->assertInstanceOf(LsfInput::class, $form->flattenFields()->toArray()[2]);
-		$this->assertInstanceOf(LsfInput::class, $form->flattenFields()->toArray()[3]);
-		$this->assertInstanceOf(LsfCheckbox::class, $form->flattenFields()->toArray()[4]);
-		$this->assertInstanceOf(LsfRadioButton::class, $form->flattenFields()->toArray()[5]);
+		$this->assertInstanceOf(LsfInput::class, $form->flattenFieldsets()->toArray()[0]);
+		$this->assertInstanceOf(LsfInput::class, $form->flattenFieldsets()->toArray()[1]);
+		$this->assertInstanceOf(LsfInput::class, $form->flattenFieldsets()->toArray()[2]);
+		$this->assertInstanceOf(LsfInput::class, $form->flattenFieldsets()->toArray()[3]);
+		$this->assertInstanceOf(LsfCheckbox::class, $form->flattenFieldsets()->toArray()[4]);
+		$this->assertInstanceOf(LsfRadioButton::class, $form->flattenFieldsets()->toArray()[5]);
 	}
 
 	/** @test */

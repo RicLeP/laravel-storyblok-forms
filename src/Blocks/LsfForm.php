@@ -5,6 +5,8 @@ namespace Riclep\StoryblokForms\Blocks;
 class LsfForm extends \Riclep\Storyblok\Block
 {
 	/**
+	 * Returns all the validation rules for the fields in this Form
+	 *
 	 * @return array
 	 */
 	public function validationRules() {
@@ -18,6 +20,8 @@ class LsfForm extends \Riclep\Storyblok\Block
 	}
 
 	/**
+	 * Returns all the error messages for the fields in this Form
+	 *
 	 * @return array
 	 */
 	public function errorMessages() {
@@ -31,9 +35,11 @@ class LsfForm extends \Riclep\Storyblok\Block
 	}
 
 	/**
+	 * Flattens the Fieldsets returning a collection of Fields
+	 *
 	 * @return \Illuminate\Support\Collection
 	 */
-	public function flattenFields() {
+	public function flattenFieldsets() {
 		$fields = [];
 
 		$this->fields->each(function ($field) use (&$fields) {

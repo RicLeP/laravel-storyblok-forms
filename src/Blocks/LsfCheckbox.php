@@ -8,12 +8,7 @@ use Riclep\StoryblokForms\Validators;
 class LsfCheckbox extends MultiInput
 {
 	/**
-	 * @var string
+	 * @var string The name of the textarea in Storyblok holding the checkbox options
 	 */
 	protected $siblingsName = 'checkboxes';
-
-	/**
-	 * @var string[]
-	 */
-	protected $_casts = ['validators' => Validators::class];
 }

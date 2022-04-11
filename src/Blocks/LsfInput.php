@@ -9,11 +9,8 @@ use Riclep\StoryblokForms\Validators;
 class LsfInput extends Input
 {
 	/**
-	 * @var string[]
-	 */
-	protected $_casts = ['validators' => Validators::class];
-
-	/**
+	 * Returns the name attribute used for the Inout’s HTML tag in the correct format
+	 *
 	 * @return string
 	 */
 	public function getNameAttribute() {
@@ -21,10 +18,11 @@ class LsfInput extends Input
 	}
 
 
-
 	// Interface this....
 
 	/**
+	 * Returns the Input’s response after the form has been submitted and validated
+	 *
 	 * @param $input
 	 * @return mixed
 	 */

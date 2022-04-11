@@ -30,6 +30,10 @@ class MultiInput extends Input
 	}
 
 	/**
+	 * Returns the Input’s response after the form has been submitted and validated
+	 * All options are returned as an array with their name and a checked boolean
+	 * based on the user’s input
+	 *
 	 * @param $input
 	 * @return array
 	 */

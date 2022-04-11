@@ -10,6 +10,8 @@ class LsfFieldset extends \Riclep\Storyblok\Block
 
 
 	/**
+	 * Returns all the validation rules for the fields in this Fieldset
+	 *
 	 * @return array
 	 */
 	public function validationRules() {
@@ -23,6 +25,8 @@ class LsfFieldset extends \Riclep\Storyblok\Block
 	}
 
 	/**
+	 * Returns all the error messages for the fields in this Fieldset
+	 *
 	 * @return array
 	 */
 	public function errorMessages() {

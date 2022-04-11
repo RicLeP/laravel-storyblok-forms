@@ -7,8 +7,14 @@ use Riclep\StoryblokForms\Validators;
 
 class FormRadioButton extends \Riclep\Storyblok\Block
 {
+	/**
+	 * @var string[]
+	 */
 	protected $_casts = ['validators' => Validators::class];
 
+	/**
+	 * @return \Illuminate\Support\Collection
+	 */
 	public function radioButtons() {
 		return collect(explode(PHP_EOL, $this->radio_buttons))->transform(function ($radioButton) {
 			if (str_starts_with($radioButton, '[x]')) {
@@ -29,6 +35,10 @@ class FormRadioButton extends \Riclep\Storyblok\Block
 		});
 	}
 
+	/**
+	 * @param $input
+	 * @return array
+	 */
 	public function response($input) {
 		return $this->radioButtons()->map(function ($radioButton) use ($input) {
 			if (in_array($radioButton['value'], $input)) {
@@ -43,11 +53,16 @@ class FormRadioButton extends \Riclep\Storyblok\Block
 	}
 
 
-
+	/**
+	 * @return mixed
+	 */
 	public function validationRules() {
 		return $this->validators->validationRules();
 	}
 
+	/**
+	 * @return mixed
+	 */
 	public function errorMessages() {
 		return $this->validators->errorMessages();
 	}

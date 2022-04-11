@@ -10,15 +10,30 @@ use Storyblok\ManagementClient;
 
 class InstallCommand extends Command
 {
+	/**
+	 * @var string
+	 */
 	protected $name  = 'lsf:install';
 
+	/**
+	 * @var string
+	 */
 	protected $description = 'Create the required components for Storyblok forms';
 
+	/**
+	 * @var ManagementClient
+	 */
 	protected $managementClient;
 
+	/**
+	 * @var array
+	 */
 	protected $componentGroups = [];
 
 
+	/**
+	 *
+	 */
 	public function __construct()
 	{
 		parent::__construct();
@@ -29,7 +44,7 @@ class InstallCommand extends Command
 	/**
 	 * Execute the console command.
 	 *
-	 * @return mixed
+	 * @return void
 	 */
 	public function handle()
 	{

@@ -6,7 +6,14 @@ use ArrayAccess;
 
 class Validators implements ArrayAccess
 {
+	/**
+	 * @var
+	 */
 	public $rules;
+
+	/**
+	 * @var
+	 */
 	protected $field;
 
 	/**
@@ -20,6 +27,9 @@ class Validators implements ArrayAccess
 		$this->field = $field;
 	}
 
+	/**
+	 * @return array
+	 */
 	public function validationRules() {
 		$rules = [];
 
@@ -30,6 +40,9 @@ class Validators implements ArrayAccess
 		return $rules;
 	}
 
+	/**
+	 * @return array
+	 */
 	public function errorMessages() {
 		$messages = [];
 
@@ -44,6 +57,10 @@ class Validators implements ArrayAccess
 		return $messages;
 	}
 
+	/**
+	 * @param $validators
+	 * @return void
+	 */
 	protected function process($validators) {
 		$this->rules = collect($validators)->transform(function ($validator) {
 			return (new Validator(array_diff_key($validator, array_flip(['_editable', '_uid']))));

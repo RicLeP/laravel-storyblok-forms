@@ -8,14 +8,30 @@ use Storyblok\ManagementClient;
 
 class ComponentMaker
 {
+	/**
+	 * @var
+	 */
 	protected $payload;
+
+	/**
+	 * @var
+	 */
 	protected $componentGroups;
+
 	/**
 	 * @var ManagementClient
 	 */
 	protected $managementClient;
+
+	/**
+	 * @var InstallCommand
+	 */
 	protected $command;
 
+	/**
+	 * @param InstallCommand $command
+	 * @param $payload
+	 */
 	public function __construct(InstallCommand $command, $payload)
 	{
 		$this->command = $command;
@@ -24,6 +40,9 @@ class ComponentMaker
 		$this->managementClient = new ManagementClient(config('storyblok.oauth_token'));
 	}
 
+	/**
+	 * @return void
+	 */
 	public function handle() {
 		// TODO - validate json.....
 
@@ -33,11 +52,18 @@ class ComponentMaker
 		$this->createComponent();
 	}
 
+	/**
+	 * @return void
+	 * @throws \Storyblok\ApiException
+	 */
 	protected function getGroups() {
 		$this->componentGroups = collect($this->managementClient->get('spaces/'.config('storyblok.space_id').'/component_groups')->getBody()['component_groups'])->keyBy('name');
 	}
 
 
+	/**
+	 * @return void
+	 */
 	protected function discoverGroup() {
 		// see if UUID is known or name needs replacing
 		if (!Str::isUuid($this->payload['component']['component_group_uuid'])) {
@@ -51,6 +77,9 @@ class ComponentMaker
 		}
 	}
 
+	/**
+	 * @return void
+	 */
 	protected function processBlokFields() {
 		// Bloks fields - set up component group whitelist
 		foreach ($this->payload['component']['schema'] as $fieldKey => $field) {
@@ -68,6 +97,10 @@ class ComponentMaker
 		}
 	}
 
+	/**
+	 * @return void
+	 * @throws \Storyblok\ApiException
+	 */
 	protected function createComponent() {
 		$response = $this->managementClient->get('spaces/'.config('storyblok.space_id').'/components/')->getBody();
 
@@ -108,6 +141,10 @@ class ComponentMaker
 		 * */
 	}
 
+	/**
+	 * @param $name
+	 * @return false|mixed
+	 */
 	protected function groupUuidFromName($name) {
 		if ($this->componentGroups->has($name)) {
 			return $this->componentGroups[$name]['uuid'];

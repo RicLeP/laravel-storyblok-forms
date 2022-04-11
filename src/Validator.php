@@ -6,6 +6,9 @@ use Illuminate\Support\Str;
 
 class Validator
 {
+	/**
+	 * @var
+	 */
 	protected $settings;
 
 	/**
@@ -16,6 +19,9 @@ class Validator
 		$this->settings = $settings;
 	}
 
+	/**
+	 * @return string
+	 */
 	public function rule() {
 		// TODO - custom string...
 		// TODO - custom class - bespoke validator class?
@@ -28,6 +34,9 @@ class Validator
 		return Str::afterLast($this->settings['component'], '-');
 	}
 
+	/**
+	 * @return mixed
+	 */
 	public function errorMessage() {
 		return $this->settings['error_message']; // TODO or default
 	}

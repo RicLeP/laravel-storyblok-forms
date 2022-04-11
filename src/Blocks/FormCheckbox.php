@@ -7,8 +7,14 @@ use Riclep\StoryblokForms\Validators;
 
 class FormCheckbox extends \Riclep\Storyblok\Block
 {
+	/**
+	 * @var string[]
+	 */
 	protected $_casts = ['validators' => Validators::class];
 
+	/**
+	 * @return \Illuminate\Support\Collection
+	 */
 	public function checkboxes() {
 		return collect(explode(PHP_EOL, $this->checkboxes))->transform(function ($checkbox) {
 			if (str_starts_with($checkbox, '[x]')) {
@@ -29,6 +35,10 @@ class FormCheckbox extends \Riclep\Storyblok\Block
 		});
 	}
 
+	/**
+	 * @param $input
+	 * @return array
+	 */
 	public function response($input) {
 		return $this->checkboxes()->map(function ($checkbox) use ($input) {
 			if (in_array($checkbox['value'], $input)) {
@@ -45,10 +55,16 @@ class FormCheckbox extends \Riclep\Storyblok\Block
 		})->toArray();
 	}
 
+	/**
+	 * @return mixed
+	 */
 	public function validationRules() {
 		return $this->validators->validationRules();
 	}
 
+	/**
+	 * @return mixed
+	 */
 	public function errorMessages() {
 		return $this->validators->errorMessages();
 	}

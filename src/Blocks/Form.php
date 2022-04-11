@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 class Form extends \Riclep\Storyblok\Block
 {
+	/**
+	 * @return array
+	 */
 	public function validationRules() {
 		$rules = [];
 
@@ -16,6 +19,9 @@ class Form extends \Riclep\Storyblok\Block
 		return $rules;
 	}
 
+	/**
+	 * @return array
+	 */
 	public function errorMessages() {
 		$errorMessages = [];
 
@@ -26,6 +32,9 @@ class Form extends \Riclep\Storyblok\Block
 		return $errorMessages;
 	}
 
+	/**
+	 * @return \Illuminate\Support\Collection
+	 */
 	public function flattenFields() {
 		$fields = [];
 

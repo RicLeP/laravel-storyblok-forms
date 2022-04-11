@@ -9,6 +9,9 @@ class FormFieldset extends \Riclep\Storyblok\Block
 	/// makes validation herder?
 
 
+	/**
+	 * @return array
+	 */
 	public function validationRules() {
 		$rules = [];
 
@@ -19,6 +22,9 @@ class FormFieldset extends \Riclep\Storyblok\Block
 		return $rules;
 	}
 
+	/**
+	 * @return array
+	 */
 	public function errorMessages() {
 		$rules = [];
 

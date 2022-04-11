@@ -5,6 +5,7 @@ namespace Riclep\StoryblokForms\Tests;
 
 use Riclep\StoryblokForms\Blocks\LsfCheckbox;
 use Riclep\StoryblokForms\Blocks\LsfFieldset;
+use Riclep\StoryblokForms\Blocks\LsfForm;
 use Riclep\StoryblokForms\Blocks\LsfInput;
 use Riclep\StoryblokForms\Blocks\LsfRadioButton;
 
@@ -15,9 +16,9 @@ class InputTest extends TestCase
 		return $story['story']['content']['fields'][$index];
 	}
 
-	private function getFieldContents($field) {
+	private function getPageContents() {
 		$story = json_decode(file_get_contents(__DIR__ . '/Fixtures/all-fields.json'), true);
-		return $story['story']['content'][$field];
+		return $story['story']['content'];
 	}
 
 
@@ -43,15 +44,15 @@ class InputTest extends TestCase
 		// checkbox
 		$input = new LsfCheckbox($this->getBlockContents(3), null);
 
-		$this->assertEquals([['checked' => false, 'label' => 'First', 'value' => 'first'], ['checked' => false, 'label' => 'Second', 'value' => 'second'], ['checked' => true, 'label' => 'Selected', 'value' => 'selected']], $input->checkboxes()->toArray());
+		$this->assertEquals([['checked' => false, 'label' => 'First', 'value' => 'first'], ['checked' => false, 'label' => 'Second', 'value' => 'second'], ['checked' => true, 'label' => 'Selected', 'value' => 'selected']], $input->siblings()->toArray());
 	}
 
 	/** @test */
 	public function can_parse_radio_buttons() {
-		// checkbox
+		// radio
 		$input = new LsfRadioButton($this->getBlockContents(4), null);
 
-		$this->assertEquals([['checked' => false, 'label' => 'First', 'value' => 'first'], ['checked' => false, 'label' => 'Second', 'value' => 'second'], ['checked' => true, 'label' => 'Selected', 'value' => 'selected']], $input->radioButtons()->toArray());
+		$this->assertEquals([['checked' => false, 'label' => 'First', 'value' => 'first'], ['checked' => false, 'label' => 'Second', 'value' => 'second'], ['checked' => true, 'label' => 'Selected', 'value' => 'selected']], $input->siblings()->toArray());
 	}
 
 	/** @test */
@@ -61,5 +62,38 @@ class InputTest extends TestCase
 
 		$this->assertEquals(['name' => ['required'], 'surname' => ['required']], $input->validationRules());
 	}
+
+	/** @test */
+	public function can_get_form_rules() {
+		// Fieldset
+		$form = new LsfForm($this->getPageContents(), null);
+
+		$this->assertEquals(['name' => ['required'], 'surname' => ['required'], 'email' => ['email', 'required']], $form->validationRules());
+	}
+
+	/** @test */
+	public function can_get_fieldset_error_messages() {
+		// Fieldset
+		$input = new LsfFieldset($this->getBlockContents(0), null);
+
+		$this->assertEquals(['name.required' => 'Please enter your name', 'surname.required' => 'Please enter your surname'], $input->errorMessages());
+	}
+
+	/** @test */
+	public function can_get_field_error_messages() {
+		// email
+		$input = new LsfInput($this->getBlockContents(2), null);
+
+		$this->assertEquals(['email.required' => 'Let us know your email'], $input->errorMessages());
+	}
+
+	/** @test */
+	public function can_get_form_error_messages() {
+		// Fieldset
+		$form = new LsfForm($this->getPageContents(), null);
+
+		$this->assertEquals(['name.required' => 'Please enter your name', 'surname.required' => 'Please enter your surname', 'email.required' => 'Let us know your email'], $form->errorMessages());
+	}
+
 
 }

@@ -63,10 +63,14 @@ class FormResponse
 		$input = $this->request->input();
 
 		return $this->form()->flattenFields()->map(function ($field) use ($input) {
-			return [
-				'label' => $field->label,
-				'response' => $field->response($input[$field->name]),
-			];
+			if (array_key_exists($field->name, $input)) {
+				return [
+					'label' => $field->label,
+					'response' => $field->response($input[$field->name]),
+				];
+			}
+
+			return false;
 		})->toArray();
 	}
 }

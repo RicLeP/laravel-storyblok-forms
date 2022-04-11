@@ -2,9 +2,7 @@
 
 namespace Riclep\StoryblokForms\Blocks;
 
-use Illuminate\Http\Request;
-
-class Form extends \Riclep\Storyblok\Block
+class LsfForm extends \Riclep\Storyblok\Block
 {
 	/**
 	 * @return array
@@ -13,7 +11,7 @@ class Form extends \Riclep\Storyblok\Block
 		$rules = [];
 
 		$this->fields->each(function ($field) use (&$rules) {
-			$rules = array_merge($rules, $field->validationRules());
+			$rules = array_merge($rules, $field->validationRules() ?: []);
 		});
 
 		return $rules;
@@ -39,7 +37,7 @@ class Form extends \Riclep\Storyblok\Block
 		$fields = [];
 
 		$this->fields->each(function ($field) use (&$fields) {
-			if ($field instanceof \Riclep\StoryblokForms\Blocks\LsfFieldset) {
+			if ($field instanceof LsfFieldset) {
 				$fields = array_merge($fields, $field->fields->toArray());
 			} else {
 				$fields = array_merge($fields, [$field]);

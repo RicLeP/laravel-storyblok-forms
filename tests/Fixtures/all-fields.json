@@ -23,7 +23,7 @@
 								{
 									"_uid": "0f87d8de-9f29-4d8b-9a18-2f0b4457af42",
 									"component": "lsf-validator-required",
-									"error_message": "",
+									"error_message": "Please enter your name",
 									"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"94872\", \"uid\": \"0f87d8de-9f29-4d8b-9a18-2f0b4457af42\", \"id\": \"123026047\"}--\u003e"
 								}
 							],
@@ -40,7 +40,7 @@
 								{
 									"_uid": "57d43436-9f81-429b-bcf4-b77fa51e788c",
 									"component": "lsf-validator-required",
-									"error_message": "",
+									"error_message": "Please enter your surname",
 									"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"94872\", \"uid\": \"57d43436-9f81-429b-bcf4-b77fa51e788c\", \"id\": \"123026047\"}--\u003e"
 								}
 							],
@@ -77,7 +77,7 @@
 						{
 							"_uid": "4dc03c1f-3bcb-42cd-8a30-0295b9dc785f",
 							"component": "lsf-validator-required",
-							"error_message": "",
+							"error_message": "Let us know your email",
 							"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"94872\", \"uid\": \"4dc03c1f-3bcb-42cd-8a30-0295b9dc785f\", \"id\": \"123026047\"}--\u003e"
 						}
 					],

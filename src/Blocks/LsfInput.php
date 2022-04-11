@@ -3,9 +3,10 @@
 namespace Riclep\StoryblokForms\Blocks;
 
 use Illuminate\Support\Str;
+use Riclep\StoryblokForms\Input;
 use Riclep\StoryblokForms\Validators;
 
-class LsfInput extends \Riclep\Storyblok\Block
+class LsfInput extends Input
 {
 	/**
 	 * @var string[]
@@ -19,19 +20,7 @@ class LsfInput extends \Riclep\Storyblok\Block
 		return Str::slug($this->content()['name']);
 	}
 
-	/**
-	 * @return mixed
-	 */
-	public function validationRules() {
-		return $this->validators->validationRules();
-	}
 
-	/**
-	 * @return mixed
-	 */
-	public function errorMessages() {
-		return $this->validators->errorMessages();
-	}
 
 	// Interface this....
 

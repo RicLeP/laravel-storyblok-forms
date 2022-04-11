@@ -3,9 +3,10 @@
 namespace Riclep\StoryblokForms\Blocks;
 
 use Illuminate\Support\Str;
+use Riclep\StoryblokForms\Input;
 use Riclep\StoryblokForms\Validators;
 
-class LsfRadioButton extends \Riclep\Storyblok\Block
+class LsfRadioButton extends Input
 {
 	/**
 	 * @var string[]
@@ -50,20 +51,5 @@ class LsfRadioButton extends \Riclep\Storyblok\Block
 
 			// TODO - store unselected radio button options in another array
 		})->filter()->values()->toArray();
-	}
-
-
-	/**
-	 * @return mixed
-	 */
-	public function validationRules() {
-		return $this->validators->validationRules();
-	}
-
-	/**
-	 * @return mixed
-	 */
-	public function errorMessages() {
-		return $this->validators->errorMessages();
 	}
 }

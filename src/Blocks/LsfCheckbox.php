@@ -3,9 +3,11 @@
 namespace Riclep\StoryblokForms\Blocks;
 
 use Illuminate\Support\Str;
+use Riclep\StoryblokForms\Input;
 use Riclep\StoryblokForms\Validators;
 
-class LsfCheckbox extends \Riclep\Storyblok\Block
+class LsfCheckbox extends Input
+
 {
 	/**
 	 * @var string[]
@@ -53,19 +55,5 @@ class LsfCheckbox extends \Riclep\Storyblok\Block
 				'checked' => false,
 			];
 		})->toArray();
-	}
-
-	/**
-	 * @return mixed
-	 */
-	public function validationRules() {
-		return $this->validators->validationRules();
-	}
-
-	/**
-	 * @return mixed
-	 */
-	public function errorMessages() {
-		return $this->validators->errorMessages();
 	}
 }

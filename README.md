@@ -1,7 +1,6 @@
 # An addon package for [Laravel Storyblok](https://github.com/RicLeP/laravel-storyblok) that lets you use the [Storyblok headless CMS](https://www.storyblok.com/) as a form builder.
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/riclep/laravel-storyblok-forms.svg?style=flat-square)](https://packagist.org/packages/riclep/laravel-storyblok-forms)
-[![Build Status](https://img.shields.io/travis/riclep/laravel-storyblok-forms/master.svg?style=flat-square)](https://travis-ci.org/riclep/laravel-storyblok-forms)
 [![Quality Score](https://img.shields.io/scrutinizer/g/riclep/laravel-storyblok-forms.svg?style=flat-square)](https://scrutinizer-ci.com/g/riclep/laravel-storyblok-forms)
 [![Total Downloads](https://img.shields.io/packagist/dt/riclep/laravel-storyblok-forms.svg?style=flat-square)](https://packagist.org/packages/riclep/laravel-storyblok-forms)
 [![Twitter](https://img.shields.io/twitter/follow/riclep.svg?style=social&label=Follow)](https://twitter.com/intent/follow?screen_name=riclep)

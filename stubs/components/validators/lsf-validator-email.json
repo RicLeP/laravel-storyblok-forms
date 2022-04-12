@@ -1,0 +1,14 @@
+{
+	"component": {
+		"name": "lsf-validator-email",
+		"display_name": "Email address",
+		"is_root": false,
+		"component_group_uuid": "Form validators",
+		"schema": {
+			"error_message": {
+				"type": "text",
+				"description": "Use {field} to include name in message //TODO"
+			}
+		}
+	}
+}

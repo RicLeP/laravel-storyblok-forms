@@ -6,9 +6,11 @@
         "laravel",
         "cms",
         "content management",
-        "headless cms"
+        "headless cms",
+		"forms",
+	    "form builder"
     ],
-    "homepage": "https://github.com/RicLeP/laravel-storyblok/",
+    "homepage": "https://github.com/RicLeP/laravel-storyblok-forms/",
     "license": "MIT",
     "type": "library",
     "authors": [
@@ -18,32 +20,25 @@
             "role": "Developer"
         }
     ],
-	"repositories":[
-		{
-			"type": "vcs",
-			"url": "git@github.com:RicLeP/php-client.git"
-		}
-	],
     "require": {
-        "php": "^7.1",
+        "php": "^7.4|^8.0",
         "ext-json": "*",
-        "illuminate/support": "^6.0|^7.0|^8.0",
-		"riclep/laravel-storyblok": "^2.1",
-        "storyblok/php-client": "^1.4"
+        "illuminate/support": "^7.0|^8.0|^9.0",
+		"riclep/laravel-storyblok": "dev-develop"
     },
     "require-dev": {
         "mockery/mockery": "^1.2",
         "orchestra/testbench": "6.0.*",
-        "phpunit/phpunit": "^8.0"
+        "phpunit/phpunit": "^9.0"
     },
     "autoload": {
         "psr-4": {
-            "Riclep\\Storyblok\\": "src"
+            "Riclep\\StoryblokForms\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Riclep\\Storyblok\\Tests\\": "tests"
+            "Riclep\\StoryblokForms\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -53,5 +48,12 @@
     },
     "config": {
         "sort-packages": true
-    }
+    },
+	"extra": {
+		"laravel": {
+			"providers": [
+				"Riclep\\StoryblokForms\\StoryblokFormsServiceProvider"
+			]
+		}
+	}
 }

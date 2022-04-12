@@ -1,0 +1,194 @@
+{
+	"story": {
+		"name": "test",
+		"created_at": "2022-04-08T14:34:24.413Z",
+		"published_at": null,
+		"alternates": [],
+		"id": 123026047,
+		"uuid": "236147cd-24d1-4b09-aa0c-f3eaff744704",
+		"content": {
+			"_uid": "54bcf226-0b53-4307-84b3-821cc7f2fb13",
+			"fields": [
+				{
+					"_uid": "3a8207c8-09bf-4988-9b34-e245c5585670",
+					"title": "Your name",
+					"fields": [
+						{
+							"_uid": "bbd36b1e-096b-4023-b308-79236f3c5b32",
+							"name": "name",
+							"type": "text",
+							"label": "Name",
+							"component": "lsf-input",
+							"validators": [
+								{
+									"_uid": "0f87d8de-9f29-4d8b-9a18-2f0b4457af42",
+									"component": "lsf-validator-required",
+									"error_message": "Please enter your name",
+									"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"94872\", \"uid\": \"0f87d8de-9f29-4d8b-9a18-2f0b4457af42\", \"id\": \"123026047\"}--\u003e"
+								}
+							],
+							"placeholder": "",
+							"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-input\", \"space\": \"94872\", \"uid\": \"bbd36b1e-096b-4023-b308-79236f3c5b32\", \"id\": \"123026047\"}--\u003e"
+						},
+						{
+							"_uid": "7dc6b861-4e32-47b6-bf45-b65c282801ac",
+							"name": "surname",
+							"type": "text",
+							"label": "Surname",
+							"component": "lsf-input",
+							"validators": [
+								{
+									"_uid": "57d43436-9f81-429b-bcf4-b77fa51e788c",
+									"component": "lsf-validator-required",
+									"error_message": "Please enter your surname",
+									"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"94872\", \"uid\": \"57d43436-9f81-429b-bcf4-b77fa51e788c\", \"id\": \"123026047\"}--\u003e"
+								}
+							],
+							"placeholder": "",
+							"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-input\", \"space\": \"94872\", \"uid\": \"7dc6b861-4e32-47b6-bf45-b65c282801ac\", \"id\": \"123026047\"}--\u003e"
+						}
+					],
+					"component": "lsf-fieldset",
+					"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-fieldset\", \"space\": \"94872\", \"uid\": \"3a8207c8-09bf-4988-9b34-e245c5585670\", \"id\": \"123026047\"}--\u003e"
+				},
+				{
+					"_uid": "584f679b-15ef-4f1e-bbcc-9370a0df488b",
+					"name": "job-title",
+					"type": "text",
+					"label": "Job title",
+					"component": "lsf-input",
+					"validators": [],
+					"placeholder": "Enter your job title",
+					"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-input\", \"space\": \"94872\", \"uid\": \"584f679b-15ef-4f1e-bbcc-9370a0df488b\", \"id\": \"123026047\"}--\u003e"
+				},
+				{
+					"_uid": "bf5856b1-cb19-4156-910a-3fa6b1fc34d4",
+					"name": "email",
+					"type": "email",
+					"label": "Email",
+					"component": "lsf-input",
+					"validators": [
+						{
+							"_uid": "92a4f6c0-8d6a-4924-ac15-df725d9949b3",
+							"component": "lsf-validator-email",
+							"error_message": "",
+							"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-email\", \"space\": \"94872\", \"uid\": \"92a4f6c0-8d6a-4924-ac15-df725d9949b3\", \"id\": \"123026047\"}--\u003e"
+						},
+						{
+							"_uid": "4dc03c1f-3bcb-42cd-8a30-0295b9dc785f",
+							"component": "lsf-validator-required",
+							"error_message": "Let us know your email",
+							"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"94872\", \"uid\": \"4dc03c1f-3bcb-42cd-8a30-0295b9dc785f\", \"id\": \"123026047\"}--\u003e"
+						}
+					],
+					"placeholder": "",
+					"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-input\", \"space\": \"94872\", \"uid\": \"bf5856b1-cb19-4156-910a-3fa6b1fc34d4\", \"id\": \"123026047\"}--\u003e"
+				},
+				{
+					"_uid": "08a47b02-3739-477d-8ee0-931989ada1cc",
+					"name": "options",
+					"label": "Select options",
+					"component": "lsf-checkbox",
+					"checkboxes": "First\nSecond\n[x]Selected",
+					"validators": [],
+					"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-checkbox\", \"space\": \"94872\", \"uid\": \"08a47b02-3739-477d-8ee0-931989ada1cc\", \"id\": \"123026047\"}--\u003e"
+				},
+				{
+					"_uid": "9d0e8902-68fa-4171-949f-d961566682a1",
+					"name": "radio",
+					"label": "Radio",
+					"component": "lsf-radio-button",
+					"validators": [],
+					"radio_buttons": "First\nSecond\n[x]Selected",
+					"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-radio-button\", \"space\": \"94872\", \"uid\": \"9d0e8902-68fa-4171-949f-d961566682a1\", \"id\": \"123026047\"}--\u003e"
+				},
+				{
+					"_uid": "e98140c7-8813-4492-a4b1-1ef9c12c3e06",
+					"name": "min",
+					"type": "number",
+					"label": "Min",
+					"component": "lsf-input",
+					"validators": [
+						{
+							"_uid": "075c7fc3-5b23-4818-967f-cb2b838dfaa0",
+							"component": "lsf-validator-numeric",
+							"error_message": "",
+							"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-numeric\", \"space\": \"94872\", \"uid\": \"075c7fc3-5b23-4818-967f-cb2b838dfaa0\", \"id\": \"123026047\"}--\u003e"
+						},
+						{
+							"_uid": "51aa8399-dacf-4985-bc81-084ae771778b",
+							"component": "lsf-validator-min",
+							"parameter": "10",
+							"error_message": "",
+							"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-min\", \"space\": \"94872\", \"uid\": \"51aa8399-dacf-4985-bc81-084ae771778b\", \"id\": \"123026047\"}--\u003e"
+						}
+					],
+					"placeholder": "",
+					"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-input\", \"space\": \"94872\", \"uid\": \"e98140c7-8813-4492-a4b1-1ef9c12c3e06\", \"id\": \"123026047\"}--\u003e"
+				},
+				{
+					"_uid": "77b31f7e-95cc-4609-bd8f-8296043f3e52",
+					"name": "comments",
+					"label": "Textarea",
+					"component": "lsf-textarea",
+					"validators": [
+						{
+							"_uid": "8a634db5-112c-437d-a674-0f3cce0e5820",
+							"component": "lsf-validator-required",
+							"error_message": "",
+							"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"94872\", \"uid\": \"8a634db5-112c-437d-a674-0f3cce0e5820\", \"id\": \"123026047\"}--\u003e"
+						}
+					],
+					"placeholder": "",
+					"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-textarea\", \"space\": \"94872\", \"uid\": \"77b31f7e-95cc-4609-bd8f-8296043f3e52\", \"id\": \"123026047\"}--\u003e"
+				},
+				{
+					"_uid": "a01859e2-dd6f-4666-86e9-0277a14a91f9",
+					"name": "select_1",
+					"label": "Select 1",
+					"options": "Guernsey\nJersey\nMars",
+					"component": "lsf-select",
+					"validators": [
+						{
+							"_uid": "8760ec86-0b2d-4be5-8aae-bf36507b71cf",
+							"component": "lsf-validator-required",
+							"error_message": "",
+							"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"94872\", \"uid\": \"8760ec86-0b2d-4be5-8aae-bf36507b71cf\", \"id\": \"123026047\"}--\u003e"
+						}
+					],
+					"placeholder": "",
+					"show_empty_option": true,
+					"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-select\", \"space\": \"94872\", \"uid\": \"a01859e2-dd6f-4666-86e9-0277a14a91f9\", \"id\": \"123026047\"}--\u003e"
+				},
+				{
+					"_uid": "b8613de4-2903-4bfb-a4cc-8e8ec5990a10",
+					"name": "select_2",
+					"label": "Select 2",
+					"options": "Red\nBlue\nCactus",
+					"component": "lsf-select",
+					"validators": [],
+					"placeholder": "Select a colour",
+					"show_empty_option": false,
+					"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-select\", \"space\": \"94872\", \"uid\": \"b8613de4-2903-4bfb-a4cc-8e8ec5990a10\", \"id\": \"123026047\"}--\u003e"
+				}
+			],
+			"component": "lsf-form",
+			"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-form\", \"space\": \"94872\", \"uid\": \"54bcf226-0b53-4307-84b3-821cc7f2fb13\", \"id\": \"123026047\"}--\u003e"
+		},
+		"slug": "test",
+		"full_slug": "forms/test",
+		"default_full_slug": null,
+		"sort_by_date": null,
+		"position": 0,
+		"tag_list": [],
+		"is_startpage": false,
+		"parent_id": 121950344,
+		"meta_data": null,
+		"group_id": "972f25aa-8d42-411c-9aa9-c482c63da995",
+		"first_published_at": null,
+		"release_id": null,
+		"lang": "default",
+		"path": null,
+		"translated_slugs": []
+	}
+}

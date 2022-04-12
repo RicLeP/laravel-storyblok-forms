@@ -1,0 +1,18 @@
+{
+	"component": {
+		"name": "lsf-form",
+		"display_name": "Form",
+		"is_root": true,
+		"component_group_uuid": "Forms",
+		"schema": {
+			"fields": {
+				"type": "bloks",
+				"restrict_components": true,
+				"restrict_type": "groups",
+				"component_group_whitelist": [
+					"Form fields"
+				]
+			}
+		}
+	}
+}

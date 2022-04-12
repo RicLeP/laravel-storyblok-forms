@@ -1,0 +1,5 @@
+name: laravel-storyblok-forms
+recipe: laravel
+config:
+  webroot: .
+  php: '8.0'

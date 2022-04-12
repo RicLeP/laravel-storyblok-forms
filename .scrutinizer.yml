@@ -4,9 +4,6 @@ build:
       tests:
         override:
           - php-scrutinizer-run
-        coverage:
-          file: build/coverage.txt
-          format: clover
   environment:
     php:
       version: 8.0

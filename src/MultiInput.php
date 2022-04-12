@@ -2,6 +2,7 @@
 
 namespace Riclep\StoryblokForms;
 
+use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 
 class MultiInput extends Input
@@ -9,46 +10,60 @@ class MultiInput extends Input
 	/**
 	 * @return \Illuminate\Support\Collection
 	 */
-	public function siblings() {
-		return collect(preg_split('/\r\n|\r|\n/', $this->{$this->siblingsName}))->transform(function ($formInput) {
+	public function options() {
+		return collect(preg_split('/\r\n|\r|\n/', $this->{$this->optionsName}))->transform(function ($formInput) {
 			if (str_starts_with($formInput, '[x]')) {
 				$label = Str::after($formInput, '[x]');
 
+				$selected = true;
+
+				if (request()->session()->has('_old_input')) {
+					$selected = $this->optionIsSelected($label);
+				}
+
 				return [
-					'checked' => true,
+					'selected' => $selected,
 					'label' => $label,
 					'value' => Str::slug($label),
 				];
 			}
 
 			return [
-				'checked' => false,
+				'selected' => $this->optionIsSelected($formInput),
 				'label' => $formInput,
 				'value' => Str::slug($formInput),
 			];
 		});
 	}
 
+	protected function optionIsSelected($formInput) {
+		if (request()->old($this->name) && (in_array(Str::slug($formInput), Arr::wrap(request()->old($this->name))))) {
+			return true; // we have old input and it does include this item
+		}
+
+		return false;
+	}
+
 	/**
 	 * Returns the Input’s response after the form has been submitted and validated
-	 * All options are returned as an array with their name and a checked boolean
+	 * All options are returned as an array with their name and a selected boolean
 	 * based on the user’s input
 	 *
 	 * @param $input
 	 * @return array
 	 */
 	public function response($input) {
-		return $this->siblings()->map(function ($formInput) use ($input) {
+		return $this->options()->map(function ($formInput) use ($input) {
 			if (in_array($formInput['value'], $input)) {
 				return [
 					'label' => $formInput['label'],
-					'checked' => true,
+					'selected' => true,
 				];
 			}
 
 			return [
 				'label' => $formInput['label'],
-				'checked' => false,
+				'selected' => false,
 			];
 		})->toArray();
 	}

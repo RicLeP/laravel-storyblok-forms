@@ -125,6 +125,51 @@
 					],
 					"placeholder": "",
 					"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-input\", \"space\": \"94872\", \"uid\": \"e98140c7-8813-4492-a4b1-1ef9c12c3e06\", \"id\": \"123026047\"}--\u003e"
+				},
+				{
+					"_uid": "77b31f7e-95cc-4609-bd8f-8296043f3e52",
+					"name": "comments",
+					"label": "Textarea",
+					"component": "lsf-textarea",
+					"validators": [
+						{
+							"_uid": "8a634db5-112c-437d-a674-0f3cce0e5820",
+							"component": "lsf-validator-required",
+							"error_message": "",
+							"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"94872\", \"uid\": \"8a634db5-112c-437d-a674-0f3cce0e5820\", \"id\": \"123026047\"}--\u003e"
+						}
+					],
+					"placeholder": "",
+					"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-textarea\", \"space\": \"94872\", \"uid\": \"77b31f7e-95cc-4609-bd8f-8296043f3e52\", \"id\": \"123026047\"}--\u003e"
+				},
+				{
+					"_uid": "a01859e2-dd6f-4666-86e9-0277a14a91f9",
+					"name": "select_1",
+					"label": "Select 1",
+					"options": "Guernsey\nJersey\nMars",
+					"component": "lsf-select",
+					"validators": [
+						{
+							"_uid": "8760ec86-0b2d-4be5-8aae-bf36507b71cf",
+							"component": "lsf-validator-required",
+							"error_message": "",
+							"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"94872\", \"uid\": \"8760ec86-0b2d-4be5-8aae-bf36507b71cf\", \"id\": \"123026047\"}--\u003e"
+						}
+					],
+					"placeholder": "",
+					"show_empty_option": true,
+					"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-select\", \"space\": \"94872\", \"uid\": \"a01859e2-dd6f-4666-86e9-0277a14a91f9\", \"id\": \"123026047\"}--\u003e"
+				},
+				{
+					"_uid": "b8613de4-2903-4bfb-a4cc-8e8ec5990a10",
+					"name": "select_2",
+					"label": "Select 2",
+					"options": "Red\nBlue\nCactus",
+					"component": "lsf-select",
+					"validators": [],
+					"placeholder": "Select a colour",
+					"show_empty_option": false,
+					"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-select\", \"space\": \"94872\", \"uid\": \"b8613de4-2903-4bfb-a4cc-8e8ec5990a10\", \"id\": \"123026047\"}--\u003e"
 				}
 			],
 			"component": "lsf-form",

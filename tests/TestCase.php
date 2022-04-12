@@ -26,6 +26,9 @@ class TestCase extends Orchestra
 	 */
 	protected function getEnvironmentSetUp($app)
 	{
+
+		parent::getEnvironmentSetUp($app);
+
 		$viewPath = str_replace('..', '', __DIR__ . DIRECTORY_SEPARATOR . 'Fixtures' . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR);
 
 
@@ -34,5 +37,13 @@ class TestCase extends Orchestra
 
 		$app['config']->set('view.paths', array_merge(config('view.paths'), [$viewPath]));
 		//dd(config('view.paths'));
+	}
+
+	protected function bootRequest() {
+		$this->app['router']->get('test', ['middleware' => 'web', 'uses' => function (){
+			return 'hello world';
+		}]);
+
+		$this->call('GET', 'test');
 	}
 }

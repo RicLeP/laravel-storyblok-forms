@@ -2,12 +2,14 @@
 
 namespace Riclep\StoryblokForms\Tests;
 
-
+use Illuminate\Support\MessageBag;
+use Illuminate\Support\ViewErrorBag;
 use Riclep\StoryblokForms\Blocks\LsfCheckbox;
 use Riclep\StoryblokForms\Blocks\LsfFieldset;
 use Riclep\StoryblokForms\Blocks\LsfForm;
 use Riclep\StoryblokForms\Blocks\LsfInput;
 use Riclep\StoryblokForms\Blocks\LsfRadioButton;
+use Riclep\StoryblokForms\Blocks\LsfTextarea;
 use Riclep\StoryblokForms\Validator;
 
 class InputTest extends TestCase
@@ -50,18 +52,22 @@ class InputTest extends TestCase
 
 	/** @test */
 	public function can_parse_checkbox() {
+		$this->bootRequest();
+
 		// checkbox
 		$input = new LsfCheckbox($this->getBlockContents(3), null);
 
-		$this->assertEquals([['checked' => false, 'label' => 'First', 'value' => 'first'], ['checked' => false, 'label' => 'Second', 'value' => 'second'], ['checked' => true, 'label' => 'Selected', 'value' => 'selected']], $input->siblings()->toArray());
+		$this->assertEquals([['selected' => false, 'label' => 'First', 'value' => 'first'], ['selected' => false, 'label' => 'Second', 'value' => 'second'], ['selected' => true, 'label' => 'Selected', 'value' => 'selected']], $input->options()->toArray());
 	}
 
 	/** @test */
 	public function can_parse_radio_buttons() {
+		$this->bootRequest();
+
 		// radio
 		$input = new LsfRadioButton($this->getBlockContents(4), null);
 
-		$this->assertEquals([['checked' => false, 'label' => 'First', 'value' => 'first'], ['checked' => false, 'label' => 'Second', 'value' => 'second'], ['checked' => true, 'label' => 'Selected', 'value' => 'selected']], $input->siblings()->toArray());
+		$this->assertEquals([['selected' => false, 'label' => 'First', 'value' => 'first'], ['selected' => false, 'label' => 'Second', 'value' => 'second'], ['selected' => true, 'label' => 'Selected', 'value' => 'selected']], $input->options()->toArray());
 	}
 
 	/** @test */
@@ -76,7 +82,7 @@ class InputTest extends TestCase
 	public function can_get_form_rules() {
 		$form = new LsfForm($this->getPageContents(), null);
 
-		$this->assertEquals(['name' => ['required'], 'surname' => ['required'], 'email' => ['email', 'required'], 'min' => ['numeric', 'min:10']], $form->validationRules());
+		$this->assertEquals(['name' => ['required'], 'surname' => ['required'], 'email' => ['email', 'required'], 'min' => ['numeric', 'min:10'], 'comments' => ['required'], 'select_1' => ['required']], $form->validationRules());
 	}
 
 	/** @test */
@@ -112,20 +118,32 @@ class InputTest extends TestCase
 	}
 
 	/** @test */
+	public function can_get_textarea_response() {
+		// Job title
+		$input = new LsfTextarea($this->getBlockContents(6), null);
+
+		$this->assertEquals('comments', $input->response('comments'));
+	}
+
+	/** @test */
 	public function can_get_checkbox_response() {
+		$this->bootRequest();
+
 		// Checkbox
 		$input = new LsfCheckbox($this->getBlockContents(3), null);
 
 
-		$this->assertEquals([['label' => 'First', 'checked' => true], ['label' => 'Second', 'checked' => false], ['label' => 'Selected', 'checked' => true]], $input->response(['first', 'selected']));
+		$this->assertEquals([['label' => 'First', 'selected' => true], ['label' => 'Second', 'selected' => false], ['label' => 'Selected', 'selected' => true]], $input->response(['first', 'selected']));
 	}
 
 	/** @test */
 	public function can_get_radio_button_response() {
+		$this->bootRequest();
+
 		// Radio
 		$input = new LsfRadioButton($this->getBlockContents(4), null);
 
-		$this->assertEquals([['label' => 'First', 'checked' => false], ['label' => 'Second', 'checked' => true], ['label' => 'Selected', 'checked' => false]], $input->response(['second']));
+		$this->assertEquals([['label' => 'First', 'selected' => false], ['label' => 'Second', 'selected' => true], ['label' => 'Selected', 'selected' => false]], $input->response(['second']));
 	}
 
 

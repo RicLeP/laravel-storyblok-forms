@@ -1,3 +1,7 @@
+<?php
+/** @var \RicLep\StoryblokForms\Blocks\LsfInput $block */
+?>
+
 <label>
 	<span>{{ $block->label }}</span>
 

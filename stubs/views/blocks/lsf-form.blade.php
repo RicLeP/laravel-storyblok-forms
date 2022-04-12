@@ -1,3 +1,7 @@
+<?php
+/** @var \RicLep\StoryblokForms\Blocks\LsfForm $block */
+?>
+
 <form method="POST" action="/">
 	@csrf
 

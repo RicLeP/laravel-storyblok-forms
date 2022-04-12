@@ -1,11 +1,18 @@
-<div style="background-color: #ccc;">
-	<p>{{ $fieldset->label }}</p>
+<?php
+/** @var \RicLep\StoryblokForms\Blocks\LsfRadioButton $block */
+?>
+
+<div>
+	<p>{{ $block->label }}</p>
 
 
-	@foreach($fieldset->radioButtons() as $checkbox)
+	@foreach($block->options() as $checkbox)
 		<label>
-			<input type="radio" name="{{ $fieldset->name }}[]" value="{{ Str::slug($checkbox['value']) }}" @if ($checkbox['checked']) checked @endif> {{ $checkbox['label'] }}
+			<input type="radio" name="{{ $block->name }}[]" value="{{ Str::slug($checkbox['value']) }}" @if ($checkbox['selected']) checked @endif> {{ $checkbox['label'] }}
 		</label>
 	@endforeach
 
+	@error($block->name )
+		<small>{{ $message }}</small>
+	@enderror
 </div>

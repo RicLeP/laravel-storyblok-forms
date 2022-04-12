@@ -10,5 +10,5 @@ class LsfRadioButton extends MultiInput
 	/**
 	 * @var string The name of the textarea in Storyblok holding the radio button options
 	 */
-	protected $siblingsName = 'radio_buttons';
+	protected $optionsName = 'radio_buttons';
 }

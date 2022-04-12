@@ -2,25 +2,29 @@
 
 namespace Riclep\StoryblokForms\Support;
 
+use Illuminate\Support\Collection;
 use Riclep\StoryblokForms\Console\InstallCommand;
+use Riclep\StoryblokForms\Traits\GetsComponentGroups;
 use Storyblok\ManagementClient;
 
 class ComponentGroupMaker
 {
+	use GetsComponentGroups;
+
 	/**
-	 * @var
+	 * @var Collection A list of all component groups
 	 */
 	protected $componentGroups;
 
 	/**
-	 * @var InstallCommand
-	 */
-	protected $command;
-
-	/**
-	 * @var ManagementClient
+	 * @var ManagementClient Storyblok Management Client
 	 */
 	protected $managementClient;
+
+	/**
+	 * @var InstallCommand The package’s command
+	 */
+	protected $command;
 
 	/**
 	 * @param InstallCommand $command
@@ -33,9 +37,12 @@ class ComponentGroupMaker
 	}
 
 	/**
+	 * Get the import started
+	 *
 	 * @return void
+	 * @throws \Storyblok\ApiException
 	 */
-	public function handle() {
+	public function import() {
 		$this->getGroups();
 
 		$groups = config('storyblok-forms.component_groups');
@@ -46,14 +53,8 @@ class ComponentGroupMaker
 	}
 
 	/**
-	 * @return void
-	 * @throws \Storyblok\ApiException
-	 */
-	protected function getGroups() {
-		$this->componentGroups = collect($this->managementClient->get('spaces/'.config('storyblok.space_id').'/component_groups')->getBody()['component_groups'])->keyBy('name');
-	}
-
-	/**
+	 * Creates a new Component Group in Storyblok
+	 *
 	 * @param $group
 	 * @return void
 	 * @throws \Storyblok\ApiException

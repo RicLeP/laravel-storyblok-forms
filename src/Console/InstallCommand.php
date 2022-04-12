@@ -48,13 +48,8 @@ class InstallCommand extends Command
 	 */
 	public function handle()
 	{
-		// TODO remove
-		//$xx = $this->managementClient->get('spaces/'.config('storyblok.space_id').'/components/')->getBody();
-
-		//dd($xx);
-
 		if (config('storyblok.oauth_token')) {
-			(new ComponentGroupMaker($this))->handle();
+			(new ComponentGroupMaker($this))->import();
 
 			$this->makeComponents();
 
@@ -78,7 +73,7 @@ class InstallCommand extends Command
 			$schema = json_decode($json, true, 512, JSON_THROW_ON_ERROR);
 
 			if ($schema) {
-				(new ComponentMaker($this, $schema))->handle();
+				(new ComponentMaker($this, $schema))->import();
 			}
 		}
 	}

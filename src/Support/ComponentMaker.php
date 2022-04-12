@@ -2,95 +2,98 @@
 
 namespace Riclep\StoryblokForms\Support;
 
+use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Riclep\StoryblokForms\Console\InstallCommand;
+use Riclep\StoryblokForms\Traits\GetsComponentGroups;
 use Storyblok\ManagementClient;
 
 class ComponentMaker
 {
-	/**
-	 * @var
-	 */
-	protected $payload;
+	use GetsComponentGroups;
 
 	/**
-	 * @var
+	 * @var array Component definition
+	 */
+	protected $schema;
+
+	/**
+	 * @var Collection A list of all component groups
 	 */
 	protected $componentGroups;
 
 	/**
-	 * @var ManagementClient
+	 * @var ManagementClient Storyblok Management Client
 	 */
 	protected $managementClient;
 
 	/**
-	 * @var InstallCommand
+	 * @var InstallCommand The package’s command
 	 */
 	protected $command;
 
 	/**
 	 * @param InstallCommand $command
-	 * @param $payload
+	 * @param $schema
 	 */
-	public function __construct(InstallCommand $command, $payload)
+	public function __construct(InstallCommand $command, $schema)
 	{
 		$this->command = $command;
-		$this->payload = $payload;
+		$this->schema = $schema;
 
 		$this->managementClient = new ManagementClient(config('storyblok.oauth_token'));
 	}
 
 	/**
+	 * Get the import started
+	 *
 	 * @return void
+	 * @throws \Storyblok\ApiException
 	 */
-	public function handle() {
+	public function import() {
 		// TODO - validate json.....
 
 		$this->getGroups();
-		$this->discoverGroup();
+		$this->updatedGroupToUuid();
 		$this->processBlokFields();
 		$this->createComponent();
 	}
 
 	/**
-	 * @return void
-	 * @throws \Storyblok\ApiException
-	 */
-	protected function getGroups() {
-		$this->componentGroups = collect($this->managementClient->get('spaces/'.config('storyblok.space_id').'/component_groups')->getBody()['component_groups'])->keyBy('name');
-	}
-
-
-	/**
+	 * Takes a ‘named group’ from a $schema and replaces it with the Storyblok group UUID
+	 *
 	 * @return void
 	 */
-	protected function discoverGroup() {
+	protected function updatedGroupToUuid() {
 		// see if UUID is known or name needs replacing
-		if (!Str::isUuid($this->payload['component']['component_group_uuid'])) {
-			if ($uuid = $this->groupUuidFromName($this->payload['component']['component_group_uuid'])) {
-				$this->payload['component']['component_group_uuid'] = $uuid;
+		if (!Str::isUuid($this->schema['component']['component_group_uuid'])) {
+			if ($uuid = $this->groupUuidFromName($this->schema['component']['component_group_uuid'])) {
+				$this->schema['component']['component_group_uuid'] = $uuid;
 			} else {
-				$this->command->warn('Requested component group ' . $this->payload['component']['component_group_uuid'] . ' does not exist, using in root');
+				$this->command->warn('Requested component group ' . $this->schema['component']['component_group_uuid'] . ' does not exist, using in root');
 
-				unset($this->payload['component']['component_group_uuid']);
+				unset($this->schema['component']['component_group_uuid']);
 			}
 		}
 	}
 
 	/**
+	 * Parses a schema’s fields to see if they need any processing.
+	 * Blok fields will have their whitelist and other settings configured
+	 *
 	 * @return void
 	 */
 	protected function processBlokFields() {
 		// Bloks fields - set up component group whitelist
-		foreach ($this->payload['component']['schema'] as $fieldKey => $field) {
+		foreach ($this->schema['component']['schema'] as $fieldKey => $field) {
 			if ($field['type'] === 'bloks' && array_key_exists('component_group_whitelist', $field)) {
 				foreach ($field['component_group_whitelist'] as $groupKey => $group) {
 					if ($uuid = $this->groupUuidFromName($group)) {
-						$this->payload['component']['schema'][$fieldKey]['component_group_whitelist'][$groupKey] = $uuid;
+						$this->schema['component']['schema'][$fieldKey]['component_group_whitelist'][$groupKey] = $uuid;
 					} else {
-						$this->command->warn('Requested blok component group whitelist ' . $this->payload['component']['component_group_uuid'] . ' does not exist');
+						$this->command->warn('Requested blok component group whitelist ' . $this->schema['component']['component_group_uuid'] . ' does not exist');
 
-						unset($this->payload['component']['component_group_uuid']);
+						unset($this->schema['component']['component_group_uuid']);
 					}
 				}
 			}
@@ -98,18 +101,20 @@ class ComponentMaker
 	}
 
 	/**
+	 * Creates the component within Storyblok
+	 *
 	 * @return void
 	 * @throws \Storyblok\ApiException
 	 */
 	protected function createComponent() {
 		$response = $this->managementClient->get('spaces/'.config('storyblok.space_id').'/components/')->getBody();
 
-		if (collect($response['components'])->keyBy('name')->has($this->payload['component']['name'])) {
-			$this->command->warn('Component already exists: ' . $this->payload['component']['display_name'] . ' (' .  $this->payload['component']['name'] . ')');
+		if (collect($response['components'])->keyBy('name')->has($this->schema['component']['name'])) {
+			$this->command->warn('Component already exists: ' . $this->schema['component']['display_name'] . ' (' .  $this->schema['component']['name'] . ')');
 		} else {
-			$this->managementClient->post('spaces/'.config('storyblok.space_id').'/components/', $this->payload)->getBody();
+			$this->managementClient->post('spaces/'.config('storyblok.space_id').'/components/', $this->schema)->getBody();
 
-			$this->command->info('Created: ' . $this->payload['component']['display_name'] . ' (' .  $this->payload['component']['name'] . ')');
+			$this->command->info('Created: ' . $this->schema['component']['display_name'] . ' (' .  $this->schema['component']['name'] . ')');
 		}
 	}
 
@@ -142,6 +147,8 @@ class ComponentMaker
 	}
 
 	/**
+	 * Takes a component group’s name and returns the Storyblok UUID for that group
+	 *
 	 * @param $name
 	 * @return false|mixed
 	 */

@@ -19,6 +19,10 @@ Publish the package assets - this will copy stub views for each form component
 
 `php artisan vendor:publish`
 
+Tell Laravel Storyblok where to find the Form Block classes but editing your `laravel-storyblok` config file and adding the `Riclep\StoryblokForms` namespace.
+
+`'component_class_namespace' => ['Riclep\StoryblokForms\\', 'App\Storyblok\\'],`
+
 Install the components - this will create the required components and component groups in Storyblok. Ensure you have your management key and space ID set up in the `.env`, see [Laravel Storyblok](https://github.com/RicLeP/laravel-storyblok) installation for details.
 
 `php artisan lsf:install`

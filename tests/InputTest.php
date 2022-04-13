@@ -132,8 +132,7 @@ class InputTest extends TestCase
 		// Checkbox
 		$input = new LsfCheckbox($this->getBlockContents(3), null);
 
-
-		$this->assertEquals([['label' => 'First', 'selected' => true], ['label' => 'Second', 'selected' => false], ['label' => 'Selected', 'selected' => true]], $input->response(['first', 'selected']));
+		$this->assertEquals(['selected' => ['First', 'Selected'], 'unselected' => ['Second']], $input->response(['first', 'selected']));
 	}
 
 	/** @test */
@@ -143,7 +142,8 @@ class InputTest extends TestCase
 		// Radio
 		$input = new LsfRadioButton($this->getBlockContents(4), null);
 
-		$this->assertEquals([['label' => 'First', 'selected' => false], ['label' => 'Second', 'selected' => true], ['label' => 'Selected', 'selected' => false]], $input->response(['second']));
+		$this->assertEquals(['selected' => ['Second'], 'unselected' => ['First', 'Selected']], $input->response(['second']));
+		$this->assertEquals(['selected' => [], 'unselected' => ['First', 'Second', 'Selected']], $input->response(null));
 	}
 
 

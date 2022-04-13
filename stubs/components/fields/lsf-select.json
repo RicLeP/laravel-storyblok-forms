@@ -1,0 +1,40 @@
+{
+	"component": {
+		"name": "lsf-select",
+		"display_name": "Select box",
+		"is_root": false,
+		"component_group_uuid": "Form fields",
+		"schema": {
+			"label": {
+				"type": "text",
+				"required": true
+			},
+			"name": {
+				"type": "text",
+				"required": true,
+				"description": "Format: Must be lowercase letters, numbers and _ only"
+			},
+			"options": {
+				"type": "textarea",
+				"required": true,
+				"description": "Put each option on a new line"
+			},
+			"show_empty_option": {
+				"type": "boolean",
+				"description": "Display an empty option to the top of the select box. Can not be used when a placeholder is set."
+			},
+			"placeholder": {
+				"type": "text",
+				"description": "Text to show before selecting an item. Can be selected by user but will have no value."
+			},
+			"validators": {
+				"type": "bloks",
+				"restrict_components": true,
+				"restrict_type": "groups",
+				"component_group_whitelist": [
+					"Form validators"
+				]
+			}
+		}
+	}
+}

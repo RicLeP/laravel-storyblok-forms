@@ -1,0 +1,30 @@
+{
+	"component": {
+		"name": "lsf-textarea",
+		"display_name": "Textarea",
+		"is_root": false,
+		"component_group_uuid": "Form fields",
+		"schema": {
+			"label": {
+				"type": "text",
+				"required": true
+			},
+			"name": {
+				"type": "text",
+				"required": true,
+				"description": "Format: Must be lowercase letters, numbers and _ only"
+			},
+			"placeholder": {
+				"type": "text"
+			},
+			"validators": {
+				"type": "bloks",
+				"restrict_components": true,
+				"restrict_type": "groups",
+				"component_group_whitelist": [
+					"Form validators"
+				]
+			}
+		}
+	}
+}

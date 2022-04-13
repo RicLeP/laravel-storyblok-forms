@@ -1,7 +1,8 @@
 # An addon package for [Laravel Storyblok](https://github.com/RicLeP/laravel-storyblok) that lets you use the [Storyblok headless CMS](https://www.storyblok.com/) as a form builder.
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/riclep/laravel-storyblok-forms.svg?style=flat-square)](https://packagist.org/packages/riclep/laravel-storyblok-forms)
-[![Quality Score](https://img.shields.io/scrutinizer/g/riclep/laravel-storyblok-forms.svg?style=flat-square)](https://scrutinizer-ci.com/g/riclep/laravel-storyblok-forms)
+[![Build](https://img.shields.io/scrutinizer/build/g/riclep/laravel-storyblok-forms?style=flat-square)](https://scrutinizer-ci.com/g/riclep/laravel-storyblok-forms)
+[![Quality Score](https://img.shields.io/scrutinizer/quality/g/riclep/laravel-storyblok-forms?style=flat-square)](https://scrutinizer-ci.com/g/riclep/laravel-storyblok-forms)
 [![Total Downloads](https://img.shields.io/packagist/dt/riclep/laravel-storyblok-forms.svg?style=flat-square)](https://packagist.org/packages/riclep/laravel-storyblok-forms)
 [![Twitter](https://img.shields.io/twitter/follow/riclep.svg?style=social&label=Follow)](https://twitter.com/intent/follow?screen_name=riclep)
 
@@ -18,65 +19,15 @@ Publish the package assets - this will copy stub views for each form component
 
 `php artisan vendor:publish`
 
-Install the components - this will create the required components and component groups in Storyblok. Ensure you have your management key and space ID set up in the `.env`, see Laravel Storyblok](https://github.com/RicLeP/laravel-storyblok) installation for details.
+Install the components - this will create the required components and component groups in Storyblok. Ensure you have your management key and space ID set up in the `.env`, see [Laravel Storyblok](https://github.com/RicLeP/laravel-storyblok) installation for details.
 
 `php artisan lsf:install`
 
-## Building forms
-
-Each form should be created as a new page in Storyblok using the Form (lsf-form) content type created in the installation step.
-
-Once created attach a form to a page using a Single Option field with a source Stories.
-
-In the `Block` containing your form remember to resolve the relation as you would do for any Laravel Storyblok relationship.
-
-```php
-namespace App\Storyblok;
-
-use Riclep\Storyblok\Block;
-
-class SomeBlock extends Block
-{
-	public $_resolveRelations = ['form']; // the field holding your form
-}
-```
-
-To render a form do the following in your Blade view. This will use the stubbed fields installed earlier. Feel free to customise them as required.
-
-```blade
-{{ $story->form->render() }}
-```
-
-By default the form will post to the same URL as it was created on in Storblok so add route to `web.php`. You can customise this action by editing `lsf-form.blade.php`.
-
-```php
-Route::post('/forms/my-form', [FormController::class, 'store']);
-```
-
-Create your controller!
-
-```php
-<?php
-
-namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
-use Riclep\StoryblokForms\FormResponse;
-
-class FormController extends Controller
-{
-    public function store(Request $request) {
-		$formResponse = new FormResponse($request); // initialise the form
-	    $formResponse->validate(); // validate the form - will redirect back with errors like normal
-	    $response = $formResponse->response(); // get a formatted response of all the inputs
-	}
-}
-```
-
-
 ## Documentation
 
-Coming soon!
+[Read the docs](https://ls.sirric.co.uk/docs/2.11/laravel-storyblok-forms)
+
+[Contribute to the docs](https://github.com/RicLeP/laravel-storyblok-docs/)
 
 ## Key Features
 
@@ -95,7 +46,7 @@ More validation and field types.
 
 ## Contributing
 
-Please feel free to help expand and improve this project. Currently it supports most of the basic usage for block, fields and content. It would be great to add more advanced features and transformations or simply fix bugs.
+Please feel free to help expand and improve this project. The package uses Git Flow but you can submit a pull request to be merged to the develop branch.
 
 ### Security
 

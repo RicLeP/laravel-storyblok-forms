@@ -60,17 +60,13 @@ class FormResponse
 	 * @return mixed
 	 */
 	protected function responses() {
-		$input = $this->request->input();
+		$input = $this->request->except(['_token', '_slug']);
 
-		return $this->form()->flattenFields()->map(function ($field) use ($input) {
-			if (array_key_exists($field->name, $input)) {
-				return [
-					'label' => $field->label,
-					'response' => $field->response($input[$field->name]),
-				];
-			}
-
-			return false;
+		return $this->form()->flattenFieldsets()->map(function ($field) use ($input) {
+			return [
+				'label' => $field->label,
+				'response' => $field->response($input[$field->name] ?? ''),
+			];
 		})->toArray();
 	}
 }

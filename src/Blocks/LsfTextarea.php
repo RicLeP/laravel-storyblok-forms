@@ -4,7 +4,6 @@ namespace Riclep\StoryblokForms\Blocks;
 
 use Illuminate\Support\Str;
 use Riclep\StoryblokForms\Input;
-use Riclep\StoryblokForms\Validators;
 
 class LsfTextarea extends Input
 {

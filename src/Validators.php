@@ -28,11 +28,10 @@ class Validators implements ArrayAccess
 	}
 
 	/**
-	 * @return array|false
+	 * @return array
 	 */
 	public function validationRules() {
 		$rules = [];
-
 
 		$hasRules = array_values($this->rules->map(function ($rule) {
 			return $rule->rule();
@@ -40,10 +39,9 @@ class Validators implements ArrayAccess
 
 		if ($hasRules) {
 			$rules[$this->field->name] = $hasRules;
-			return $rules;
 		}
 
-		return false;
+		return $rules;
 	}
 
 	/**

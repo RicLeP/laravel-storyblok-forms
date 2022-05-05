@@ -7,16 +7,6 @@ use Riclep\StoryblokForms\Input;
 
 class LsfTextarea extends Input
 {
-	/**
-	 * Returns the name attribute used for the Inout’s HTML tag in the correct format
-	 *
-	 * @return string
-	 */
-	public function getNameAttribute() {
-		return Str::slug($this->content()['name']);
-	}
-
-
 	// Interface this....
 
 	/**

@@ -36,10 +36,10 @@ class FormResponse
 	}
 
 	/**
-	 * @return void
+	 * @return array
 	 */
 	public function validate() {
-		$this->request->validate($this->form()->validationRules(), $this->form()->errorMessages());
+		return $this->request->validate($this->form()->validationRules(), $this->form()->errorMessages());
 	}
 
 	/**

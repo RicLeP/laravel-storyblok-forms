@@ -37,7 +37,7 @@ class MultiInput extends Input
 	}
 
 	protected function optionIsSelected($formInput) {
-		if (request()->old($this->name) && (in_array(Str::slug($formInput), Arr::wrap(request()->old($this->name))))) {
+		if (request()->old($this->input_name) && (in_array(Str::slug($formInput), Arr::wrap(request()->old($this->input_name))))) {
 			return true; // we have old input and it does include this item
 		}
 

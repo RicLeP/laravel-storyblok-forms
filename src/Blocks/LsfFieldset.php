@@ -8,6 +8,34 @@ class LsfFieldset extends \Riclep\Storyblok\Block
 	/// this would out a multidimensional array in the response.
 	/// makes validation herder?
 
+	protected $inFieldSet = false;
+	protected $isRepeating = false;
+
+	public function __construct($content, $parent = null)
+	{
+		parent::__construct($content, $parent);
+
+		if ($this->parent() instanceof LsfFieldset) {
+			$this->inFieldSet = true;
+		}
+
+		if ($this->parent() instanceof LsfRepeatingFieldset) {
+			$this->isRepeating = true;
+		}
+	}
+
+	public function getInputNameAttribute() {
+		if ($this->isRepeating) {
+			return $this->parent()->input_name . '[' . $this->key . '][' . $this->content()['name'] . ']';
+		}
+
+		if ($this->inFieldSet) {
+			return $this->parent()->input_name . '[' . $this->content()['name'] . ']';
+		}
+
+		return $this->content()['name'];
+	}
+
 
 	/**
 	 * Returns all the validation rules for the fields in this Fieldset

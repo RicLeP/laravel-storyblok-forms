@@ -32,13 +32,13 @@ class Input extends \Riclep\Storyblok\Block
 		}
 	}
 
-	public function getNameAttribute() {
+	public function getInputNameAttribute() {
 		if ($this->isRepeating) {
-			return $this->parent()->name . '[' . $this->key . '][' . $this->content()['name'] . ']';
+			return $this->parent()->input_name . '[' . $this->key . '][' . $this->content()['name'] . ']';
 		}
 
 		if ($this->inFieldSet) {
-			return $this->parent()->name . '[' . $this->content()['name'] . ']';
+			return $this->parent()->input_name . '[' . $this->content()['name'] . ']';
 		}
 
 		return $this->content()['name'];

@@ -17,4 +17,17 @@ class LsfInput extends Input
 	public function response($input) {
 		return $input;
 	}
+
+
+	/*
+	 * public function response($input) {
+		//dd($input, $this);
+
+		return [
+			'label' => $this->label,
+		//	'response' => $this->response($input[$this->name] ?? ''),
+		];
+	}
+	 *
+	 * */
 }

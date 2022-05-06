@@ -42,6 +42,10 @@ class FormResponse
 		return $this->request->validate($this->form()->validationRules(), $this->form()->errorMessages());
 	}
 
+	public function validationRules() {
+		return $this->form()->validationRules();
+	}
+
 	/**
 	 * @return mixed
 	 */
@@ -62,11 +66,27 @@ class FormResponse
 	protected function responses() {
 		$input = $this->request->except(['_token', '_slug']);
 
+
+		return $this->form()->fields->map(function ($field) use ($input) {
+
+			//dd($field, $input, $field->name);
+
+			return $field->response($input[$field->name]);
+			/*dd($field);
+
+			return [
+				'label' => $field->label,
+				'response' => $field->response($input[$field->name] ?? ''),
+			];*/
+		})->toArray();
+
+
+		/*
 		return $this->form()->flattenFieldsets()->map(function ($field) use ($input) {
 			return [
 				'label' => $field->label,
 				'response' => $field->response($input[$field->name] ?? ''),
 			];
-		})->toArray();
+		})->toArray();*/
 	}
 }

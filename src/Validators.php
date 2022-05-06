@@ -75,7 +75,7 @@ class Validators implements ArrayAccess
 			'.*',
 			'.',
 			''
-		], $this->field->name);
+		], $this->field->input_name);
 
 		return $validationKey;
 	}

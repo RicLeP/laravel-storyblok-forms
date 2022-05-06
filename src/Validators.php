@@ -3,6 +3,7 @@
 namespace Riclep\StoryblokForms;
 
 use ArrayAccess;
+use Illuminate\Support\Arr;
 
 class Validators implements ArrayAccess
 {
@@ -38,7 +39,7 @@ class Validators implements ArrayAccess
 		})->toArray());
 
 		if ($hasRules) {
-			$rules[$this->field->name] = $hasRules;
+			$rules[$this->nameToValidationKey()] = $hasRules;
 		}
 
 		return $rules;
@@ -52,13 +53,31 @@ class Validators implements ArrayAccess
 
 		$this->rules->each(function ($rule) use (&$messages) {
 			if ($rule->errorMessage()) {
-				$messageKey = $this->field->name . '.' . $rule->rule();
+				$messageKey = $this->nameToValidationKey() . '.' . $rule->rule();
 
 				$messages = array_merge($messages, [$messageKey => $rule->errorMessage()]);
 			}
 		})->toArray();
 
 		return $messages;
+	}
+
+	/**
+	 * @return array|string|string[]
+	 */
+	protected function nameToValidationKey(): string|array
+	{
+		$validationKey = str_replace([
+			'[]',
+			'[',
+			']'
+		], [
+			'.*',
+			'.',
+			''
+		], $this->field->name);
+
+		return $validationKey;
 	}
 
 	/**

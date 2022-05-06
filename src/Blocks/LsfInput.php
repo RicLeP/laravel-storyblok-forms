@@ -2,7 +2,6 @@
 
 namespace Riclep\StoryblokForms\Blocks;
 
-use Illuminate\Support\Str;
 use Riclep\StoryblokForms\Input;
 
 class LsfInput extends Input

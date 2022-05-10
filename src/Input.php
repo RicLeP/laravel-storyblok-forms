@@ -44,6 +44,18 @@ class Input extends \Riclep\Storyblok\Block
 		return $this->content()['name'];
 	}
 
+	public function getInputDotNameAttribute() {
+		return str_replace([
+			'[]',
+			'[',
+			']'
+		], [
+			'.*',
+			'.',
+			''
+		], $this->input_name);
+	}
+
 
 	public function loopKey($key) {
 		$this->key = $key;

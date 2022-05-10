@@ -63,7 +63,7 @@ class Validators implements ArrayAccess
 	}
 
 	/**
-	 * @return array|string|string[]
+	 * @return string
 	 */
 	protected function nameToValidationKey(): string|array
 	{

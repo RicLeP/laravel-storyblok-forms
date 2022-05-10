@@ -8,7 +8,7 @@
 
 	@foreach($block->options() as $checkbox)
 		<label>
-			<input type="checkbox" name="{{ $block->name }}[]" value="{{ Str::slug($checkbox['value']) }}" @if ($checkbox['selected']) checked @endif> {{ $checkbox['label'] }}
+			<input type="checkbox" name="{{ $block->name }}[]" value="{{ Str::slug($checkbox['value']) }}" @if (old($block->input_dot_name) === Str::slug($checkbox['value']) || (!old($block->input_dot_name) && $checkbox['selected'])) checked @endif> {{ $checkbox['label'] }}
 		</label>
 	@endforeach
 

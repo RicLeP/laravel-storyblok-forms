@@ -74,7 +74,7 @@ class FormResponse
 					$input[$field->name] = null;
 				}
 			}
-			
+
 			return $field->response($input[$field->name]);
 		})->toArray();
 	}

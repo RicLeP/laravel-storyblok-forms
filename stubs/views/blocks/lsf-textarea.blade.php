@@ -5,9 +5,9 @@
 <label>
 	<span>{{ $block->label }}</span>
 
-	<textarea name="{{ $block->name }}" placeholder="{{ $block->placeholder }}">{{ old($block->name) }}</textarea>
+	<textarea name="{{ $block->name }}" placeholder="{{ $block->placeholder }}">{{ old($block->input_dot_name) }}</textarea>
 
-	@error($block->name )
+	@error($block->input_dot_name)
 		<small>{{ $message }}</small>
 	@enderror
 </label>

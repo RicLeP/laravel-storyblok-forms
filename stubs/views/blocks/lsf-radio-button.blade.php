@@ -12,7 +12,7 @@
 		</label>
 	@endforeach
 
-	@error($block->name )
+	@error($block->input_dot_name)
 		<small>{{ $message }}</small>
 	@enderror
 </div>

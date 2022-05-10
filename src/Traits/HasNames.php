@@ -22,6 +22,23 @@ trait HasNames
 	}
 
 	/**
+	 * @property-read $input_name
+	 *
+	 * @return mixed|string
+	 */
+	public function getInputJsonNameAttribute() {
+		if ($this->isRepeating) {
+			return $this->parent()->input_name . '[' . $this->key . '][' . $this->content()['name'] . ']';
+		}
+
+		if ($this->inFieldSet) {
+			return $this->parent()->name . '[' . $this->content()['name'] . ']';
+		}
+
+		return $this->content()['name'];
+	}
+
+	/**
 	 * @property-read $input_dot_name
 	 *
 	 * @return mixed|string
@@ -36,5 +53,22 @@ trait HasNames
 			'.',
 			''
 		], $this->input_name);
+	}
+
+	/**
+	 * @property-read $input_dot_name
+	 *
+	 * @return mixed|string
+	 */
+	public function getInputJsonDotNameAttribute() {
+		return str_replace([
+			'[]',
+			'[',
+			']'
+		], [
+			'.*',
+			'.',
+			''
+		], $this->input_json_name);
 	}
 }

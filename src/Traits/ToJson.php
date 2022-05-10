@@ -12,10 +12,8 @@ trait ToJson
 
 		$content = $this->content();
 		$content['validators'] = $rules ? $rules[array_key_first($rules)] : [];
-		$content['name'] = $this->input_name;
-		$content['dot_name'] = $this->input_dot_name;
-
-
+		$content['dot_name'] = $this->input_json_dot_name;
+		$content['name'] = $this->input_json_name;
 
 		if ($this instanceof MultiInput) {
 			$content['options'] = $this->options();

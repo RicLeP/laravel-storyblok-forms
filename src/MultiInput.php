@@ -11,7 +11,7 @@ class MultiInput extends Input
 	 * @return \Illuminate\Support\Collection
 	 */
 	public function options() {
-		return collect(preg_split('/\r\n|\r|\n/', $this->{$this->optionsName}))->transform(function ($formInput) {
+		return collect(preg_split('/\r\n|\r|\n/', $this->{$this->optionsName}))->map(function ($formInput) {
 			if (str_starts_with($formInput, '[x]')) {
 				$label = Str::after($formInput, '[x]');
 

@@ -85,7 +85,7 @@ class Validators implements ArrayAccess
 	 * @return void
 	 */
 	protected function process($validators) {
-		$this->rules = collect($validators)->transform(function ($validator) {
+		$this->rules = collect($validators)->map(function ($validator) {
 			return (new Validator(array_diff_key($validator, array_flip(['_editable', '_uid']))));
 		});
 	}

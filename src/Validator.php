@@ -25,6 +25,7 @@ class Validator
 	public function rule() {
 		// TODO - custom string...
 		// TODO - custom class - bespoke validator class?
+		// TODO or use https://github.com/square/laravel-hyrule ?
 
 		// single parameter validators
 		if (array_key_exists('parameter', $this->settings)) {

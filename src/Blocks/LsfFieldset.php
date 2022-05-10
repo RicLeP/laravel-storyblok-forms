@@ -11,32 +11,6 @@ class LsfFieldset extends \Riclep\Storyblok\Block
 	protected $inFieldSet = false;
 	protected $isRepeating = false;
 
-	public function __construct($content, $parent = null)
-	{
-		parent::__construct($content, $parent);
-
-		if ($this->parent() instanceof LsfFieldset) {
-			$this->inFieldSet = true;
-		}
-
-		if ($this->parent() instanceof LsfRepeatingFieldset) {
-			$this->isRepeating = true;
-		}
-	}
-
-	public function getInputNameAttribute() {
-		if ($this->isRepeating) {
-			return $this->parent()->input_name . '[' . $this->key . '][' . $this->content()['name'] . ']';
-		}
-
-		if ($this->inFieldSet) {
-			return $this->parent()->input_name . '[' . $this->content()['name'] . ']';
-		}
-
-		return $this->content()['name'];
-	}
-
-
 	/**
 	 * Returns all the validation rules for the fields in this Fieldset
 	 *
@@ -68,8 +42,6 @@ class LsfFieldset extends \Riclep\Storyblok\Block
 	}
 
 	public function response($input) {
-		//dd($input, $this);
-
 		return [
 			'label' => $this->label,
 			'response' => $this->fields->map(function ($field) use ($input) {
@@ -81,16 +53,7 @@ class LsfFieldset extends \Riclep\Storyblok\Block
 					}
 				}
 
-	//			dump($field, $input, $field->name);
-
-	//dump($field);
 				return $field->response($input[$field->name]);
-				/*dd($field);
-
-				return [
-					'label' => $field->label,
-					'response' => $field->response($input[$field->name] ?? ''),
-				];*/
 			})->toArray()
 		];
 	}

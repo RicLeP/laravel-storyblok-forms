@@ -7,7 +7,7 @@ use Riclep\Storyblok\StoryblokFacade as StoryBlok;
 
 class FormResponse
 {
-	// TODO - pass extra data - imagine a staff contact form wrapped in a component where they select the address this instance should go to
+	// TODO - pass extra data - imagine a staff contact form wrapped in a component where they select the email address this instance should go to
 
 
 	/**

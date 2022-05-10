@@ -32,6 +32,11 @@ class Input extends \Riclep\Storyblok\Block
 		}
 	}
 
+	/**
+	 * @property-read $input_name
+	 *
+	 * @return mixed|string
+	 */
 	public function getInputNameAttribute() {
 		if ($this->isRepeating) {
 			return $this->parent()->input_name . '[' . $this->key . '][' . $this->content()['name'] . ']';
@@ -44,6 +49,11 @@ class Input extends \Riclep\Storyblok\Block
 		return $this->content()['name'];
 	}
 
+	/**
+	 * @property-read $input_dot_name
+	 *
+	 * @return mixed|string
+	 */
 	public function getInputDotNameAttribute() {
 		return str_replace([
 			'[]',

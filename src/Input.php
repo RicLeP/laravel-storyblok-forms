@@ -45,25 +45,6 @@ class Input extends \Riclep\Storyblok\Block
 	}
 
 
-	public function response($input) {
-		//dd($input, $this);
-
-		return $this->fields->map(function ($field) use ($input) {
-
-//			dump($field, $input);
-// TODO - handle radio buttons being empty
-			dump($field, $input, $field->name);
-
-			return $field->response($input[$field->name]);
-			/*dd($field);
-
-			return [
-				'label' => $field->label,
-				'response' => $field->response($input[$field->name] ?? ''),
-			];*/
-		})->toArray();
-	}
-
 	public function loopKey($key) {
 		$this->key = $key;
 

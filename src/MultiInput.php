@@ -53,14 +53,17 @@ class MultiInput extends Input
 	 * @return array
 	 */
 	public function response($input) {
-		$formatted = ['selected' => [], 'unselected' => []];
+		$formatted = [
+			'label' => $this->label,
+			'response' => ['selected' => [], 'unselected' => []]
+		];
 
 		$this->options()->map(function ($formInput) use ($input, &$formatted) {
 			if (in_array($formInput['value'], Arr::wrap($input))) {
-				return $formatted['selected'][] = $formInput['label'];
+				return $formatted['response']['selected'][] = $formInput['label'];
 			}
 
-			return $formatted['unselected'][] = $formInput['label'];
+			return $formatted['response']['unselected'][] = $formInput['label'];
 		})->toArray();
 
 		return $formatted;

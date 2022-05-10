@@ -36,25 +36,6 @@ class LsfFieldset extends \Riclep\Storyblok\Block
 		return $this->content()['name'];
 	}
 
-	public function response($input) {
-		//dd($input, $this);
-
-		return $this->fields->map(function ($field) use ($input) {
-
-//			dump($field, $input);
-// TODO - handle radio buttons being empty
-			dump($field, $input, $field->name);
-
-			return $field->response($input[$field->name]);
-			/*dd($field);
-
-			return [
-				'label' => $field->label,
-				'response' => $field->response($input[$field->name] ?? ''),
-			];*/
-		})->toArray();
-	}
-
 
 	/**
 	 * Returns all the validation rules for the fields in this Fieldset
@@ -84,5 +65,33 @@ class LsfFieldset extends \Riclep\Storyblok\Block
 		});
 
 		return $rules;
+	}
+
+	public function response($input) {
+		//dd($input, $this);
+
+		return [
+			'label' => $this->label,
+			'response' => $this->fields->map(function ($field) use ($input) {
+
+				// Handle empty radio buttons sending nothing in POST request
+				if ($field instanceof \Riclep\StoryblokForms\Blocks\LsfRadioButton) {
+					if (!array_key_exists($field->name, $input)) {
+						$input[$field->name] = null;
+					}
+				}
+
+	//			dump($field, $input, $field->name);
+
+	//dump($field);
+				return $field->response($input[$field->name]);
+				/*dd($field);
+
+				return [
+					'label' => $field->label,
+					'response' => $field->response($input[$field->name] ?? ''),
+				];*/
+			})->toArray()
+		];
 	}
 }

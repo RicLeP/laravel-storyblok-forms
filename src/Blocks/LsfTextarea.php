@@ -15,7 +15,7 @@ class LsfTextarea extends Input
 	 * @param $input
 	 * @return mixed
 	 */
-	public function response($input) {
+	/*public function response($input) {
 		return $input;
-	}
+	}*/
 }

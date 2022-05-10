@@ -66,27 +66,17 @@ class FormResponse
 	protected function responses() {
 		$input = $this->request->except(['_token', '_slug']);
 
-
 		return $this->form()->fields->map(function ($field) use ($input) {
 
-			//dd($field, $input, $field->name);
-
+			// Handle empty radio buttons sending nothing in POST request
+			if ($field instanceof \Riclep\StoryblokForms\Blocks\LsfRadioButton) {
+				if (!array_key_exists($field->name, $input)) {
+					$input[$field->name] = null;
+				}
+			}
+			
 			return $field->response($input[$field->name]);
-			/*dd($field);
-
-			return [
-				'label' => $field->label,
-				'response' => $field->response($input[$field->name] ?? ''),
-			];*/
 		})->toArray();
-
-
-		/*
-		return $this->form()->flattenFieldsets()->map(function ($field) use ($input) {
-			return [
-				'label' => $field->label,
-				'response' => $field->response($input[$field->name] ?? ''),
-			];
-		})->toArray();*/
 	}
+
 }

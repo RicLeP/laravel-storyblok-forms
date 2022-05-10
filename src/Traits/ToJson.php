@@ -20,6 +20,8 @@ trait ToJson
 		return collect([
 			'component' => $this->component(),
 			'content' => $content,
+			'input_name' => $this->input_name,
+			'input_dot_name' => $this->input_dot_name,
 		]);
 	}
 }

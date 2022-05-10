@@ -2,11 +2,13 @@
 
 namespace Riclep\StoryblokForms\Blocks;
 
+use Riclep\StoryblokForms\Traits\HasNames;
+use Riclep\StoryblokForms\Traits\InFieldset;
 use Riclep\StoryblokForms\Traits\ToJson;
 
 class LsfRepeatingFieldset extends LsfFieldset
 {
-	use ToJson;
+	use HasNames, InFieldset, ToJson;
 
 	public function response($input) {
 		return [

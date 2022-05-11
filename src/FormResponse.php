@@ -3,6 +3,7 @@
 namespace Riclep\StoryblokForms;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use Riclep\Storyblok\StoryblokFacade as StoryBlok;
 
 class FormResponse
@@ -15,6 +16,11 @@ class FormResponse
 	 */
 	public function __construct(Request $request)
 	{
+		// convert JSON response to same format as standard HTML forms
+		if ($request->isJson()) {
+			$request->replace(Arr::undot($request->all()));
+		}
+
 		$this->request = $request;
 
 		$this->requestPage();

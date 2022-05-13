@@ -6,6 +6,8 @@ use Riclep\StoryblokForms\Input;
 
 class LsfFileUploader extends Input
 {
+	protected $type = 'upload';
+
 	/**
 	 * Returns the Input’s response after the form has been submitted and validated
 	 *
@@ -15,7 +17,8 @@ class LsfFileUploader extends Input
 	public function response($input) {
 		return [
 			'label' => $this->label,
-			'response' => $input
+			'response' => $input,
+			'type' => $this->type,
 		];
 	}
 }

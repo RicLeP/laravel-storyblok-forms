@@ -57,7 +57,7 @@ class FormResponse
 	/**
 	 * @return mixed
 	 */
-	public function response() {
+	public function fields() {
 		return $this->responses();
 	}
 
@@ -65,7 +65,7 @@ class FormResponse
 	 * @return false|string
 	 */
 	public function json() {
-		return json_encode($this->response());
+		return json_encode($this->fields());
 	}
 
 	/**
@@ -89,12 +89,12 @@ class FormResponse
 
 
 	/**
-	 * Flattens the response returning an array of responses
+	 * Flattens the response returning an array of field responses
 	 *
 	 * @return array
 	 */
 	public function flatten() {
-		return Arr::flatten($this->response());
+		return Arr::flatten($this->fields());
 	}
 
 	public function files() {

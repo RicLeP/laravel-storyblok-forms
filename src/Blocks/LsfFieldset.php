@@ -50,12 +50,11 @@ class LsfFieldset extends \Riclep\Storyblok\Block
 			'label' => $this->label,
 			'response' => $this->fields->map(function ($field) use ($input) {
 
-				// Handle empty radio buttons sending nothing in POST request
-				if ($field instanceof \Riclep\StoryblokForms\Blocks\LsfRadioButton) {
-					if (!array_key_exists($field->name, $input)) {
-						$input[$field->name] = null;
-					}
+				// Handle empty radio buttons etc. sending nothing in POST request
+				if (!array_key_exists($field->name, $input)) {
+					$input[$field->name] = null;
 				}
+
 
 				return $field->response($input[$field->name]);
 			})->toArray()

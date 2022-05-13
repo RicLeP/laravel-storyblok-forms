@@ -3,8 +3,10 @@
 namespace Riclep\StoryblokForms;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Arr;
 use Riclep\Storyblok\StoryblokFacade as StoryBlok;
+use Riclep\StoryblokForms\Blocks\LsfFieldset;
 
 class FormResponse
 {
@@ -75,14 +77,29 @@ class FormResponse
 		return $this->form()->fields->map(function ($field) use ($input) {
 
 			// Handle empty radio buttons sending nothing in POST request
-			if ($field instanceof \Riclep\StoryblokForms\Blocks\LsfRadioButton) {
+			//if ($field instanceof \Riclep\StoryblokForms\Blocks\LsfRadioButton) {
 				if (!array_key_exists($field->name, $input)) {
 					$input[$field->name] = null;
 				}
-			}
+			//}
 
 			return $field->response($input[$field->name]);
 		})->toArray();
 	}
 
+
+	/**
+	 * Flattens the response returning an array of responses
+	 *
+	 * @return array
+	 */
+	public function flatten() {
+		return Arr::flatten($this->response());
+	}
+
+	public function files() {
+		return array_values(array_filter($this->flatten(), function ($response) {
+			return $response instanceof UploadedFile;
+		}));
+	}
 }

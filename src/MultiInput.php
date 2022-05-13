@@ -55,7 +55,8 @@ class MultiInput extends Input
 	public function response($input) {
 		$formatted = [
 			'label' => $this->label,
-			'response' => ['selected' => [], 'unselected' => []]
+			'response' => ['selected' => [], 'unselected' => []],
+			'type' => $this->type,
 		];
 
 		$this->options()->map(function ($formInput) use ($input, &$formatted) {

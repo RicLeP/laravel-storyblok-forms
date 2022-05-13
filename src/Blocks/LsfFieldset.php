@@ -10,6 +10,8 @@ class LsfFieldset extends \Riclep\Storyblok\Block
 {
 	use HasNames, InFieldset, ToJson;
 
+	protected $type = 'fieldset';
+
 	//// potentially all fields in a fieldset could be name <input name="fieldsetname[fieldname]">
 	/// this would out a multidimensional array in the response.
 	/// makes validation herder?
@@ -57,7 +59,8 @@ class LsfFieldset extends \Riclep\Storyblok\Block
 
 
 				return $field->response($input[$field->name]);
-			})->toArray()
+			})->toArray(),
+			'type' => $this->type,
 		];
 	}
 }

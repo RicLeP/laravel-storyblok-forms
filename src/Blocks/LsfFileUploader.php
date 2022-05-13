@@ -4,12 +4,8 @@ namespace Riclep\StoryblokForms\Blocks;
 
 use Riclep\StoryblokForms\Input;
 
-class LsfInput extends Input
+class LsfFileUploader extends Input
 {
-	// Interface this....
-
-	protected $type = 'input';
-
 	/**
 	 * Returns the Input’s response after the form has been submitted and validated
 	 *
@@ -19,8 +15,7 @@ class LsfInput extends Input
 	public function response($input) {
 		return [
 			'label' => $this->label,
-			'response' => $input,
-			'type' => $this->type,
+			'response' => $input
 		];
 	}
 }

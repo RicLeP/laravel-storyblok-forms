@@ -10,6 +10,8 @@ class LsfRepeatingFieldset extends LsfFieldset
 {
 	use HasNames, InFieldset, ToJson;
 
+	protected $type = 'fieldset';
+
 	public function response($input) {
 		return [
 			'label' => $this->label,
@@ -24,7 +26,8 @@ class LsfRepeatingFieldset extends LsfFieldset
 
 					return $field->response($repeatedFields[$field->name]);
 				});
-			})
+			}),
+			'type' => $this->type,
 		];
 	}
 }

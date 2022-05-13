@@ -10,4 +10,6 @@ class LsfSelect extends MultiInput
 	 * @var string
 	 */
 	protected $optionsName = 'options';
+
+	protected $type = 'multi-input';
 }

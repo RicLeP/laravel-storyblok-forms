@@ -11,12 +11,16 @@ class Validator
 	 */
 	protected $settings;
 
+
+	protected $field;
+
 	/**
 	 * @param $settings
 	 */
-	public function __construct($settings)
+	public function __construct($settings, $field)
 	{
 		$this->settings = $settings;
+		$this->field = $field;
 	}
 
 	/**
@@ -39,6 +43,14 @@ class Validator
 	 * @return mixed
 	 */
 	public function errorMessage() {
-		return $this->settings['error_message']; // TODO or default
+		if ($this->settings['error_message']) {
+			return $this->settings['error_message'];
+		}
+
+		if (trans()->has('validation.' . $this->rule())) {
+			return __('validation.' . $this->rule(), ['attribute' => $this->field->label]);
+		}
+
+		return [];
 	}
 }

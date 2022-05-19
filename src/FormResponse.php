@@ -5,6 +5,7 @@ namespace Riclep\StoryblokForms;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Validator;
 use Riclep\Storyblok\StoryblokFacade as StoryBlok;
 
 class FormResponse
@@ -42,11 +43,10 @@ class FormResponse
 		return $this->page->form;
 	}
 
-	/**
-	 * @return array
-	 */
-	public function validate() {
-		return $this->request->validate($this->form()->validationRules(), $this->form()->errorMessages());
+
+	public function validate()
+	{
+		Validator::make($this->request->all(), $this->form()->validationRules(), $this->form()->errorMessages())->validate();
 	}
 
 	public function validationRules() {

@@ -23,9 +23,9 @@ class Validators implements ArrayAccess
 	 */
 	public function __construct($validators, $field)
 	{
-		$this->process($validators);
-
 		$this->field = $field;
+
+		$this->process($validators);
 	}
 
 	/**
@@ -52,11 +52,9 @@ class Validators implements ArrayAccess
 		$messages = [];
 
 		$this->rules->each(function ($rule) use (&$messages) {
-			if ($rule->errorMessage()) {
-				$messageKey = $this->nameToValidationKey() . '.' . $rule->rule();
+			$messageKey = $this->nameToValidationKey() . '.' . $rule->rule();
 
-				$messages = array_merge($messages, [$messageKey => $rule->errorMessage()]);
-			}
+			$messages = array_merge($messages, [$messageKey => $rule->errorMessage()]);
 		})->toArray();
 
 		return $messages;
@@ -86,7 +84,9 @@ class Validators implements ArrayAccess
 	 */
 	protected function process($validators) {
 		$this->rules = collect($validators)->map(function ($validator) {
-			return (new Validator(array_diff_key($validator, array_flip(['_editable', '_uid']))));
+			return (new Validator(
+				array_diff_key($validator, array_flip(['_editable', '_uid']))
+				, $this->field));
 		});
 	}
 

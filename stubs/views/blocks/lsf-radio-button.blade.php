@@ -8,7 +8,7 @@
 
 	@foreach($block->options() as $checkbox)
 		<label>
-			<input type="radio" name="{{ $block->name }}" value="{{ Str::slug($checkbox['value']) }}" @if ($checkbox['selected']) checked @endif> {{ $checkbox['label'] }}
+			<input type="radio" name="{{ $block->name }}" value="{{ Str::slug($checkbox['value']) }}"  @if (data_get(old(), $block->input_dot_name) === Str::slug($radioButton['value']) || (!data_get(old(), $block->input_dot_name) && $radioButton['selected'])) checked @endif> {{ $checkbox['label'] }}
 		</label>
 	@endforeach
 

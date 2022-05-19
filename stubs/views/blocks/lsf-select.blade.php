@@ -15,7 +15,7 @@
 		@endif
 
 		@foreach($block->options() as $option)
-			<option value="{{ Str::slug($option['value']) }}" @if (old($block->input_dot_name) === Str::slug($option['value']) || (!old($block->input_dot_name) && $option['selected'])) selected @endif>
+			<option value="{{ Str::slug($option['value']) }}" @if (data_get(old(), $block->input_dot_name) === Str::slug($option['value']) || (!data_get(old(), $block->input_dot_name) && $option['selected'])) selected @endif>
 				{{ $option['label'] }}
 			</option>
 		@endforeach

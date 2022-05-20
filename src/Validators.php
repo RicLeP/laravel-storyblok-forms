@@ -3,6 +3,7 @@
 namespace Riclep\StoryblokForms;
 
 use ArrayAccess;
+use Illuminate\Support\Arr;
 
 class Validators implements ArrayAccess
 {
@@ -22,28 +23,26 @@ class Validators implements ArrayAccess
 	 */
 	public function __construct($validators, $field)
 	{
-		$this->process($validators);
-
 		$this->field = $field;
+
+		$this->process($validators);
 	}
 
 	/**
-	 * @return array|false
+	 * @return array
 	 */
 	public function validationRules() {
 		$rules = [];
-
 
 		$hasRules = array_values($this->rules->map(function ($rule) {
 			return $rule->rule();
 		})->toArray());
 
 		if ($hasRules) {
-			$rules[$this->field->name] = $hasRules;
-			return $rules;
+			$rules[$this->nameToValidationKey()] = $hasRules;
 		}
 
-		return false;
+		return $rules;
 	}
 
 	/**
@@ -53,14 +52,30 @@ class Validators implements ArrayAccess
 		$messages = [];
 
 		$this->rules->each(function ($rule) use (&$messages) {
-			if ($rule->errorMessage()) {
-				$messageKey = $this->field->name . '.' . $rule->rule();
+			$messageKey = $this->nameToValidationKey() . '.' . $rule->rule();
 
-				$messages = array_merge($messages, [$messageKey => $rule->errorMessage()]);
-			}
+			$messages = array_merge($messages, [$messageKey => $rule->errorMessage()]);
 		})->toArray();
 
 		return $messages;
+	}
+
+	/**
+	 * @return string
+	 */
+	protected function nameToValidationKey(): string|array
+	{
+		$validationKey = str_replace([
+			'[]',
+			'[',
+			']'
+		], [
+			'.*',
+			'.',
+			''
+		], $this->field->input_name);
+
+		return $validationKey;
 	}
 
 	/**
@@ -68,8 +83,10 @@ class Validators implements ArrayAccess
 	 * @return void
 	 */
 	protected function process($validators) {
-		$this->rules = collect($validators)->transform(function ($validator) {
-			return (new Validator(array_diff_key($validator, array_flip(['_editable', '_uid']))));
+		$this->rules = collect($validators)->map(function ($validator) {
+			return (new Validator(
+				array_diff_key($validator, array_flip(['_editable', '_uid']))
+				, $this->field));
 		});
 	}
 

@@ -2,8 +2,16 @@
 
 namespace Riclep\StoryblokForms\Blocks;
 
+use Riclep\StoryblokForms\Traits\HasNames;
+use Riclep\StoryblokForms\Traits\InFieldset;
+use Riclep\StoryblokForms\Traits\ToJson;
+
 class LsfFieldset extends \Riclep\Storyblok\Block
 {
+	use HasNames, InFieldset, ToJson;
+
+	protected $type = 'fieldset';
+
 	//// potentially all fields in a fieldset could be name <input name="fieldsetname[fieldname]">
 	/// this would out a multidimensional array in the response.
 	/// makes validation herder?
@@ -37,5 +45,22 @@ class LsfFieldset extends \Riclep\Storyblok\Block
 		});
 
 		return $rules;
+	}
+
+	public function response($input) {
+		return [
+			'label' => $this->label,
+			'response' => $this->fields->map(function ($field) use ($input) {
+
+				// Handle empty radio buttons etc. sending nothing in POST request
+				if (!array_key_exists($field->name, $input)) {
+					$input[$field->name] = null;
+				}
+
+
+				return $field->response($input[$field->name]);
+			})->toArray(),
+			'type' => $this->type,
+		];
 	}
 }

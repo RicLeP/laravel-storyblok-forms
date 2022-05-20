@@ -33,23 +33,4 @@ class LsfForm extends \Riclep\Storyblok\Block
 
 		return $errorMessages;
 	}
-
-	/**
-	 * Flattens the Fieldsets returning a collection of Fields
-	 *
-	 * @return \Illuminate\Support\Collection
-	 */
-	public function flattenFieldsets() {
-		$fields = [];
-
-		$this->fields->each(function ($field) use (&$fields) {
-			if ($field instanceof LsfFieldset) {
-				$fields = array_merge($fields, $field->fields->toArray());
-			} else {
-				$fields = array_merge($fields, [$field]);
-			}
-		});
-
-		return collect($fields);
-	}
 }

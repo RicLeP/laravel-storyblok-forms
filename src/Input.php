@@ -41,4 +41,18 @@ class Input extends \Riclep\Storyblok\Block
 	public function errorMessages() {
 		return $this->validators->errorMessages();
 	}
+
+
+	/**
+	 * Set’s the default Input size when not defined
+	 *
+	 * @return mixed|string
+	 */
+	public function getSizeAttribute() {
+		if ($this->has('size')) {
+			return $this->content()['size'] ?: 'full'; // TODO configure default size
+		}
+
+		return 'full'; // TODO configure default size
+	}
 }

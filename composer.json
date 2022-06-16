@@ -24,7 +24,7 @@
         "php": "^7.4|^8.0",
         "ext-json": "*",
         "illuminate/support": "^7.0|^8.0|^9.0",
-		"riclep/laravel-storyblok": "^2.10"
+		"riclep/laravel-storyblok": "dev-develop"
     },
     "require-dev": {
         "mockery/mockery": "^1.2",

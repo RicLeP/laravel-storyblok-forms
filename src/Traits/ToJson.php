@@ -14,6 +14,10 @@ trait ToJson
 		$content['validators'] = $rules ? $rules[array_key_first($rules)] : [];
 		$content['dot_name'] = $this->input_json_dot_name;
 
+		if ($this->hasSettings()) {
+			$content['settings'] = $this->settings();
+		}
+
 		if ($this instanceof MultiInput) {
 			$content['options'] = $this->options();
 		}

@@ -11,37 +11,35 @@ class MultiInput extends Input
 	 * @return \Illuminate\Support\Collection
 	 */
 	public function options() {
-		return collect(preg_split('/\r\n|\r|\n/', $this->{$this->optionsName}))->map(function ($formInput) {
-			if (str_starts_with($formInput, '[x]')) {
-				$label = Str::after($formInput, '[x]');
+		return collect(preg_split('/\r\n|\r|\n/', $this->{$this->optionsName}))->filter()->map(function ($option) {
 
-				$selected = true;
+			/**
+			 * Parses the possible option formats into a named array
+			 * name
+			 * [*]name
+			 * [key]name
+			 * [key][*]name
+			 * */
+			preg_match('/(?:\[(?<value>[\w]+)\])?(?:\[(?<selected>\*)\])?(?<label>.+)/', $option, $settings);
 
-				if (request()->session()->has('_old_input')) {
-					$selected = $this->optionIsSelected($label);
-				}
-
-				return [
-					'selected' => $selected,
-					'label' => $label,
-					'value' => Str::slug($label),
-				];
+			if ($settings['value'] === '') {
+				$settings['value'] = Str::slug($settings['label']);
 			}
 
-			return [
-				'selected' => $this->optionIsSelected($formInput),
-				'label' => $formInput,
-				'value' => Str::slug($formInput),
-			];
+			if (request()->session()->has('_old_input')) {
+				$settings['selected'] = $this->optionIsSelected($settings['selected']);
+			} else {
+				$settings['selected'] = $settings['selected'] === '*' ? true : false;
+			}
+
+			return array_filter($settings, function ($key) {
+				return is_string($key);
+			}, ARRAY_FILTER_USE_KEY);
 		});
 	}
 
 	protected function optionIsSelected($formInput) {
-		if (request()->old($this->input_name) && (in_array(Str::slug($formInput), Arr::wrap(request()->old($this->input_name))))) {
-			return true; // we have old input and it does include this item
-		}
-
-		return false;
+		return request()->old($this->input_name) && (in_array(Str::slug($formInput), Arr::wrap(request()->old($this->input_name))));
 	}
 
 	/**

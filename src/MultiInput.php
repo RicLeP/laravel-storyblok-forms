@@ -35,7 +35,7 @@ class MultiInput extends Input
 			return array_filter($settings, function ($key) {
 				return is_string($key);
 			}, ARRAY_FILTER_USE_KEY);
-		});
+		})->values();;
 	}
 
 	protected function optionIsSelected($formInput) {

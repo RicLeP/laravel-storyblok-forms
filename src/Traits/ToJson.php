@@ -2,6 +2,7 @@
 
 namespace Riclep\StoryblokForms\Traits;
 
+use Riclep\StoryblokForms\Blocks\LsfRepeatingFieldset;
 use Riclep\StoryblokForms\MultiInput;
 
 trait ToJson
@@ -18,8 +19,8 @@ trait ToJson
 			$content['settings'] = $this->settings();
 		}
 
-		if ($this instanceof MultiInput) {
-			$content['options'] = $this->options();
+		if (method_exists($this, 'addToJson')) {
+			$content = $content->merge($this->addToJson());
 		}
 
 		return collect([

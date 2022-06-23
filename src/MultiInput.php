@@ -7,6 +7,13 @@ use Illuminate\Support\Str;
 
 class MultiInput extends Input
 {
+
+	protected function addToJson() {
+		$json['options'] = $this->options();
+
+		return $json;
+	}
+
 	/**
 	 * @return \Illuminate\Support\Collection
 	 */

@@ -2,15 +2,16 @@
 
 namespace Riclep\StoryblokForms\Blocks;
 
-use Riclep\StoryblokForms\Traits\HasNames;
-use Riclep\StoryblokForms\Traits\InFieldset;
-use Riclep\StoryblokForms\Traits\ToJson;
-
 class LsfRepeatingFieldset extends LsfFieldset
 {
-	use HasNames, InFieldset, ToJson;
-
 	protected $type = 'repeating-fieldset';
+
+	protected function addToJson() {
+		$json['min'] = $this->min;
+		$json['max'] = $this->max;
+
+		return $json;
+	}
 
 	public function response($input) {
 		return [

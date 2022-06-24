@@ -2,6 +2,7 @@
 
 namespace Riclep\StoryblokForms\Blocks;
 
+use Illuminate\Support\Str;
 use Riclep\StoryblokForms\Input;
 
 class LsfInput extends Input
@@ -11,6 +12,8 @@ class LsfInput extends Input
 	protected $type = 'input';
 
 	/**
+	 * TODO - can this be moved into the validator and done at source?
+	 *
 	 * All the Validation rules for this Input
 	 *
 	 * @return mixed
@@ -32,12 +35,38 @@ class LsfInput extends Input
 				if (in_array('required', $rule)) {
 					$requiredKey = array_search('required', $rule);
 
-					$rules[$key][$requiredKey] = 'required_if:' . $this->parent()->name . ',' . $requiredWhen;
+					$rules[$key][$requiredKey] = 'required_if:' . $this->parent()->input_dot_name . '.selected,' . $requiredWhen;
 				}
 			}
 		}
 
 		return $rules;
+	}
+
+	/**
+	 * TODO - can this be moved into the validator and done at source?
+	 *
+	 * All the Validation rules for this Input
+	 *
+	 * @return mixed
+	 */
+	public function errorMessages() {
+		$messages = $this->validators->errorMessages();
+
+		/**
+		 * Rewrite required to required_if for items inside conditional selects
+		 */
+		if ($this->parent() instanceof LsfConditionalSelect) {
+			foreach ($messages as $key => $rule) {
+				if (Str::endsWith($key, 'required')) {
+					$messages[$key . '_if'] = $messages[$key];
+
+					unset($messages[$key]);
+				}
+			}
+		}
+
+		return $messages;
 	}
 
 	/**

@@ -17,6 +17,7 @@ class LsfFileUploader extends Input
 	public function response($input) {
 		return [
 			'label' => $this->label,
+			'name' => $this->name,
 			'response' => $input,
 			'type' => $this->type,
 		];

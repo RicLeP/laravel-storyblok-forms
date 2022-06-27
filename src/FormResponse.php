@@ -83,7 +83,7 @@ class FormResponse
 			//}
 
 			return $field->response($input[$field->name]);
-		})->toArray();
+		})->keyBy('name')->toArray();
 	}
 
 

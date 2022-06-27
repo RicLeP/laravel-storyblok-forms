@@ -42,7 +42,7 @@ class MultiInput extends Input
 			return array_filter($settings, function ($key) {
 				return is_string($key);
 			}, ARRAY_FILTER_USE_KEY);
-		})->values();;
+		})->values();
 	}
 
 	protected function optionIsSelected($formInput) {
@@ -60,16 +60,17 @@ class MultiInput extends Input
 	public function response($input) {
 		$formatted = [
 			'label' => $this->label,
+			'name' => $this->name,
 			'response' => ['selected' => [], 'unselected' => []],
 			'type' => $this->type,
 		];
 
 		$this->options()->map(function ($formInput) use ($input, &$formatted) {
 			if (in_array($formInput['value'], Arr::wrap($input))) {
-				return $formatted['response']['selected'][] = $formInput['label'];
+				return $formatted['response']['selected'][$formInput['value']] = $formInput['label'];
 			}
 
-			return $formatted['response']['unselected'][] = $formInput['label'];
+			return $formatted['response']['unselected'][$formInput['value']] = $formInput['label'];
 		})->toArray();
 
 		return $formatted;

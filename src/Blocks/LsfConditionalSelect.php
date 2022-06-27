@@ -62,16 +62,17 @@ class LsfConditionalSelect extends MultiInput
 	public function response($input) {
 		$formatted = [
 			'label' => $this->label,
+			'name' => $this->name,
 			'response' => ['select' => ['selected' => [], 'unselected' => []]], // TODO multi dimensional - selected and child fields...
 			'type' => $this->type,
 		];
 
 		$this->options()->map(function ($formInput) use ($input, &$formatted) {
 			if (in_array($formInput['value'], Arr::wrap($input))) {
-				return $formatted['response']['select']['selected'][] = $formInput['label'];
+				return $formatted['response']['select']['selected'][$formInput['value']] = $formInput['label'];
 			}
 
-			return $formatted['response']['select']['unselected'][] = $formInput['label'];
+			return $formatted['response']['select']['unselected'][$formInput['value']] = $formInput['label'];
 		})->toArray();
 
 		$formatted['response']['fields'] = $this->fields->map(function ($field) use ($input) {
@@ -86,7 +87,7 @@ class LsfConditionalSelect extends MultiInput
 			}
 
 			return $field->response($input[$field->name]);
-		})->toArray();
+		})->keyBy('name')->toArray();
 
 		return $formatted;
 	}

@@ -16,6 +16,7 @@ class LsfRepeatingFieldset extends LsfFieldset
 	public function response($input) {
 		return [
 			'label' => $this->label,
+			'name' => $this->name,
 			'response' => collect($input)->map(function ($repeatedFields) {
 				return $this->fields->map(function ($field) use ($repeatedFields) {
 
@@ -27,7 +28,7 @@ class LsfRepeatingFieldset extends LsfFieldset
 					//}
 
 					return $field->response($repeatedFields[$field->name]);
-				})->toArray();
+				})->keyBy('name')->toArray();
 			})->toArray(),
 			'type' => $this->type,
 		];

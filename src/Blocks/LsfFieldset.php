@@ -50,6 +50,7 @@ class LsfFieldset extends \Riclep\Storyblok\Block
 	public function response($input) {
 		return [
 			'label' => $this->label,
+			'name' => $this->name,
 			'response' => $this->fields->map(function ($field) use ($input) {
 				//dump($field->name, $input);
 				// Handle empty radio buttons etc. sending nothing in POST request
@@ -59,7 +60,7 @@ class LsfFieldset extends \Riclep\Storyblok\Block
 
 
 				return $field->response($input[$field->name]);
-			})->toArray(),
+			})->keyBy('name')->toArray(),
 			'type' => $this->type,
 		];
 	}

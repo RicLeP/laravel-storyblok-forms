@@ -12,8 +12,6 @@ class LsfInput extends Input
 	protected $type = 'input';
 
 	/**
-	 * TODO - can this be moved into the validator and done at source?
-	 *
 	 * All the Validation rules for this Input
 	 *
 	 * @return mixed
@@ -44,8 +42,6 @@ class LsfInput extends Input
 	}
 
 	/**
-	 * TODO - can this be moved into the validator and done at source?
-	 *
 	 * All the Validation rules for this Input
 	 *
 	 * @return mixed

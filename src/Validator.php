@@ -30,6 +30,11 @@ class Validator
 		// TODO - custom string...
 		// TODO - custom class - bespoke validator class?
 		// TODO or use https://github.com/square/laravel-hyrule ?
+		if ($this->settings['component'] === 'lsf-validator-class') {
+			$class = 'App\Rules\\' . $this->settings['class'];
+			return new $class;
+		}
+
 
 		// single parameter validators
 		if (array_key_exists('parameter', $this->settings)) {
@@ -43,7 +48,7 @@ class Validator
 	 * @return mixed
 	 */
 	public function errorMessage() {
-		if ($this->settings['error_message']) {
+		if (array_key_exists('error_message', $this->settings)) {
 			return $this->settings['error_message'];
 		}
 

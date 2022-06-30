@@ -53,7 +53,7 @@ class Validator
 			return (new $class)->errorMessage();
 		}
 
-		if (array_key_exists('error_message', $this->settings)) {
+		if (array_key_exists('error_message', $this->settings) && $this->settings['error_message']) {
 			return $this->settings['error_message'];
 		}
 

@@ -48,6 +48,11 @@ class Validator
 	 * @return mixed
 	 */
 	public function errorMessage() {
+		if ($this->settings['component'] === 'lsf-validator-class') {
+			$class = 'App\Rules\\' . $this->settings['class'];
+			return (new $class)->errorMessage();
+		}
+
 		if (array_key_exists('error_message', $this->settings)) {
 			return $this->settings['error_message'];
 		}

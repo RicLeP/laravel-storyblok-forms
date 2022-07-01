@@ -34,6 +34,7 @@ class TestCase extends Orchestra
 
 		$app['config']->set('storyblok.component_class_namespace', ['Riclep\StoryblokForms\\']);
 		$app['config']->set('storyblok.view_path', $viewPath);
+		$app['config']->set('storyblok.settings_field', 'settings');
 
 		$app['config']->set('view.paths', array_merge(config('view.paths'), [$viewPath]));
 		//dd(config('view.paths'));

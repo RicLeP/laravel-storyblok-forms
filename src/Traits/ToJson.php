@@ -9,7 +9,9 @@ trait ToJson
 {
 	public function jsonSerialize(): mixed
 	{
-		$rules = $this->validationRules();
+		$rules = array_map_recursive(function ($rule) {
+			return (string) $rule;
+		}, $this->validationRules());
 
 		$content = $this->content();
 		$content['validators'] = $rules ? $rules[array_key_first($rules)] : [];

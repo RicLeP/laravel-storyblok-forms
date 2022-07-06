@@ -3,6 +3,7 @@
 namespace Riclep\StoryblokForms\Blocks;
 
 use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
 use Riclep\StoryblokForms\MultiInput;
 use Riclep\StoryblokForms\Traits\HasNames;
 use Riclep\StoryblokForms\Traits\InFieldset;
@@ -31,10 +32,27 @@ class LsfConditionalSelect extends MultiInput
 		$rules = [];
 
 		$this->fields->each(function ($field) use (&$rules) {
+
 			$rules = array_merge($rules, $field->validationRules());
 		});
 
 		$fieldRules = $this->validators->validationRules();
+
+		if ($this->parent() instanceof LsfConditionalSelect) {
+			if (is_array($this->settings('lsf_is_conditional')['when_parent_is'])) {
+				$requiredWhen = implode(',', $this->settings('lsf_is_conditional')['when_parent_is']);
+			} else {
+				$requiredWhen = $this->settings('lsf_is_conditional')['when_parent_is'];
+			}
+
+			foreach ($fieldRules as $key => $rule) {
+				if (in_array('required', $rule)) {
+					$requiredKey = array_search('required', $rule);
+
+					$fieldRules[$key][$requiredKey] = 'required_if:' . $this->parent()->input_dot_name . '.selected,' . $requiredWhen;
+				}
+			}
+		}
 
 		// Should the Dot name always do this? Probably not as that would break children?
 		$selectKey = $this->getInputDotNameAttribute()  . '.selected';
@@ -54,7 +72,60 @@ class LsfConditionalSelect extends MultiInput
 			$rules = array_merge($rules, $field->errorMessages());
 		});
 
-		return $rules;
+		$messages = $this->validators->errorMessages();
+
+		if ($this->parent() instanceof LsfConditionalSelect) {
+			foreach ($messages as $key => $rule) {
+				if (Str::endsWith($key, 'required')) {
+					$messages[$key . '_if'] = $messages[$key];
+
+					unset($messages[$key]);
+				}
+			}
+
+			$selectKey = $this->getInputDotNameAttribute()  . '.selected.required_if';
+			$selectMessage = [$selectKey => $messages[$this->getInputDotNameAttribute() . '.required_if']];
+		} else {
+			$selectKey = $this->getInputDotNameAttribute()  . '.selected.required';
+			$selectMessage = [$selectKey => $messages[$this->getInputDotNameAttribute() . '.required']];
+		}
+
+
+//		[$selectKey => $messages[$this->getInputDotNameAttribute() . '.required']];
+//dump($messages);
+		return array_merge($rules, $selectMessage);
+
+	//	dd($messages);
+
+		// Should the Dot name always do this? Probably not as that would break children?
+//		$selectKey = $this->getInputDotNameAttribute()  . '.selected';
+//
+//		return array_merge($rules, [
+//			$selectKey =>
+//				$messages[$this->getInputDotNameAttribute()
+//				]]);
+
+		//return $rules;
+
+
+
+
+//		$messages = $this->validators->errorMessages();
+//
+//		/**
+//		 * Rewrite required to required_if for items inside conditional selects
+//		 */
+//		if ($this->parent() instanceof LsfConditionalSelect) {
+//			foreach ($messages as $key => $rule) {
+//				if (Str::endsWith($key, 'required')) {
+//					$messages[$key . '_if'] = $messages[$key];
+//
+//					unset($messages[$key]);
+//				}
+//			}
+//		}
+//
+//		return $messages;
 	}
 	/**
 	 * Returns the Input’s response after the form has been submitted and validated

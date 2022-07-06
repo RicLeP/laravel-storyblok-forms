@@ -34,7 +34,12 @@ class LsfConditionalSelect extends MultiInput
 			$rules = array_merge($rules, $field->validationRules());
 		});
 
-		return $rules;
+		$fieldRules = $this->validators->validationRules();
+
+		// Should the Dot name always do this? Probably not as that would break children?
+		$selectKey = $this->getInputDotNameAttribute()  . '.selected';
+
+		return array_merge($rules, [$selectKey => $fieldRules[$this->getInputDotNameAttribute()]]);
 	}
 
 	/**

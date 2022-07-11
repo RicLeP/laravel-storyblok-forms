@@ -9,6 +9,7 @@ class LsfRepeatingFieldset extends LsfFieldset
 	protected function addToJson() {
 		$json['min'] = $this->min;
 		$json['max'] = $this->max;
+		$json['item_name'] = $this->item_name ?: 'Item';
 
 		return $json;
 	}

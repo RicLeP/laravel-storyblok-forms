@@ -17,6 +17,7 @@ class LsfRepeatingFieldset extends LsfFieldset
 		return [
 			'label' => $this->label,
 			'name' => $this->name,
+			'item_name' => $this->item_name ?? 'Item',
 			'response' => collect($input)->map(function ($repeatedFields) {
 				return $this->fields->map(function ($field) use ($repeatedFields) {
 

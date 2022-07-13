@@ -21,6 +21,7 @@
 							"size": "half",
 							"label": "Product type",
 							"options": "[1]Property Owners\n[2]Office \u0026 Surgeries\n[3]Shop",
+							"settings": [],
 							"component": "lsf-select",
 							"validators": [
 								{
@@ -31,30 +32,12 @@
 								}
 							],
 							"placeholder": "Please select",
-							"show_empty_option": true,
+							"show_empty_option": false,
 							"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-select\", \"space\": \"162134\", \"uid\": \"87d27ace-6d1a-4476-9c90-c749775fcb3a\", \"id\": \"150400196\"}--\u003e"
 						}
 					],
 					"component": "lsf-fieldset",
 					"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-fieldset\", \"space\": \"162134\", \"uid\": \"25192612-85e2-43c8-b186-197857e24ccf\", \"id\": \"150400196\"}--\u003e"
-				},
-				{
-					"_uid": "1de3da3a-b924-4913-b868-df354479921f",
-					"name": "pre_qualifying",
-					"label": "Pre qualifying questions",
-					"fields": [
-						{
-							"_uid": "f7ae36a8-fec6-48ae-bf45-d07885233907",
-							"name": "prequalifying",
-							"label": "To be eligible for a quotation the following MUST apply:",
-							"component": "lsf-textarea",
-							"validators": [],
-							"placeholder": "",
-							"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-textarea\", \"space\": \"162134\", \"uid\": \"f7ae36a8-fec6-48ae-bf45-d07885233907\", \"id\": \"150400196\"}--\u003e"
-						}
-					],
-					"component": "lsf-fieldset",
-					"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-fieldset\", \"space\": \"162134\", \"uid\": \"1de3da3a-b924-4913-b868-df354479921f\", \"id\": \"150400196\"}--\u003e"
 				},
 				{
 					"_uid": "8c70200a-2044-44f2-ab03-9939c8fe3c4e",
@@ -102,37 +85,38 @@
 									"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-input\", \"space\": \"162134\", \"uid\": \"db9e9db2-3126-48be-a752-46f1d5982560\", \"id\": \"150400196\"}--\u003e"
 								},
 								{
-									"_uid": "124a5390-ba3b-40fd-bc7c-c78e52bc1de8",
+									"_uid": "d07df4eb-13d0-42e0-a4c1-89906489f606",
 									"help": "",
 									"name": "client_4",
 									"size": "",
-									"type": "text",
 									"label": "Title",
+									"options": "Acting with power of attorney \nAdvocate\nCaptain \nDean\nDoctor\nEstate of\nExecutor of \nGeneral \nLady\nLieutenant\nLord\nMajor\nMaster\nMiss\nMr\nMrs\nMs\nProfessor\nReverend\nSergeant \nSir\nTrustees of",
 									"settings": [
 										{
-											"_uid": "f04a41d5-0edb-47d5-bd2f-a201c8bf4739",
+											"_uid": "31f3d4e4-69fb-4473-9834-4df069db62f7",
 											"component": "lsf-is-conditional",
 											"when_parent_is": "1,2,3",
-											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-is-conditional\", \"space\": \"162134\", \"uid\": \"f04a41d5-0edb-47d5-bd2f-a201c8bf4739\", \"id\": \"150400196\"}--\u003e"
+											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-is-conditional\", \"space\": \"162134\", \"uid\": \"31f3d4e4-69fb-4473-9834-4df069db62f7\", \"id\": \"150400196\"}--\u003e"
 										},
 										{
-											"_uid": "86950129-e462-40ad-a16b-2823fef491bc",
+											"_uid": "c5c96fea-27b0-4442-b5d3-f514a40a42f1",
 											"size": "1_third",
 											"component": "lsf-style",
-											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-style\", \"space\": \"162134\", \"uid\": \"86950129-e462-40ad-a16b-2823fef491bc\", \"id\": \"150400196\"}--\u003e"
+											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-style\", \"space\": \"162134\", \"uid\": \"c5c96fea-27b0-4442-b5d3-f514a40a42f1\", \"id\": \"150400196\"}--\u003e"
 										}
 									],
-									"component": "lsf-input",
+									"component": "lsf-select",
 									"validators": [
 										{
-											"_uid": "821e89b3-b978-4bf7-a700-f78bdeb134b7",
+											"_uid": "7bbfca58-c19c-4554-9aaf-e017280cf656",
 											"component": "lsf-validator-required",
-											"error_message": "This field is required",
-											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"162134\", \"uid\": \"821e89b3-b978-4bf7-a700-f78bdeb134b7\", \"id\": \"150400196\"}--\u003e"
+											"error_message": "",
+											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"162134\", \"uid\": \"7bbfca58-c19c-4554-9aaf-e017280cf656\", \"id\": \"150400196\"}--\u003e"
 										}
 									],
-									"placeholder": "",
-									"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-input\", \"space\": \"162134\", \"uid\": \"124a5390-ba3b-40fd-bc7c-c78e52bc1de8\", \"id\": \"150400196\"}--\u003e"
+									"placeholder": "Please select",
+									"show_empty_option": false,
+									"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-select\", \"space\": \"162134\", \"uid\": \"d07df4eb-13d0-42e0-a4c1-89906489f606\", \"id\": \"150400196\"}--\u003e"
 								},
 								{
 									"_uid": "c4382f23-4444-4fb7-8de2-74aae551eaa4",
@@ -237,7 +221,14 @@
 							"options": "[1]Individual\n[2]Sole Proprietor\n[3]Partnership\n[4]Limited Company\n[5]Limited Liability Partnership",
 							"settings": [],
 							"component": "lsf-conditional-select",
-							"validators": [],
+							"validators": [
+								{
+									"_uid": "253123b1-74ed-40be-8f95-3f42987e9dad",
+									"component": "lsf-validator-required",
+									"error_message": "This field is required",
+									"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"162134\", \"uid\": \"253123b1-74ed-40be-8f95-3f42987e9dad\", \"id\": \"150400196\"}--\u003e"
+								}
+							],
 							"placeholder": "Please select",
 							"show_empty_option": false,
 							"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-conditional-select\", \"space\": \"162134\", \"uid\": \"31ba197a-02e0-450a-ae38-9928c3a2a25a\", \"id\": \"150400196\"}--\u003e"
@@ -256,12 +247,31 @@
 							"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-input\", \"space\": \"162134\", \"uid\": \"8eefe135-a3de-4d2a-adfd-f0ccb6fa0525\", \"id\": \"150400196\"}--\u003e"
 						},
 						{
+							"_uid": "b242fdba-0985-4827-9d37-5e169b0462bf",
+							"help": "If an exact match is not found, please manually enter the address details below",
+							"name": "client_9",
+							"label": "Correspondence Address",
+							"settings": [],
+							"component": "lsf-address",
+							"validators": [
+								{
+									"_uid": "5b1298df-b81d-4004-91f9-705d2980f284",
+									"class": "Address",
+									"component": "lsf-validator-class",
+									"parameter": "",
+									"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-class\", \"space\": \"162134\", \"uid\": \"5b1298df-b81d-4004-91f9-705d2980f284\", \"id\": \"150400196\"}--\u003e"
+								}
+							],
+							"placeholder": "",
+							"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-address\", \"space\": \"162134\", \"uid\": \"b242fdba-0985-4827-9d37-5e169b0462bf\", \"id\": \"150400196\"}--\u003e"
+						},
+						{
 							"max": "",
 							"min": "",
 							"_uid": "10b63238-40e1-44ec-a51b-ebc8a756dd48",
 							"name": "client_14",
 							"intro": "Please enter any additional subsidiaries. If there are no subsidiaries to add move to the next section.",
-							"label": "Are there any more Subsidiaries to be included?",
+							"label": "Are there any Subsidiary Companies that are to be included in the insurance?",
 							"fields": [
 								{
 									"_uid": "6f7f7784-be0c-4e90-8c6f-3873f27f692a",
@@ -272,13 +282,21 @@
 									"label": "Subsidiary Company Name",
 									"settings": [],
 									"component": "lsf-input",
-									"validators": [],
+									"validators": [
+										{
+											"_uid": "45889fd4-2422-4bff-8f6a-0c4ac971d90f",
+											"component": "lsf-validator-required",
+											"error_message": "This field is required",
+											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"162134\", \"uid\": \"45889fd4-2422-4bff-8f6a-0c4ac971d90f\", \"id\": \"150400196\"}--\u003e"
+										}
+									],
 									"placeholder": "",
 									"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-input\", \"space\": \"162134\", \"uid\": \"6f7f7784-be0c-4e90-8c6f-3873f27f692a\", \"id\": \"150400196\"}--\u003e"
 								}
 							],
 							"settings": [],
 							"component": "lsf-repeating-fieldset",
+							"item_name": "Subsidiary Company",
 							"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-repeating-fieldset\", \"space\": \"162134\", \"uid\": \"10b63238-40e1-44ec-a51b-ebc8a756dd48\", \"id\": \"150400196\"}--\u003e"
 						}
 					],
@@ -325,21 +343,36 @@
 							"options": "[1]Ageas Insurance Ltd\n[2]Allianz\n[3]Aviva\n[4]AXA\n[5]Chubb Insurance\n[6]Hiscox\n[7]Insurance Corporation\n[8]Islands/NFU Mutual \n[9]Jersey Mutual\n[10]Lloyds\n[11]NIG\n[12]No Previous Insurer\n[13]Other\n[14]R\u0026Q\n[15]RSA\n[16]Towergate\n[17]Unknown\n[18]Zurich\n",
 							"settings": [],
 							"component": "lsf-select",
-							"validators": [],
-							"placeholder": "",
+							"validators": [
+								{
+									"_uid": "8455547b-34ec-4e5e-9c6b-9c8cafe562e4",
+									"component": "lsf-validator-required",
+									"error_message": "This field is required",
+									"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"162134\", \"uid\": \"8455547b-34ec-4e5e-9c6b-9c8cafe562e4\", \"id\": \"150400196\"}--\u003e"
+								}
+							],
+							"placeholder": "Please select",
 							"show_empty_option": true,
 							"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-select\", \"space\": \"162134\", \"uid\": \"70774046-78ff-41d4-8067-17417538a080\", \"id\": \"150400196\"}--\u003e"
 						},
 						{
 							"_uid": "bbcca069-6f49-43bd-974c-72c6883acfd1",
-							"help": "",
+							"help": "Enter numbers only",
 							"name": "basic_3",
 							"size": "",
 							"type": "number",
 							"label": "Target premium (if known)",
 							"settings": [],
 							"component": "lsf-input",
-							"validators": [],
+							"validators": [
+								{
+									"_uid": "98511bce-c87a-4730-b051-f4b150be5eed",
+									"class": "RoundNumber",
+									"component": "lsf-validator-class",
+									"parameter": "",
+									"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-class\", \"space\": \"162134\", \"uid\": \"98511bce-c87a-4730-b051-f4b150be5eed\", \"id\": \"150400196\"}--\u003e"
+								}
+							],
 							"placeholder": "",
 							"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-input\", \"space\": \"162134\", \"uid\": \"bbcca069-6f49-43bd-974c-72c6883acfd1\", \"id\": \"150400196\"}--\u003e"
 						},
@@ -352,8 +385,15 @@
 							"options": "[1]Housing Association\n[2]Property Developer\n[3]Property Investment\n[4]Property Letting\n[5]Property Management\n[6]Property Owner\n[7]Resident Association",
 							"settings": [],
 							"component": "lsf-select",
-							"validators": [],
-							"placeholder": "",
+							"validators": [
+								{
+									"_uid": "ffeddfff-977f-4324-af95-3c67b667ca31",
+									"component": "lsf-validator-required",
+									"error_message": "This field is required",
+									"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"162134\", \"uid\": \"ffeddfff-977f-4324-af95-3c67b667ca31\", \"id\": \"150400196\"}--\u003e"
+								}
+							],
+							"placeholder": "Please select",
 							"show_empty_option": false,
 							"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-select\", \"space\": \"162134\", \"uid\": \"c3035f1a-47b7-4a6d-8bd9-1ed868c6d007\", \"id\": \"150400196\"}--\u003e"
 						},
@@ -366,13 +406,20 @@
 							"options": "[1]1 Year\n[2]2 Years\n[3]3 Years\n[4]4 Years\n[5]5 Years\n[6]6 Years\n[7]7 Years\n[8]8 Years\n[9]9 Years\n[10]10+ Years",
 							"settings": [],
 							"component": "lsf-select",
-							"validators": [],
-							"placeholder": "",
+							"validators": [
+								{
+									"_uid": "61cfa961-4b26-4fe1-9f06-ce3ed2f938ed",
+									"component": "lsf-validator-required",
+									"error_message": "This field is required",
+									"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"162134\", \"uid\": \"61cfa961-4b26-4fe1-9f06-ce3ed2f938ed\", \"id\": \"150400196\"}--\u003e"
+								}
+							],
+							"placeholder": "Please select",
 							"show_empty_option": false,
 							"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-select\", \"space\": \"162134\", \"uid\": \"8ec1bd14-630c-4e04-a8f9-332cf82a53d0\", \"id\": \"150400196\"}--\u003e"
 						},
 						{
-							"max": "",
+							"max": "10",
 							"min": "",
 							"_uid": "1545067f-ed1a-4ebc-9392-7b268b98e5d3",
 							"name": "basic_6",
@@ -388,20 +435,61 @@
 									"label": "Date of claim",
 									"settings": [],
 									"component": "lsf-input",
-									"validators": [],
+									"validators": [
+										{
+											"_uid": "e7ad5b35-2768-4efc-aa28-83bcefac758b",
+											"component": "lsf-validator-required",
+											"error_message": "This field is required",
+											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"162134\", \"uid\": \"e7ad5b35-2768-4efc-aa28-83bcefac758b\", \"id\": \"150400196\"}--\u003e"
+										},
+										{
+											"_uid": "6ee355f6-1a25-4770-83f8-354d9fe10b9a",
+											"class": "PastDate",
+											"component": "lsf-validator-class",
+											"parameter": "",
+											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-class\", \"space\": \"162134\", \"uid\": \"6ee355f6-1a25-4770-83f8-354d9fe10b9a\", \"id\": \"150400196\"}--\u003e"
+										}
+									],
 									"placeholder": "",
 									"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-input\", \"space\": \"162134\", \"uid\": \"94e43df6-cd5a-485f-b069-f452d23deffb\", \"id\": \"150400196\"}--\u003e"
 								},
 								{
 									"_uid": "2c441aa4-8e20-4119-a535-67ce3abc31fe",
-									"help": "",
+									"help": "Enter numbers only",
 									"name": "basic_8",
 									"size": "",
 									"type": "number",
 									"label": "Value of claim",
 									"settings": [],
 									"component": "lsf-input",
-									"validators": [],
+									"validators": [
+										{
+											"_uid": "e3d9a92d-27a8-49d5-b30f-c5316dd83f1c",
+											"class": "RoundNumber",
+											"component": "lsf-validator-class",
+											"parameter": "",
+											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-class\", \"space\": \"162134\", \"uid\": \"e3d9a92d-27a8-49d5-b30f-c5316dd83f1c\", \"id\": \"150400196\"}--\u003e"
+										},
+										{
+											"_uid": "4dbd63a7-4c44-465e-8c98-879537d19528",
+											"component": "lsf-validator-required",
+											"error_message": "This field is required",
+											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"162134\", \"uid\": \"4dbd63a7-4c44-465e-8c98-879537d19528\", \"id\": \"150400196\"}--\u003e"
+										},
+										{
+											"_uid": "fc55a6d2-b3d3-4ab3-b785-373a5af9e5ab",
+											"component": "lsf-validator-min",
+											"parameter": "0",
+											"error_message": "Value can not be negative",
+											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-min\", \"space\": \"162134\", \"uid\": \"fc55a6d2-b3d3-4ab3-b785-373a5af9e5ab\", \"id\": \"150400196\"}--\u003e"
+										},
+										{
+											"_uid": "51584024-9757-43f7-b3e1-1b77bab731d7",
+											"component": "lsf-validator-numeric",
+											"error_message": "",
+											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-numeric\", \"space\": \"162134\", \"uid\": \"51584024-9757-43f7-b3e1-1b77bab731d7\", \"id\": \"150400196\"}--\u003e"
+										}
+									],
 									"placeholder": "",
 									"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-input\", \"space\": \"162134\", \"uid\": \"2c441aa4-8e20-4119-a535-67ce3abc31fe\", \"id\": \"150400196\"}--\u003e"
 								},
@@ -411,7 +499,14 @@
 									"label": "Is the claim settled?",
 									"settings": [],
 									"component": "lsf-radio-button",
-									"validators": [],
+									"validators": [
+										{
+											"_uid": "0b2cd7e6-db57-4f32-8449-51d8d822b97e",
+											"component": "lsf-validator-required",
+											"error_message": "This field is required",
+											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"162134\", \"uid\": \"0b2cd7e6-db57-4f32-8449-51d8d822b97e\", \"id\": \"150400196\"}--\u003e"
+										}
+									],
 									"radio_buttons": "[true]Yes\n[false]No",
 									"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-radio-button\", \"space\": \"162134\", \"uid\": \"77d49960-9ce9-4bc6-982f-68fef6dd1f66\", \"id\": \"150400196\"}--\u003e"
 								},
@@ -424,7 +519,14 @@
 									"options": "[1]Accidental Damage\n[2]Accidental Damage to Audio/Visual Equipment\n[3]Accidental Loss\n[4]Accidental Loss Of Contents\n[5]Aircraft\n[6]All Risks - If A Type Not Already Listed\n[7]Breakage/Collapse Of TV Aerials\n[8]Coastal Flood\n[9]Collision - Aircraft/Vehicles/Livestock\n[10]Drains and Underground Tanks\n[11]Earthquake\n[12]Employers Liability\n[13]Escape Of Oil\n[14]Escape Of Water\n[15]Explosion\n[16]Explosion - Caused by Terrorism\n[17]Falling Trees\n[18]Fire\n[19]Fire - Caused by Arson\n[20]Fire - Caused by Terrorism\n[21]Flood\n[22]Freezer Breakdown\n[23]Freezer Contents\n[24]Glass/Mirrors\n[25]Ground Heave\n[26]Ground Heave/Subsidence/Landslide\n[27]Impact\n[28]Landslide\n[29]Landslip\n[30]Liability\n[31]Lightning\n[32]Loss Adjuster Fees\n[33]Loss Adjuster Payments\n[34]Loss of Currency/Credit Cards\n[35]Malicious Damage\n[36]Malicious Damage/Riot\n[37]Public Liability - Buildings\n[38]Public Liability - Contents\n[39]Removal/Transit\n[40]Repair of Blocked Sewer\n[41]Riot/Civil Commotion\n[42]Riverine Flood\n[43]Sanitary Ware\n[44]Storm Damage\n[45]Subsidence\n[46]Theft\n[47]Theft - Locks and Keys\n[48]Theft Away from Home\n[49]Theft from Car\n[50]Theft from Outbuildings\n[51]Travel\n[52]Underground Service Pipe\n[53]Not Covered By Any Other Item On The List",
 									"settings": [],
 									"component": "lsf-select",
-									"validators": [],
+									"validators": [
+										{
+											"_uid": "7a9c3c8b-70fc-48bc-b9f3-562ba97f52cf",
+											"component": "lsf-validator-required",
+											"error_message": "This field is required",
+											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"162134\", \"uid\": \"7a9c3c8b-70fc-48bc-b9f3-562ba97f52cf\", \"id\": \"150400196\"}--\u003e"
+										}
+									],
 									"placeholder": "Please select",
 									"show_empty_option": true,
 									"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-select\", \"space\": \"162134\", \"uid\": \"508e0677-1441-415f-a9f5-0fb5d1bb034e\", \"id\": \"150400196\"}--\u003e"
@@ -438,13 +540,21 @@
 									"label": "Postcode of the premises where the claim happened",
 									"settings": [],
 									"component": "lsf-input",
-									"validators": [],
+									"validators": [
+										{
+											"_uid": "248ceca4-6a86-42e3-a53b-7bd96bda7c4d",
+											"component": "lsf-validator-required",
+											"error_message": "This field is required",
+											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"162134\", \"uid\": \"248ceca4-6a86-42e3-a53b-7bd96bda7c4d\", \"id\": \"150400196\"}--\u003e"
+										}
+									],
 									"placeholder": "",
 									"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-input\", \"space\": \"162134\", \"uid\": \"253e0fde-bbdb-4b88-b35f-2221aab58428\", \"id\": \"150400196\"}--\u003e"
 								}
 							],
 							"settings": [],
 							"component": "lsf-repeating-fieldset",
+							"item_name": "Claim",
 							"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-repeating-fieldset\", \"space\": \"162134\", \"uid\": \"1545067f-ed1a-4ebc-9392-7b268b98e5d3\", \"id\": \"150400196\"}--\u003e"
 						}
 					],
@@ -465,6 +575,31 @@
 							"label": "Premises",
 							"fields": [
 								{
+									"_uid": "70e610c8-fdee-4fb8-bc03-c97a35bcf5b7",
+									"help": "",
+									"name": "risk_address_1",
+									"label": "Premises Address",
+									"settings": [
+										{
+											"_uid": "dbe998cc-555c-4fb9-85b4-587f3bac2e07",
+											"size": "full",
+											"component": "lsf-style",
+											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-style\", \"space\": \"162134\", \"uid\": \"dbe998cc-555c-4fb9-85b4-587f3bac2e07\", \"id\": \"150400196\"}--\u003e"
+										}
+									],
+									"component": "lsf-address",
+									"validators": [
+										{
+											"_uid": "4e1a3363-c91e-4666-91dc-fea1f59a0df9",
+											"component": "lsf-validator-required",
+											"error_message": "",
+											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"162134\", \"uid\": \"4e1a3363-c91e-4666-91dc-fea1f59a0df9\", \"id\": \"150400196\"}--\u003e"
+										}
+									],
+									"placeholder": "",
+									"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-address\", \"space\": \"162134\", \"uid\": \"70e610c8-fdee-4fb8-bc03-c97a35bcf5b7\", \"id\": \"150400196\"}--\u003e"
+								},
+								{
 									"_uid": "a7401905-e381-42c3-829a-5bbe89ce1a9a",
 									"help": "Please provide your best estimate if exact year is not known",
 									"name": "risk_address_6",
@@ -474,13 +609,20 @@
 									"settings": [
 										{
 											"_uid": "7e982943-6b39-4c56-8162-397202935ed9",
-											"size": "half",
+											"size": "full",
 											"component": "lsf-style",
 											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-style\", \"space\": \"162134\", \"uid\": \"7e982943-6b39-4c56-8162-397202935ed9\", \"id\": \"150400196\"}--\u003e"
 										}
 									],
 									"component": "lsf-input",
-									"validators": [],
+									"validators": [
+										{
+											"_uid": "63c92270-5b53-4bee-a516-fcd7e69b670d",
+											"component": "lsf-validator-required",
+											"error_message": "This field is required",
+											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"162134\", \"uid\": \"63c92270-5b53-4bee-a516-fcd7e69b670d\", \"id\": \"150400196\"}--\u003e"
+										}
+									],
 									"placeholder": "",
 									"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-input\", \"space\": \"162134\", \"uid\": \"a7401905-e381-42c3-829a-5bbe89ce1a9a\", \"id\": \"150400196\"}--\u003e"
 								},
@@ -491,10 +633,18 @@
 									"size": "",
 									"label": "Please select the type of listing:",
 									"options": "[1]Grade 1\n[2]Grade 2\n[3]Grade 3\n[4]Grade 4\n[5]Grade B2\n[6]Grade B\n[7]Grade C(S)\n[8]Not Listed\n[9]Preservation Order\n[10]Grade 2*\n[11]Protected\n[12]Grade A\n[13]Grade B Plus\n[14]Grade B1",
+									"settings": [],
 									"component": "lsf-select",
-									"validators": [],
-									"placeholder": "",
-									"show_empty_option": true,
+									"validators": [
+										{
+											"_uid": "02222af1-6601-4ae6-944c-d800a812b630",
+											"component": "lsf-validator-required",
+											"error_message": "This field is required",
+											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"162134\", \"uid\": \"02222af1-6601-4ae6-944c-d800a812b630\", \"id\": \"150400196\"}--\u003e"
+										}
+									],
+									"placeholder": "Please select",
+									"show_empty_option": false,
 									"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-select\", \"space\": \"162134\", \"uid\": \"eed14803-9262-40c1-a211-64ae93b5ba6c\", \"id\": \"150400196\"}--\u003e"
 								},
 								{
@@ -510,19 +660,26 @@
 											"name": "risk_address_9",
 											"size": "",
 											"label": "What is the tenants trade?",
-											"options": "[1]Bakeries\n[2]Banks\n[3]Bed and Breakfast\n[4]Bookmakers (Not Privately owned/occupied)\n[5]Builders' Merchants - No Woodworking\n[6]Builders' Merchants - Woodworking\n[7]Café including Frying\n[8]Café excluding Frying \n[9]Carehomes\n[10]Charity Shops\n[11]Churches and Chapels\n[12]Clothing\n[13]Clubs - Working Mens\n[14]Clubs - Sports (Wood)\n[15]Clubs - Sports (Other)\n[16]Type ID+B5:B47\n[17]Electrical Goods\n[18]Fancy Goods\n[19]Block of Flats\n[20]Furniture/Carpet Retailers\n[21]Groceries\n[22]Guesthouses/Hotels\n[23]Hardware\n[24]Housing Association\n[25]Private Dwelling House\n[26]Property Developer\n[27]Property Investment\n[28]Property Letting\n[29]Property Management \n[30]Property Owner\n[31]Individual Flat - Buildings\n[32]Individual Flat - Contents\n[33]Lodging Houses\n[34]Machinery Warehouse\n[35]Metalworkers  - Electronic Goods\n[36]Metalworkers - Other\n[37]Motor Trade - Showrooms\n[38]Motor Trade - Workshops/Stores\n[39]Motor Trade - Petrol Stations\n[40]Office\n[41]Offices with Flats Above\n[42]Plumbers Merchants' (With Workshop)\n[43]Plumbers Merchants' (Without Workshop)\n[44]Public Houses\n[45]Resident Association\n[46]Restaurants/Wine Bars\n[47]Retail Warehouse\n[48]Sandwhich Shops\n[49]Shop\n[50]Shops with Flats Above\n[51]Stonemasons\n[52]Student Lets\n[53]Surgery\n[54]Surgery with Flats Above\n[55]Takeaways",
+											"options": "---Commerical|1,3\n[1]Bakeries\n[2]Banks\n[3]Bed and Breakfast\n[4]Bookmakers (Not Privately owned/occupied)\n[5]Builders' Merchants - No Woodworking\n[6]Builders' Merchants - Woodworking\n[7]Café including Frying\n[8]Café excluding Frying\n[9]Carehomes\n[10]Charity Shops\n[11]Churches and Chapels\n[12]Clothing\n[13]Clubs - Working Mens\n[14]Clubs - Sports (Wood)\n[15]Clubs - Sports (Other)\n[16]Dry Cleaner/Laundrette\n[17]Electrical Goods\n[18]Fancy Goods\n[19]Block of Flats\n[20]Furniture/Carpet Retailers\n[21]Groceries\n[22]Guesthouses/Hotels\n[23]Hardware\n[24]Housing Association\n[25]Private Dwelling House\n[26]Property Developer\n[27]Property Investment\n[28]Property Letting\n[29]Property Management\n[30]Property Owner\n[31]Individual Flat - Buildings\n[32]Individual Flat - Contents\n[33]Lodging Houses\n[34]Machinery Warehouse\n[35]Metalworkers  - Electronic Goods\n[36]Metalworkers - Other\n[37]Motor Trade - Showrooms\n[38]Motor Trade - Workshops/Stores\n[39]Motor Trade - Petrol Stations\n[40]Office\n[41]Offices with Flats Above\n[42]Plumbers Merchants' (With Workshop)\n[43]Plumbers Merchants' (Without Workshop)\n[44]Public Houses\n[45]Resident Association\n[46]Restaurants/Wine Bars\n[47]Retail Warehouse\n[48]Sandwich Shops\n[49]Shop\n[50]Shops with Flats Above\n[51]Stonemasons\n[52]Student Lets\n[53]Surgery\n[54]Surgery with Flats Above\n[55]Takeaways\n---Residential|2\n[56]Aged And Senile\n[57]Aids Suffers\n[58]Alcohol Dependency\n[59]Alcohol Drug And Solvent Abusers\n[60]Bed and Breakfast\n[61]Care and Support\n[62]Children\n[63]Commercial\n[64]Commercial/Business Travellers\n[65]Convalescent - Adult\n[66]Convalescent - Children\n[67]Council Support\n[68]D.S.S.\n[69]Dementia\n[70]Drug Dependency\n[71]Employees\n[72]Family Member(s)\n[73]Free Format\n[74]Government/Local Authority Financially Assisted\n[75]Learning Disability - Adult\n[76]Learning Disability - Children\n[77]Leasehold\n[78]Local Authority\n[79]Long Stay\n[80]Mentally Handicapped - Adult\n[81]Mentally Handicapped - Children\n[82]Mentally Ill - Adult\n[83]Mentally Ill - Children\n[84]Multi Handicapped - Adult\n[85]Multi Handicapped - Children\n[86]None\n[87]Older People (Over 65)\n[88]Other\n[89]Overnight Accommodation Only\n[90]Physically Handicapped - Adult\n[91]Physically Handicapped - Children\n[92]Private Rental\n[93]Proprietor\n[94]Residential\n[95]Sensory Impairment - Adult\n[96]Sensory Impairment - Children\n[97]Students\n[98]Terminally Ill - Adult\n[99]Terminally Ill - Children\n[100]Tourist\n[101]Non-Working Occupant(s), Benefits Assisted\n[102]Non-Working Occupant(s), Not Benefits Assisted\n[103]Retired\n[104]Unknown Occupant(s) (Let to Local Authority)\n[105]Working Occupant(s), Benefits Assisted\n[106]Working Occupant(s), Not Benefits Assisted",
 											"settings": [
 												{
-													"_uid": "4f2355f5-b7de-49eb-9f70-194ad9f33042",
+													"_uid": "9ec023c0-6bf7-4fe3-bafd-8f22f801e4cc",
 													"component": "lsf-is-conditional",
-													"when_parent_is": "1,3",
-													"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-is-conditional\", \"space\": \"162134\", \"uid\": \"4f2355f5-b7de-49eb-9f70-194ad9f33042\", \"id\": \"150400196\"}--\u003e"
+													"when_parent_is": "1,2,3",
+													"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-is-conditional\", \"space\": \"162134\", \"uid\": \"9ec023c0-6bf7-4fe3-bafd-8f22f801e4cc\", \"id\": \"150400196\"}--\u003e"
 												}
 											],
 											"component": "lsf-select",
-											"validators": [],
-											"placeholder": "",
-											"show_empty_option": true,
+											"validators": [
+												{
+													"_uid": "5837f566-f67c-4f84-bf0b-71be5016f83b",
+													"component": "lsf-validator-required",
+													"error_message": "This field is required",
+													"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"162134\", \"uid\": \"5837f566-f67c-4f84-bf0b-71be5016f83b\", \"id\": \"150400196\"}--\u003e"
+												}
+											],
+											"placeholder": "Please select",
+											"show_empty_option": false,
 											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-select\", \"space\": \"162134\", \"uid\": \"38f6a4a9-4fbf-456b-9fc1-0976dd0e29dc\", \"id\": \"150400196\"}--\u003e"
 										},
 										{
@@ -548,7 +705,21 @@
 														}
 													],
 													"component": "lsf-input",
-													"validators": [],
+													"validators": [
+														{
+															"_uid": "1062c8a8-beeb-47b8-89a9-9520acecc9f8",
+															"class": "RoundNumber",
+															"component": "lsf-validator-class",
+															"parameter": "",
+															"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-class\", \"space\": \"162134\", \"uid\": \"1062c8a8-beeb-47b8-89a9-9520acecc9f8\", \"id\": \"150400196\"}--\u003e"
+														},
+														{
+															"_uid": "b7762c64-02ca-4085-a0bd-c85d57dca3f6",
+															"component": "lsf-validator-required",
+															"error_message": "This field is required",
+															"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"162134\", \"uid\": \"b7762c64-02ca-4085-a0bd-c85d57dca3f6\", \"id\": \"150400196\"}--\u003e"
+														}
+													],
 													"placeholder": "",
 													"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-input\", \"space\": \"162134\", \"uid\": \"71f005ba-9000-4719-a197-f9913108edda\", \"id\": \"150400196\"}--\u003e"
 												}
@@ -563,9 +734,16 @@
 												}
 											],
 											"component": "lsf-conditional-select",
-											"validators": [],
-											"placeholder": "",
-											"show_empty_option": true,
+											"validators": [
+												{
+													"_uid": "0c539fc0-a03a-4670-9819-ad533bff09fc",
+													"component": "lsf-validator-required",
+													"error_message": "This field is required",
+													"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"162134\", \"uid\": \"0c539fc0-a03a-4670-9819-ad533bff09fc\", \"id\": \"150400196\"}--\u003e"
+												}
+											],
+											"placeholder": "Please select",
+											"show_empty_option": false,
 											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-conditional-select\", \"space\": \"162134\", \"uid\": \"6339d3ef-7720-4685-8d45-9f3b3364883e\", \"id\": \"150400196\"}--\u003e"
 										},
 										{
@@ -584,17 +762,32 @@
 												}
 											],
 											"component": "lsf-select",
-											"validators": [],
-											"placeholder": "",
-											"show_empty_option": true,
+											"validators": [
+												{
+													"_uid": "b00f7141-cf3a-4897-a18a-a0b9c76d1d7e",
+													"component": "lsf-validator-required",
+													"error_message": "This field is required",
+													"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"162134\", \"uid\": \"b00f7141-cf3a-4897-a18a-a0b9c76d1d7e\", \"id\": \"150400196\"}--\u003e"
+												}
+											],
+											"placeholder": "Please select",
+											"show_empty_option": false,
 											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-select\", \"space\": \"162134\", \"uid\": \"4ae92426-71ac-49e5-9d38-23862f1f6755\", \"id\": \"150400196\"}--\u003e"
 										}
 									],
-									"options": "[1]Commercial \n[2]Residential\n[3]Commercial with Residential\n",
+									"options": "[1]Commercial \n[2]Residential\n[3]Commercial with Residential",
+									"settings": [],
 									"component": "lsf-conditional-select",
-									"validators": [],
-									"placeholder": "",
-									"show_empty_option": true,
+									"validators": [
+										{
+											"_uid": "2c28f3a9-7e84-4282-9d09-217662a3f374",
+											"component": "lsf-validator-required",
+											"error_message": "This field is required",
+											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"162134\", \"uid\": \"2c28f3a9-7e84-4282-9d09-217662a3f374\", \"id\": \"150400196\"}--\u003e"
+										}
+									],
+									"placeholder": "Please select",
+									"show_empty_option": false,
 									"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-conditional-select\", \"space\": \"162134\", \"uid\": \"f2b52a7b-21d2-466d-bac2-9a0fde25dfba\", \"id\": \"150400196\"}--\u003e"
 								},
 								{
@@ -613,7 +806,14 @@
 										}
 									],
 									"component": "lsf-input",
-									"validators": [],
+									"validators": [
+										{
+											"_uid": "ccdf4470-08df-4747-bc08-cf0cd8460632",
+											"component": "lsf-validator-required",
+											"error_message": "This field is required",
+											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"162134\", \"uid\": \"ccdf4470-08df-4747-bc08-cf0cd8460632\", \"id\": \"150400196\"}--\u003e"
+										}
+									],
 									"placeholder": "",
 									"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-input\", \"space\": \"162134\", \"uid\": \"f30b7c0b-ae38-4c8d-85e9-019c6d1262ca\", \"id\": \"150400196\"}--\u003e"
 								},
@@ -648,7 +848,14 @@
 														}
 													],
 													"component": "lsf-select",
-													"validators": [],
+													"validators": [
+														{
+															"_uid": "a2e1b660-4d14-4334-8585-49f7e6e90eb8",
+															"component": "lsf-validator-required",
+															"error_message": "This field is required",
+															"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"162134\", \"uid\": \"a2e1b660-4d14-4334-8585-49f7e6e90eb8\", \"id\": \"150400196\"}--\u003e"
+														}
+													],
 													"placeholder": "",
 													"show_empty_option": false,
 													"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-select\", \"space\": \"162134\", \"uid\": \"1f42d33c-b306-4862-b98d-820a3c5d88c8\", \"id\": \"150400196\"}--\u003e"
@@ -675,6 +882,13 @@
 															"component": "lsf-validator-required",
 															"error_message": "",
 															"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"162134\", \"uid\": \"dd37b54f-20f9-40f6-967a-23fcd1db95e9\", \"id\": \"150400196\"}--\u003e"
+														},
+														{
+															"_uid": "6e908f6e-7f1e-40f4-a1a3-b19a7bfa8601",
+															"class": "BuildingMaterialsTotal",
+															"component": "lsf-validator-class",
+															"parameter": "",
+															"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-class\", \"space\": \"162134\", \"uid\": \"6e908f6e-7f1e-40f4-a1a3-b19a7bfa8601\", \"id\": \"150400196\"}--\u003e"
 														}
 													],
 													"placeholder": "",
@@ -690,13 +904,21 @@
 												}
 											],
 											"component": "lsf-repeating-fieldset",
+											"item_name": "Material",
 											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-repeating-fieldset\", \"space\": \"162134\", \"uid\": \"80100055-2588-45ef-8afa-fc1c5ceaffee\", \"id\": \"150400196\"}--\u003e"
 										}
 									],
 									"options": "[true]Yes\n[false]No",
 									"settings": [],
 									"component": "lsf-conditional-select",
-									"validators": [],
+									"validators": [
+										{
+											"_uid": "b1a95c92-8e62-43a3-8b60-66e196fdb30c",
+											"component": "lsf-validator-required",
+											"error_message": "This field is required",
+											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"162134\", \"uid\": \"b1a95c92-8e62-43a3-8b60-66e196fdb30c\", \"id\": \"150400196\"}--\u003e"
+										}
+									],
 									"placeholder": "Please select",
 									"show_empty_option": false,
 									"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-conditional-select\", \"space\": \"162134\", \"uid\": \"505b01c5-a431-4392-83d4-0adc75672e34\", \"id\": \"150400196\"}--\u003e"
@@ -713,6 +935,7 @@
 											"min": "1",
 											"_uid": "feda7f2c-29a4-4103-8fbf-d69f09827338",
 											"name": "roofing",
+											"intro": "",
 											"label": "Roofing",
 											"fields": [
 												{
@@ -731,7 +954,21 @@
 														}
 													],
 													"component": "lsf-select",
-													"validators": [],
+													"validators": [
+														{
+															"_uid": "33147c62-afc8-4fb3-bea7-c1cad78371be",
+															"component": "lsf-validator-required",
+															"error_message": "",
+															"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"162134\", \"uid\": \"33147c62-afc8-4fb3-bea7-c1cad78371be\", \"id\": \"150400196\"}--\u003e"
+														},
+														{
+															"_uid": "7d9ecc9e-af18-4603-807e-f828b2ead0ad",
+															"class": "BuildingMaterialsTotal",
+															"component": "lsf-validator-class",
+															"parameter": "",
+															"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-class\", \"space\": \"162134\", \"uid\": \"7d9ecc9e-af18-4603-807e-f828b2ead0ad\", \"id\": \"150400196\"}--\u003e"
+														}
+													],
 													"placeholder": "",
 													"show_empty_option": false,
 													"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-select\", \"space\": \"162134\", \"uid\": \"77ab6ee7-d8b7-4ac5-85de-8e400251c7c0\", \"id\": \"150400196\"}--\u003e"
@@ -752,7 +989,14 @@
 														}
 													],
 													"component": "lsf-input",
-													"validators": [],
+													"validators": [
+														{
+															"_uid": "1b6bdb50-623f-4211-be76-bada59cda3d9",
+															"component": "lsf-validator-required",
+															"error_message": "This field is required",
+															"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"162134\", \"uid\": \"1b6bdb50-623f-4211-be76-bada59cda3d9\", \"id\": \"150400196\"}--\u003e"
+														}
+													],
 													"placeholder": "",
 													"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-input\", \"space\": \"162134\", \"uid\": \"5819130e-abcf-4ae9-ad10-e310cefb3ff9\", \"id\": \"150400196\"}--\u003e"
 												}
@@ -766,13 +1010,21 @@
 												}
 											],
 											"component": "lsf-repeating-fieldset",
+											"item_name": "Material",
 											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-repeating-fieldset\", \"space\": \"162134\", \"uid\": \"feda7f2c-29a4-4103-8fbf-d69f09827338\", \"id\": \"150400196\"}--\u003e"
 										}
 									],
 									"options": "[true]Yes\n[false]No",
 									"settings": [],
 									"component": "lsf-conditional-select",
-									"validators": [],
+									"validators": [
+										{
+											"_uid": "11a9b6a1-dae3-4d31-996c-54871485d7f0",
+											"component": "lsf-validator-required",
+											"error_message": "This field is required",
+											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"162134\", \"uid\": \"11a9b6a1-dae3-4d31-996c-54871485d7f0\", \"id\": \"150400196\"}--\u003e"
+										}
+									],
 									"placeholder": "Please select",
 									"show_empty_option": true,
 									"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-conditional-select\", \"space\": \"162134\", \"uid\": \"00150787-7670-422a-9254-fbbc6ead6f8f\", \"id\": \"150400196\"}--\u003e"
@@ -793,8 +1045,15 @@
 										}
 									],
 									"component": "lsf-select",
-									"validators": [],
-									"placeholder": "",
+									"validators": [
+										{
+											"_uid": "318c5697-3b19-4dce-920d-e04ed8d1b38a",
+											"component": "lsf-validator-required",
+											"error_message": "This field is required",
+											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"162134\", \"uid\": \"318c5697-3b19-4dce-920d-e04ed8d1b38a\", \"id\": \"150400196\"}--\u003e"
+										}
+									],
+									"placeholder": "Please select",
 									"show_empty_option": false,
 									"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-select\", \"space\": \"162134\", \"uid\": \"55db5d50-c8f2-4c58-986a-715b31aaa5aa\", \"id\": \"150400196\"}--\u003e"
 								},
@@ -814,8 +1073,15 @@
 										}
 									],
 									"component": "lsf-select",
-									"validators": [],
-									"placeholder": "",
+									"validators": [
+										{
+											"_uid": "19154829-5b8e-41c2-bf34-79a45bbaceff",
+											"component": "lsf-validator-required",
+											"error_message": "This field is required",
+											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"162134\", \"uid\": \"19154829-5b8e-41c2-bf34-79a45bbaceff\", \"id\": \"150400196\"}--\u003e"
+										}
+									],
+									"placeholder": "Please select",
 									"show_empty_option": false,
 									"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-select\", \"space\": \"162134\", \"uid\": \"4ca064a8-c29c-4e48-89e5-51b72293bee5\", \"id\": \"150400196\"}--\u003e"
 								},
@@ -825,7 +1091,14 @@
 									"label": "Have the Premise(s) or any adjacent property suffered from, or show any visible signs of damage from subsidence, landslip or ground heave?",
 									"settings": [],
 									"component": "lsf-radio-button",
-									"validators": [],
+									"validators": [
+										{
+											"_uid": "58a279b6-c68c-4455-9bdc-e2c40cd47cc7",
+											"component": "lsf-validator-required",
+											"error_message": "This field is required",
+											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"162134\", \"uid\": \"58a279b6-c68c-4455-9bdc-e2c40cd47cc7\", \"id\": \"150400196\"}--\u003e"
+										}
+									],
 									"radio_buttons": "[true]Yes\n[false]No",
 									"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-radio-button\", \"space\": \"162134\", \"uid\": \"c8701273-ce63-43da-bc76-25d1e7b9fa74\", \"id\": \"150400196\"}--\u003e"
 								},
@@ -835,7 +1108,14 @@
 									"label": "Is the premise(s) in an area with a history of flooding?",
 									"settings": [],
 									"component": "lsf-radio-button",
-									"validators": [],
+									"validators": [
+										{
+											"_uid": "dce9b17e-cfbc-4d6a-af69-944cf9568efb",
+											"component": "lsf-validator-required",
+											"error_message": "This field is required",
+											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"162134\", \"uid\": \"dce9b17e-cfbc-4d6a-af69-944cf9568efb\", \"id\": \"150400196\"}--\u003e"
+										}
+									],
 									"radio_buttons": "[true]Yes\n[false]No",
 									"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-radio-button\", \"space\": \"162134\", \"uid\": \"80166cb0-85f6-4240-a22b-dd4db7495d1a\", \"id\": \"150400196\"}--\u003e"
 								},
@@ -845,7 +1125,14 @@
 									"label": "Has the electrical installation been inspected during the last 5 years?",
 									"settings": [],
 									"component": "lsf-radio-button",
-									"validators": [],
+									"validators": [
+										{
+											"_uid": "e3d628f4-5b56-4129-82f4-c257b9478892",
+											"component": "lsf-validator-required",
+											"error_message": "This field is required",
+											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"162134\", \"uid\": \"e3d628f4-5b56-4129-82f4-c257b9478892\", \"id\": \"150400196\"}--\u003e"
+										}
+									],
 									"radio_buttons": "[true]Yes\n[false]No",
 									"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-radio-button\", \"space\": \"162134\", \"uid\": \"c256af56-de32-4239-b62c-13bbbbb686f7\", \"id\": \"150400196\"}--\u003e"
 								},
@@ -855,7 +1142,14 @@
 									"label": "Do the premise(s) have a current IEE/IET electrical certificate?",
 									"settings": [],
 									"component": "lsf-radio-button",
-									"validators": [],
+									"validators": [
+										{
+											"_uid": "0130aed0-08f6-4058-9fd6-a06d9a860e06",
+											"component": "lsf-validator-required",
+											"error_message": "This field is required",
+											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"162134\", \"uid\": \"0130aed0-08f6-4058-9fd6-a06d9a860e06\", \"id\": \"150400196\"}--\u003e"
+										}
+									],
 									"radio_buttons": "[true]Yes\n[false]No",
 									"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-radio-button\", \"space\": \"162134\", \"uid\": \"bd01e0c6-7949-40dd-9012-9a41d9e84305\", \"id\": \"150400196\"}--\u003e"
 								},
@@ -879,7 +1173,14 @@
 												}
 											],
 											"component": "lsf-radio-button",
-											"validators": [],
+											"validators": [
+												{
+													"_uid": "43056da4-7f64-460d-9d09-fa066f24c971",
+													"component": "lsf-validator-required",
+													"error_message": "This field is required",
+													"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"162134\", \"uid\": \"43056da4-7f64-460d-9d09-fa066f24c971\", \"id\": \"150400196\"}--\u003e"
+												}
+											],
 											"radio_buttons": "[true]Yes\n[false]No",
 											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-radio-button\", \"space\": \"162134\", \"uid\": \"1956ae2f-dfa3-43fe-b2ef-8d647153aa4b\", \"id\": \"150400196\"}--\u003e"
 										}
@@ -887,8 +1188,15 @@
 									"options": "[true]Yes\n[false]No",
 									"settings": [],
 									"component": "lsf-conditional-select",
-									"validators": [],
-									"placeholder": "",
+									"validators": [
+										{
+											"_uid": "ca247930-896e-46d0-9b28-0db6e44d75bb",
+											"component": "lsf-validator-required",
+											"error_message": "This field is required",
+											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"162134\", \"uid\": \"ca247930-896e-46d0-9b28-0db6e44d75bb\", \"id\": \"150400196\"}--\u003e"
+										}
+									],
+									"placeholder": "Please select",
 									"show_empty_option": false,
 									"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-conditional-select\", \"space\": \"162134\", \"uid\": \"e46a9114-6f20-4ad5-b46d-36c70b79b55b\", \"id\": \"150400196\"}--\u003e"
 								},
@@ -898,7 +1206,14 @@
 									"label": "Is there an Intruder Alarm present?",
 									"settings": [],
 									"component": "lsf-radio-button",
-									"validators": [],
+									"validators": [
+										{
+											"_uid": "4ad0ec41-d52e-4078-8f25-c40afcb5d945",
+											"component": "lsf-validator-required",
+											"error_message": "This field is required",
+											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"162134\", \"uid\": \"4ad0ec41-d52e-4078-8f25-c40afcb5d945\", \"id\": \"150400196\"}--\u003e"
+										}
+									],
 									"radio_buttons": "[true]Yes\n[false]No",
 									"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-radio-button\", \"space\": \"162134\", \"uid\": \"8a9a37ba-4df2-43d0-8459-d64943225fa2\", \"id\": \"150400196\"}--\u003e"
 								},
@@ -911,8 +1226,15 @@
 									"options": "[1]Fire - Open\n[2]Fire - Other\n[3]Fixed Heaters\n[4]Hot Air\n[5]Night Storage Heaters\n[6]Oil Heater\n[7]Portable Heaters\n[8]Pressure Jet Heater\n[9]Radiant Panel Heater\n[10]Radiators - Hot Water\n[11]Radiators - Oil Filled\n[12]Stove",
 									"settings": [],
 									"component": "lsf-select",
-									"validators": [],
-									"placeholder": "",
+									"validators": [
+										{
+											"_uid": "9cf3f7e0-0723-4260-b7c7-a1e6a2789473",
+											"component": "lsf-validator-required",
+											"error_message": "This field is required",
+											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"162134\", \"uid\": \"9cf3f7e0-0723-4260-b7c7-a1e6a2789473\", \"id\": \"150400196\"}--\u003e"
+										}
+									],
+									"placeholder": "Please select",
 									"show_empty_option": false,
 									"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-select\", \"space\": \"162134\", \"uid\": \"228ceefd-e1d5-4108-bf7a-0d8d401fb2c5\", \"id\": \"150400196\"}--\u003e"
 								},
@@ -922,7 +1244,14 @@
 									"label": "Is there a planned building maintenance programme in place?",
 									"settings": [],
 									"component": "lsf-radio-button",
-									"validators": [],
+									"validators": [
+										{
+											"_uid": "0e13a53e-fd43-421a-9aec-eb4bf915a0f6",
+											"component": "lsf-validator-required",
+											"error_message": "This field is required",
+											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"162134\", \"uid\": \"0e13a53e-fd43-421a-9aec-eb4bf915a0f6\", \"id\": \"150400196\"}--\u003e"
+										}
+									],
 									"radio_buttons": "[true]Yes\n[false]No",
 									"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-radio-button\", \"space\": \"162134\", \"uid\": \"2dfce4c2-8ca0-4f04-9e7a-b9b60e1af26f\", \"id\": \"150400196\"}--\u003e"
 								},
@@ -950,13 +1279,47 @@
 												}
 											],
 											"component": "lsf-input",
-											"validators": [],
+											"validators": [
+												{
+													"_uid": "69b7abab-c6b4-45cc-b907-fb743b4074fe",
+													"component": "lsf-validator-required",
+													"error_message": "This field is required",
+													"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"162134\", \"uid\": \"69b7abab-c6b4-45cc-b907-fb743b4074fe\", \"id\": \"150400196\"}--\u003e"
+												}
+											],
 											"placeholder": "",
 											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-input\", \"space\": \"162134\", \"uid\": \"9e25679f-3852-4642-9f78-65fd53999b3e\", \"id\": \"150400196\"}--\u003e"
+										},
+										{
+											"_uid": "9e2281d4-e0c7-4e03-96b1-3a0844d56b27",
+											"help": "",
+											"name": "risk_address_34",
+											"label": "Address",
+											"settings": [
+												{
+													"_uid": "6de9a927-b490-4127-b35e-eb3976f0c31a",
+													"size": "full",
+													"component": "lsf-style",
+													"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-style\", \"space\": \"162134\", \"uid\": \"6de9a927-b490-4127-b35e-eb3976f0c31a\", \"id\": \"150400196\"}--\u003e"
+												}
+											],
+											"component": "lsf-address",
+											"validators": [
+												{
+													"_uid": "87859e51-19b5-4752-aefd-07a4155d64fd",
+													"class": "Address",
+													"component": "lsf-validator-class",
+													"parameter": "",
+													"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-class\", \"space\": \"162134\", \"uid\": \"87859e51-19b5-4752-aefd-07a4155d64fd\", \"id\": \"150400196\"}--\u003e"
+												}
+											],
+											"placeholder": "",
+											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-address\", \"space\": \"162134\", \"uid\": \"9e2281d4-e0c7-4e03-96b1-3a0844d56b27\", \"id\": \"150400196\"}--\u003e"
 										}
 									],
 									"settings": [],
 									"component": "lsf-repeating-fieldset",
+									"item_name": "Party",
 									"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-repeating-fieldset\", \"space\": \"162134\", \"uid\": \"4db7e9ef-5103-4b26-a12c-b591113a693e\", \"id\": \"150400196\"}--\u003e"
 								},
 								{
@@ -982,15 +1345,57 @@
 												}
 											],
 											"component": "lsf-input",
-											"validators": [],
+											"validators": [
+												{
+													"_uid": "9d5f98f7-7057-4c69-9728-cc9f3ca3a8d1",
+													"class": "RoundNumber",
+													"component": "lsf-validator-class",
+													"parameter": "",
+													"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-class\", \"space\": \"162134\", \"uid\": \"9d5f98f7-7057-4c69-9728-cc9f3ca3a8d1\", \"id\": \"150400196\"}--\u003e"
+												},
+												{
+													"_uid": "113917c4-1ac4-468f-b93e-1e6287fd8718",
+													"component": "lsf-validator-required",
+													"error_message": "This field is required",
+													"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"162134\", \"uid\": \"113917c4-1ac4-468f-b93e-1e6287fd8718\", \"id\": \"150400196\"}--\u003e"
+												},
+												{
+													"_uid": "d131c3fe-4f08-46cf-9af4-5f1d7f63684d",
+													"component": "lsf-validator-min",
+													"parameter": "0",
+													"error_message": "Value can not be negative",
+													"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-min\", \"space\": \"162134\", \"uid\": \"d131c3fe-4f08-46cf-9af4-5f1d7f63684d\", \"id\": \"150400196\"}--\u003e"
+												},
+												{
+													"_uid": "8b2c2669-c941-401a-954d-fe0b69dbb0d5",
+													"component": "lsf-validator-max",
+													"parameter": "5000000",
+													"error_message": "Maximum value is £5m",
+													"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-max\", \"space\": \"162134\", \"uid\": \"8b2c2669-c941-401a-954d-fe0b69dbb0d5\", \"id\": \"150400196\"}--\u003e"
+												},
+												{
+													"_uid": "3355ef94-5609-4bc6-a736-6780919d16c0",
+													"component": "lsf-validator-numeric",
+													"error_message": "",
+													"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-numeric\", \"space\": \"162134\", \"uid\": \"3355ef94-5609-4bc6-a736-6780919d16c0\", \"id\": \"150400196\"}--\u003e"
+												}
+											],
 											"placeholder": "",
 											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-input\", \"space\": \"162134\", \"uid\": \"0da35ca2-b678-42af-abbb-473bdeef1aa5\", \"id\": \"150400196\"}--\u003e"
 										}
 									],
 									"options": "[1]Yes\n[2]No",
+									"settings": [],
 									"component": "lsf-conditional-select",
-									"validators": [],
-									"placeholder": "",
+									"validators": [
+										{
+											"_uid": "238952cb-ccd0-4f46-b2e3-7503fc80948f",
+											"component": "lsf-validator-required",
+											"error_message": "This field is required",
+											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"162134\", \"uid\": \"238952cb-ccd0-4f46-b2e3-7503fc80948f\", \"id\": \"150400196\"}--\u003e"
+										}
+									],
+									"placeholder": "Please select",
 									"show_empty_option": false,
 									"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-conditional-select\", \"space\": \"162134\", \"uid\": \"9d6741f9-821c-40d4-a09f-124939b2e1ff\", \"id\": \"150400196\"}--\u003e"
 								},
@@ -1017,15 +1422,57 @@
 												}
 											],
 											"component": "lsf-input",
-											"validators": [],
+											"validators": [
+												{
+													"_uid": "e78c1e7a-d0f7-4270-965d-06a7f06e5341",
+													"class": "RoundNumber",
+													"component": "lsf-validator-class",
+													"parameter": "",
+													"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-class\", \"space\": \"162134\", \"uid\": \"e78c1e7a-d0f7-4270-965d-06a7f06e5341\", \"id\": \"150400196\"}--\u003e"
+												},
+												{
+													"_uid": "666e80da-02e4-47a2-81cd-4d84954d5c18",
+													"component": "lsf-validator-required",
+													"error_message": "This field is required",
+													"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"162134\", \"uid\": \"666e80da-02e4-47a2-81cd-4d84954d5c18\", \"id\": \"150400196\"}--\u003e"
+												},
+												{
+													"_uid": "1f9ec305-45be-4d41-8a6c-228292807acf",
+													"component": "lsf-validator-min",
+													"parameter": "0",
+													"error_message": "Value can not be negative",
+													"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-min\", \"space\": \"162134\", \"uid\": \"1f9ec305-45be-4d41-8a6c-228292807acf\", \"id\": \"150400196\"}--\u003e"
+												},
+												{
+													"_uid": "3be458e6-fdb7-428d-8a9e-03ad781ed355",
+													"component": "lsf-validator-max",
+													"parameter": "1000000",
+													"error_message": "Maximum value is £1m",
+													"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-max\", \"space\": \"162134\", \"uid\": \"3be458e6-fdb7-428d-8a9e-03ad781ed355\", \"id\": \"150400196\"}--\u003e"
+												},
+												{
+													"_uid": "82e97a0d-5e3d-4cec-b97a-d8ccf20389b2",
+													"component": "lsf-validator-numeric",
+													"error_message": "",
+													"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-numeric\", \"space\": \"162134\", \"uid\": \"82e97a0d-5e3d-4cec-b97a-d8ccf20389b2\", \"id\": \"150400196\"}--\u003e"
+												}
+											],
 											"placeholder": "",
 											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-input\", \"space\": \"162134\", \"uid\": \"7fbf3b82-ab56-4147-88e3-462dea465ddc\", \"id\": \"150400196\"}--\u003e"
 										}
 									],
 									"options": "[1]Yes\n[2]No",
+									"settings": [],
 									"component": "lsf-conditional-select",
-									"validators": [],
-									"placeholder": "",
+									"validators": [
+										{
+											"_uid": "8daa6765-489b-463f-b803-544df9f4f1bf",
+											"component": "lsf-validator-required",
+											"error_message": "This field is required",
+											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"162134\", \"uid\": \"8daa6765-489b-463f-b803-544df9f4f1bf\", \"id\": \"150400196\"}--\u003e"
+										}
+									],
+									"placeholder": "Please select",
 									"show_empty_option": false,
 									"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-conditional-select\", \"space\": \"162134\", \"uid\": \"e438aa4e-57e8-4ad6-8675-37742916ca8e\", \"id\": \"150400196\"}--\u003e"
 								},
@@ -1038,8 +1485,15 @@
 									"options": "[1]15%\n[2]25%\n[3]35%",
 									"settings": [],
 									"component": "lsf-select",
-									"validators": [],
-									"placeholder": "",
+									"validators": [
+										{
+											"_uid": "b646f410-9542-4f5e-a99d-c89c31b2b490",
+											"component": "lsf-validator-required",
+											"error_message": "This field is required",
+											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"162134\", \"uid\": \"b646f410-9542-4f5e-a99d-c89c31b2b490\", \"id\": \"150400196\"}--\u003e"
+										}
+									],
+									"placeholder": "Please select",
 									"show_empty_option": false,
 									"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-select\", \"space\": \"162134\", \"uid\": \"d6d63e9f-89f1-4fca-9063-51a66bc09193\", \"id\": \"150400196\"}--\u003e"
 								},
@@ -1052,7 +1506,34 @@
 									"label": "Loss of Rent sum insured:",
 									"settings": [],
 									"component": "lsf-input",
-									"validators": [],
+									"validators": [
+										{
+											"_uid": "bcfae7f4-e492-4ca8-8e2a-cce7498f211c",
+											"class": "RoundNumber",
+											"component": "lsf-validator-class",
+											"parameter": "",
+											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-class\", \"space\": \"162134\", \"uid\": \"bcfae7f4-e492-4ca8-8e2a-cce7498f211c\", \"id\": \"150400196\"}--\u003e"
+										},
+										{
+											"_uid": "48cabc40-7af4-43b8-9351-9f7c79bff2ba",
+											"component": "lsf-validator-required",
+											"error_message": "This field is required",
+											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"162134\", \"uid\": \"48cabc40-7af4-43b8-9351-9f7c79bff2ba\", \"id\": \"150400196\"}--\u003e"
+										},
+										{
+											"_uid": "2eca1e77-f907-4299-9b8e-7a38c714a356",
+											"component": "lsf-validator-max",
+											"parameter": "1500000",
+											"error_message": "Maximum value is £1.5m",
+											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-max\", \"space\": \"162134\", \"uid\": \"2eca1e77-f907-4299-9b8e-7a38c714a356\", \"id\": \"150400196\"}--\u003e"
+										},
+										{
+											"_uid": "6f7dfcc0-196d-4a32-b89f-5a7a3de2c4b8",
+											"component": "lsf-validator-numeric",
+											"error_message": "",
+											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-numeric\", \"space\": \"162134\", \"uid\": \"6f7dfcc0-196d-4a32-b89f-5a7a3de2c4b8\", \"id\": \"150400196\"}--\u003e"
+										}
+									],
 									"placeholder": "",
 									"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-input\", \"space\": \"162134\", \"uid\": \"7f7b30b9-c056-4eea-9f64-6b177e84ba22\", \"id\": \"150400196\"}--\u003e"
 								},
@@ -1062,11 +1543,18 @@
 									"name": "risk_address_46",
 									"size": "",
 									"label": "Indemnity period",
-									"options": "[1] 2 months\n[2]24 months\n[3]36 months",
+									"options": "[1]12 months\n[2]24 months\n[3]36 months",
 									"settings": [],
 									"component": "lsf-select",
-									"validators": [],
-									"placeholder": "",
+									"validators": [
+										{
+											"_uid": "0968a311-66e5-4aba-970e-bc30fccc33f7",
+											"component": "lsf-validator-required",
+											"error_message": "This field is required",
+											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"162134\", \"uid\": \"0968a311-66e5-4aba-970e-bc30fccc33f7\", \"id\": \"150400196\"}--\u003e"
+										}
+									],
+									"placeholder": "Please select",
 									"show_empty_option": false,
 									"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-select\", \"space\": \"162134\", \"uid\": \"b423945c-d770-4544-8797-00fa18a1e202\", \"id\": \"150400196\"}--\u003e"
 								},
@@ -1076,17 +1564,25 @@
 									"name": "risk_address_47",
 									"size": "",
 									"label": "Do you wish to apply a voluntary excess (applies in addition to all Compulsory excesses)?",
-									"options": "[1]£100\n[2]£250\n[3]£500\n[4]£1,000\n[5]£1,500\n[6]£2,500\n[7]£5,000",
+									"options": "[1]£0\n[2]£100\n[3]£250\n[4]£500\n[5]£1,000\n[6]£1,500\n[7]£2,500\n[8]£5,000",
 									"settings": [],
 									"component": "lsf-select",
-									"validators": [],
-									"placeholder": "",
+									"validators": [
+										{
+											"_uid": "cf7b94a7-7339-45fd-be63-f53522395886",
+											"component": "lsf-validator-required",
+											"error_message": "This field is required",
+											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"162134\", \"uid\": \"cf7b94a7-7339-45fd-be63-f53522395886\", \"id\": \"150400196\"}--\u003e"
+										}
+									],
+									"placeholder": "Please select",
 									"show_empty_option": false,
 									"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-select\", \"space\": \"162134\", \"uid\": \"e573b929-b8cb-451c-a714-0f060821bec6\", \"id\": \"150400196\"}--\u003e"
 								}
 							],
 							"settings": [],
 							"component": "lsf-repeating-fieldset",
+							"item_name": "Premises",
 							"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-repeating-fieldset\", \"space\": \"162134\", \"uid\": \"0d2c475f-c097-48a0-aba1-7a2940ad3d11\", \"id\": \"150400196\"}--\u003e"
 						}
 					],
@@ -1104,10 +1600,17 @@
 							"name": "liab_1",
 							"size": "",
 							"label": "Property Owners Liability Indemnity Limit (£5,000,000 as standard)",
-							"options": "[1]£2,000,000\n[2]£5,000,000\n[3]£10,000,000",
+							"options": "[1]£2,000,000\n[2][*]£5,000,000\n[3]£10,000,000",
 							"settings": [],
 							"component": "lsf-select",
-							"validators": [],
+							"validators": [
+								{
+									"_uid": "7ee4a146-5d6b-4b9f-991a-c895e3cf8a72",
+									"component": "lsf-validator-required",
+									"error_message": "This field is required",
+									"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"162134\", \"uid\": \"7ee4a146-5d6b-4b9f-991a-c895e3cf8a72\", \"id\": \"150400196\"}--\u003e"
+								}
+							],
 							"placeholder": "",
 							"show_empty_option": false,
 							"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-select\", \"space\": \"162134\", \"uid\": \"9f69c568-c86f-4d1d-91e3-6423958585d8\", \"id\": \"150400196\"}--\u003e"
@@ -1135,21 +1638,56 @@
 										}
 									],
 									"component": "lsf-input",
-									"validators": [],
+									"validators": [
+										{
+											"_uid": "da2116cf-3ec5-4aab-b856-5f6427f599ca",
+											"class": "RoundNumber",
+											"component": "lsf-validator-class",
+											"parameter": "",
+											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-class\", \"space\": \"162134\", \"uid\": \"da2116cf-3ec5-4aab-b856-5f6427f599ca\", \"id\": \"150400196\"}--\u003e"
+										},
+										{
+											"_uid": "1de75a14-5e7b-41cf-99aa-d2b4d407321c",
+											"component": "lsf-validator-required",
+											"error_message": "This field is required",
+											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"162134\", \"uid\": \"1de75a14-5e7b-41cf-99aa-d2b4d407321c\", \"id\": \"150400196\"}--\u003e"
+										},
+										{
+											"_uid": "f6dbfbe4-d19c-46de-b00f-7d07e1ced119",
+											"component": "lsf-validator-numeric",
+											"error_message": "",
+											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-numeric\", \"space\": \"162134\", \"uid\": \"f6dbfbe4-d19c-46de-b00f-7d07e1ced119\", \"id\": \"150400196\"}--\u003e"
+										},
+										{
+											"_uid": "6b7080de-f412-4174-9d9a-825c63860a94",
+											"component": "lsf-validator-min",
+											"parameter": "0",
+											"error_message": "This value can’t be negative",
+											"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-min\", \"space\": \"162134\", \"uid\": \"6b7080de-f412-4174-9d9a-825c63860a94\", \"id\": \"150400196\"}--\u003e"
+										}
+									],
 									"placeholder": "",
 									"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-input\", \"space\": \"162134\", \"uid\": \"b197d195-19e4-41d8-b67b-61ad2c73418e\", \"id\": \"150400196\"}--\u003e"
 								}
 							],
 							"options": "[1]Yes\n[2]No",
+							"settings": [],
 							"component": "lsf-conditional-select",
-							"validators": [],
-							"placeholder": "",
-							"show_empty_option": true,
+							"validators": [
+								{
+									"_uid": "0f2a2cf3-6930-4868-9416-bf2b057f18e7",
+									"component": "lsf-validator-required",
+									"error_message": "This field is required",
+									"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-required\", \"space\": \"162134\", \"uid\": \"0f2a2cf3-6930-4868-9416-bf2b057f18e7\", \"id\": \"150400196\"}--\u003e"
+								}
+							],
+							"placeholder": "Please select",
+							"show_empty_option": false,
 							"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-conditional-select\", \"space\": \"162134\", \"uid\": \"04c88ae8-f957-4eb1-89c7-555bb0f41088\", \"id\": \"150400196\"}--\u003e"
 						},
 						{
 							"_uid": "b3bb06b1-4cef-40a7-a3a2-ebd94b451b66",
-							"help": "",
+							"help": "The email address to send the XML to - this is just for testing",
 							"name": "test",
 							"size": "",
 							"type": "email",

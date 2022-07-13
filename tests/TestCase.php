@@ -26,25 +26,24 @@ class TestCase extends Orchestra
 	 */
 	protected function getEnvironmentSetUp($app)
 	{
-
 		parent::getEnvironmentSetUp($app);
 
-		$viewPath = str_replace('..', '', __DIR__ . DIRECTORY_SEPARATOR . 'Fixtures' . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR);
+		$app['request']->setLaravelSession($app['session']->driver('array'));
 
-
-		$app['config']->set('storyblok.component_class_namespace', ['Riclep\StoryblokForms\\']);
-		$app['config']->set('storyblok.view_path', $viewPath);
+		$app['config']->set('storyblok.component_class_namespace', ['App\Storyblok\\', 'Riclep\StoryblokForms\\']);
 		$app['config']->set('storyblok.settings_field', 'settings');
 
-		$app['config']->set('view.paths', array_merge(config('view.paths'), [$viewPath]));
-		//dd(config('view.paths'));
 	}
 
-	protected function bootRequest() {
-		$this->app['router']->get('test', ['middleware' => 'web', 'uses' => function (){
-			return 'hello world';
-		}]);
+	protected function makePage($file = null) {
+		$story = json_decode(file_get_contents(__DIR__ . '/Fixtures/' . ($file ?: 'all-fields.json')), true);
 
-		$this->call('GET', 'test');
+		if ($file) {
+			$class = config('storyblok.component_class_namespace') . 'Pages\\' . Str::studly($story['story']['content']['component']);
+		} else {
+			$class = config('storyblok.component_class_namespace')[0] . 'Page';
+		}
+
+		return new $class($story['story']);
 	}
 }

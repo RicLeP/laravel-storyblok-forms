@@ -34,9 +34,6 @@ class Input extends \Riclep\Storyblok\Block
 	public function validationRules() {
 		$rules = $this->validators->validationRules();
 
-		/**
-		 * Rewrite required to required_if for items inside conditional selects
-		 */
 		if ($this->parent() instanceof LsfConditionalSelect) {
 			if (is_array($this->settings('lsf_is_conditional')['when_parent_is'])) {
 				$requiredWhen = implode(',', $this->settings('lsf_is_conditional')['when_parent_is']);
@@ -78,19 +75,5 @@ class Input extends \Riclep\Storyblok\Block
 		}
 
 		return $messages;
-	}
-
-
-	/**
-	 * Set’s the default Input size when not defined
-	 *
-	 * @return mixed|string
-	 */
-	public function getSizeAttribute() {
-		if ($this->has('size')) {
-			return $this->content()['size'] ?: 'full'; // TODO configure default size
-		}
-
-		return 'full'; // TODO configure default size
 	}
 }

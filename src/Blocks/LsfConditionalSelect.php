@@ -29,6 +29,8 @@ class LsfConditionalSelect extends MultiInput
 	 * @return array
 	 */
 	public function validationRules() {
+		// TODO - loop over all children looking for required validation and update to required_if
+
 		$rules = [];
 
 		$this->fields->each(function ($field) use (&$rules) {
@@ -36,23 +38,7 @@ class LsfConditionalSelect extends MultiInput
 			$rules = array_merge($rules, $field->validationRules());
 		});
 
-		$fieldRules = $this->validators->validationRules();
-
-		if ($this->parent() instanceof LsfConditionalSelect) {
-			if (is_array($this->settings('lsf_is_conditional')['when_parent_is'])) {
-				$requiredWhen = implode(',', $this->settings('lsf_is_conditional')['when_parent_is']);
-			} else {
-				$requiredWhen = $this->settings('lsf_is_conditional')['when_parent_is'];
-			}
-
-			foreach ($fieldRules as $key => $rule) {
-				if (in_array('required', $rule)) {
-					$requiredKey = array_search('required', $rule);
-
-					$fieldRules[$key][$requiredKey] = 'required_if:' . $this->parent()->input_dot_name . '.selected,' . $requiredWhen;
-				}
-			}
-		}
+		$fieldRules = parent::validationRules();
 
 		// Should the Dot name always do this? Probably not as that would break children?
 		$selectKey = $this->getInputDotNameAttribute()  . '.selected';

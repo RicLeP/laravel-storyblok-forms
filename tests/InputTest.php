@@ -3,10 +3,11 @@
 namespace Riclep\StoryblokForms\Tests;
 
 
-use App\Storyblok\Forms\PagedFormResponse;
+use App\Storyblok\Forms\FormResponse;
 use Illuminate\Http\Request;
 use Riclep\StoryblokForms\Blocks\LsfFieldset;
 use Riclep\StoryblokForms\Blocks\LsfForm;
+use Riclep\StoryblokForms\Blocks\LsfInput;
 
 
 class InputTest extends TestCase
@@ -22,10 +23,20 @@ class InputTest extends TestCase
 	}
 
 
+	/** @test */
+	public function can_create_basic_input_validation_rules() {
+		$definition = json_decode('{"_uid": "c4382f23-4444-4fb7-8de2-74aae551eaa4","help": "","name": "field_name","size": "","type": "text","label": "First Name","component": "lsf-input","validators": [{"component": "lsf-validator-required","error_message": "This field is required"},{"component": "lsf-validator-min","error_message": "This field is required"}],"placeholder": ""}', true);
+
+		$field = new LsfInput($definition, null);
+
+		$validationRules = $field->validationRules();
+
+		$this->assertEquals(['field_name' => ['required']], $validationRules);
+	}
 
 
 	/** @test */
-	public function can_get_fieldset_validation_rules() {
+	public function real_world_can_get_fieldset_validation_rules() {
 		$fieldset = new LsfFieldset($this->getBlockContents(1), null);
 
 		$rules = [
@@ -60,7 +71,7 @@ class InputTest extends TestCase
 
 
 	/** @test */
-	public function can_get_form_validation_rules() {
+	public function real_world_can_get_form_validation_rules() {
 		$form = new LsfForm($this->getPageContents(), null);
 
 		$rules = [
@@ -285,7 +296,7 @@ class InputTest extends TestCase
 	}
 
 	/** @test */
-	public function can_get_form_validation_errors() {
+	public function real_world_can_get_form_validation_errors() {
 		$fieldset = new LsfForm($this->getPageContents(), null);
 
 		$errors = [
@@ -375,22 +386,16 @@ class InputTest extends TestCase
 	}
 
 	/** @test */
-	public function can_format_form_response() {
+	public function real_world_can_format_form_response() {
 		$request = new Request();
-		$request->replace(json_decode('{"form":{"_slug":"portal/insurance/sme/form","broker_details.product_type":"1","client_details.client_2.selected":"1","client_details.client_8":"","client_details.client_9":"","basic_risk_details.basic_1":"","basic_risk_details.basic_2":"","basic_risk_details.basic_3":"","basic_risk_details.basic_4":"","basic_risk_details.basic_5":"","liab.liab_1":"2","liab.liab_2.selected":"","liab.test":"","premises_to_be_insured.premises.0.risk_address_1":"","premises_to_be_insured.premises.0.risk_address_6":"","premises_to_be_insured.premises.0.risk_address_7":"","premises_to_be_insured.premises.0.risk_address_8.selected":"2","premises_to_be_insured.premises.0.risk_address_12":"","premises_to_be_insured.premises.0.risk_address_13.selected":"","premises_to_be_insured.premises.0.risk_address_17.selected":"","premises_to_be_insured.premises.0.risk_address_21":"","premises_to_be_insured.premises.0.risk_address_22":"","premises_to_be_insured.premises.0.risk_address_23":"","premises_to_be_insured.premises.0.risk_address_24":"","premises_to_be_insured.premises.0.risk_address_25":"","premises_to_be_insured.premises.0.risk_address_26":"","premises_to_be_insured.premises.0.risk_address_27.selected":"","premises_to_be_insured.premises.0.risk_address_29":"","premises_to_be_insured.premises.0.risk_address_30":"","premises_to_be_insured.premises.0.risk_address_31":"","premises_to_be_insured.premises.0.risk_address_40.selected":"","premises_to_be_insured.premises.0.risk_address_42.selected":"","premises_to_be_insured.premises.0.risk_address_44":"","premises_to_be_insured.premises.0.risk_address_45":"","premises_to_be_insured.premises.0.risk_address_46":"","premises_to_be_insured.premises.0.risk_address_47":"","premises_to_be_insured.premises.0.risk_address_8.risk_address_9":"","premises_to_be_insured.premises.0.risk_address_8.risk_address_10.selected":"","premises_to_be_insured.premises.0.risk_address_8.risk_address_11a":"","client_details.client_2.client_4":"","client_details.client_2.client_5":"","client_details.client_2.client_6":""},"step":1}', true));
+		$request->replace(json_decode('{"form":{"_slug":"portal/insurance/sme/form","broker_details.product_type":"1","client_details.client_2.selected":"1","client_details.client_8":"","client_details.client_9":"","basic_risk_details.basic_1":"","basic_risk_details.basic_2":"","basic_risk_details.basic_3":"","basic_risk_details.basic_4":"","basic_risk_details.basic_5":"","liab.liab_1":"2","liab.liab_2.selected":"","liab.test":"","premises_to_be_insured.premises.0.risk_address_1":"","premises_to_be_insured.premises.0.risk_address_6":"","premises_to_be_insured.premises.0.risk_address_7":"","premises_to_be_insured.premises.0.risk_address_8.selected":"2","premises_to_be_insured.premises.0.risk_address_12":"","premises_to_be_insured.premises.0.risk_address_13.selected":"","premises_to_be_insured.premises.0.risk_address_17.selected":"","premises_to_be_insured.premises.0.risk_address_21":"","premises_to_be_insured.premises.0.risk_address_22":"","premises_to_be_insured.premises.0.risk_address_23":"","premises_to_be_insured.premises.0.risk_address_24":"","premises_to_be_insured.premises.0.risk_address_25":"","premises_to_be_insured.premises.0.risk_address_26":"","premises_to_be_insured.premises.0.risk_address_27.selected":"","premises_to_be_insured.premises.0.risk_address_29":"","premises_to_be_insured.premises.0.risk_address_30":"","premises_to_be_insured.premises.0.risk_address_31":"","premises_to_be_insured.premises.0.risk_address_40.selected":"","premises_to_be_insured.premises.0.risk_address_42.selected":"","premises_to_be_insured.premises.0.risk_address_44":"","premises_to_be_insured.premises.0.risk_address_45":"","premises_to_be_insured.premises.0.risk_address_46":"","premises_to_be_insured.premises.0.risk_address_47":"","premises_to_be_insured.premises.0.risk_address_8.risk_address_9":"","premises_to_be_insured.premises.0.risk_address_8.risk_address_10.selected":"","premises_to_be_insured.premises.0.risk_address_8.risk_address_11a":"","client_details.client_2.client_4":"","client_details.client_2.client_5":"","client_details.client_2.client_6":"","client_details.client_2.client_4":"captain"},"step":1}', true));
 
 
-		$formResponse = new PagedFormResponse($request, $this->makePage());
+		$formResponse = new FormResponse($request, $this->makePage());
 
+		$formatted = require('Fixtures/all-fields-response.php');
 
-
-
-		$response = $formResponse->response();
-
-		dd($response);
-
-
+		$this->assertEquals($formatted, $formResponse->response());
 	}
-
 }
 

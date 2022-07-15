@@ -3,11 +3,14 @@
 namespace Riclep\StoryblokForms\Tests;
 
 
+use App\Rules\Address;
 use App\Storyblok\Forms\FormResponse;
 use Illuminate\Http\Request;
+use Riclep\StoryblokForms\Blocks\LsfConditionalSelect;
 use Riclep\StoryblokForms\Blocks\LsfFieldset;
 use Riclep\StoryblokForms\Blocks\LsfForm;
 use Riclep\StoryblokForms\Blocks\LsfInput;
+use Riclep\StoryblokForms\Blocks\LsfRepeatingFieldset;
 
 
 class InputTest extends TestCase
@@ -22,18 +25,61 @@ class InputTest extends TestCase
 		return $story['story']['content'];
 	}
 
-
 	/** @test */
 	public function can_create_basic_input_validation_rules() {
-		$definition = json_decode('{"_uid": "c4382f23-4444-4fb7-8de2-74aae551eaa4","help": "","name": "field_name","size": "","type": "text","label": "First Name","component": "lsf-input","validators": [{"component": "lsf-validator-required","error_message": "This field is required"},{"component": "lsf-validator-min","error_message": "This field is required"}],"placeholder": ""}', true);
+		$definition = json_decode('{"_uid": "c4382f23-4444-4fb7-8de2-74aae551eaa4","help": "","name": "field_name","type": "text","label": "First Name","component": "lsf-input","validators": [{"component": "lsf-validator-required","error_message": "This field is required"},{"component": "lsf-validator-min","parameter": "0","error_message": "This field is required"}],"placeholder": ""}', true);
 
 		$field = new LsfInput($definition, null);
 
 		$validationRules = $field->validationRules();
 
-		$this->assertEquals(['field_name' => ['required']], $validationRules);
+		$this->assertEquals(['field_name' => ['required', 'min:0']], $validationRules);
 	}
 
+	/** @test */
+	public function can_create_class_input_validation_rules() {
+		$definition = json_decode('{"_uid": "c4382f23-4444-4fb7-8de2-74aae551eaa4","help": "","name": "field_name","type": "text","label": "First Name","component": "lsf-input","validators": [{"component": "lsf-validator-required","error_message": "This field is required"},{"component": "lsf-validator-class","parameter": "","class": "Address","error_message": "This field is required"}],"placeholder": ""}', true);
+
+		$field = new LsfInput($definition, null);
+
+		$validationRules = $field->validationRules();
+
+		$this->assertEquals(['field_name' => ['required', new Address()]], $validationRules);
+	}
+
+	/** @test */
+	public function can_create_validation_dot_names_for_nested_conditional_fields() {
+		$form = new LsfForm($this->getPageContents(), null);
+		$field = $form->fields[1]->fields[0];
+
+		$this->assertStringContainsString('"validators":["required_if:client_details.client_2.selected,4,5"]', (string) $field);
+	}
+
+	/** @test */
+	public function can_add_default_data_to_json() {
+		$definition = json_decode('{"max":"10","min":"","name":"basic_6","label":"The label","fields":[{"help":"","name":"basic_7","type":"date","label":"Date of claim","settings":[],"component":"lsf-input","validators":[],"placeholder":""}],"settings":[],"component":"lsf-repeating-fieldset","item_name":""}', true);
+
+		$field = new LsfRepeatingFieldset($definition, null);
+
+		$this->assertStringContainsString('"item_name":"Item"', (string) $field);
+	}
+
+	/** @test */
+	public function can_create_dot_names_for_nested_conditional_fields() {
+		$form = new LsfForm($this->getPageContents(), null);
+		$field = $form->fields[1]->fields[0];
+
+		$this->assertStringContainsString('"dot_name":"client_details.client_2.client_3"', (string) $field);
+	}
+
+	/** @test */
+	public function can_create_dot_names_for_repeatable_fields() {
+		$definition = json_decode('{"max":"10","min":"","name":"basic_6","label":"The label","fields":[{"help":"","name":"basic_7","type":"date","label":"Date of claim","settings":[],"component":"lsf-input","validators":[],"placeholder":""},{"help":"Enter numbers only","name":"basic_8","type":"number","label":"Value of claim","settings":[],"component":"lsf-input","validators":[],"placeholder":""},{"name":"basic_9","label":"Is the claim settled?","settings":[],"component":"lsf-radio-button","validators":[],"radio_buttons":"[true]Yes\n[false]No"},{"help":"","name":"basic_10","size":"","label":"What was the cause of the claim?","options":"[1]Accidental Damage\n[2]Accidental Damage to Audio/Visual Equipment\n[3]Accidental Loss\n[4]Accidental Loss Of Contents\n[5]Aircraft\n[6]All Risks - If A Type Not Already Listed\n[7]Breakage/Collapse Of TV Aerials","settings":[],"component":"lsf-select","validators":[],"placeholder":"Please select","show_empty_option":true},{"help":"","name":"basic_11","type":"text","label":"Postcode of the premises where the claim happened","settings":[],"component":"lsf-input","validators":[],"placeholder":""}],"settings":[],"component":"lsf-repeating-fieldset","item_name":"Claim"}', true);
+
+		$field = new LsfRepeatingFieldset($definition, null);
+
+		$this->assertStringContainsString('"dot_name":"basic_6.*.basic_7"', (string) $field);
+	}
 
 	/** @test */
 	public function real_world_can_get_fieldset_validation_rules() {
@@ -68,7 +114,6 @@ class InputTest extends TestCase
 
 		$this->assertEquals($rules, $fieldset->validationRules());
 	}
-
 
 	/** @test */
 	public function real_world_can_get_form_validation_rules() {

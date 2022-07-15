@@ -8,6 +8,12 @@
 	  <include>
 		  <directory suffix=".php">src</directory>
 	  </include>
+	  <exclude>
+		  <directory suffix=".php">src/Console</directory>
+		  <directory suffix=".php">src/Support</directory>
+		  <file>src/FormResponse.php</file>
+		  <file>src/Traits/GetsComponentGroups.php</file>
+	  </exclude>
   </coverage>
   <testsuites>
     <testsuite name="Test Suite">

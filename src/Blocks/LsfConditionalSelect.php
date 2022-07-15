@@ -34,7 +34,6 @@ class LsfConditionalSelect extends MultiInput
 		$rules = [];
 
 		$this->fields->each(function ($field) use (&$rules) {
-
 			$rules = array_merge($rules, $field->validationRules());
 		});
 

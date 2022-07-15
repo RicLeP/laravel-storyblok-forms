@@ -52,9 +52,15 @@ class Validators implements ArrayAccess
 		$messages = [];
 
 		$this->rules->each(function ($rule) use (&$messages) {
-			$messageKey = $this->nameToValidationKey() . '.' . $rule->rule();
+			if (is_object($rule->rule())) {
+				$messageKey = $this->nameToValidationKey();
 
-			$messages = array_merge($messages, [$messageKey => $rule->errorMessage()]);
+				$messages = array_merge($messages, [$messageKey => $rule->errorMessage()]);
+			} else {
+				$messageKey = $this->nameToValidationKey() . '.' . $rule->rule();
+
+				$messages = array_merge($messages, [$messageKey => $rule->errorMessage()]);
+			}
 		})->toArray();
 
 		return $messages;

@@ -4,6 +4,8 @@ namespace Riclep\StoryblokForms\Traits;
 
 trait HasNames
 {
+	// TODO - these methods should be FullName not Name.... keep name untouched
+
 	/**
 	 * @property-read $input_name
 	 *

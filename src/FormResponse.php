@@ -12,6 +12,7 @@ class FormResponse
 {
 	// TODO - pass extra data - imagine a staff contact form wrapped in a component where they select the email address this instance should go to
 	public Request $request;
+	protected $page;
 
 	/**
 	 * @param Request $request
@@ -83,7 +84,7 @@ class FormResponse
 			//}
 
 			return $field->response($input[$field->name]);
-		})->toArray();
+		})->keyBy('name')->toArray();
 	}
 
 

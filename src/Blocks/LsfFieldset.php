@@ -14,7 +14,7 @@ class LsfFieldset extends \Riclep\Storyblok\Block
 
 	//// potentially all fields in a fieldset could be name <input name="fieldsetname[fieldname]">
 	/// this would out a multidimensional array in the response.
-	/// makes validation herder?
+	/// makes validation harder?
 
 
 	/**
@@ -50,16 +50,16 @@ class LsfFieldset extends \Riclep\Storyblok\Block
 	public function response($input) {
 		return [
 			'label' => $this->label,
+			'name' => $this->name,
 			'response' => $this->fields->map(function ($field) use ($input) {
-
+				//dump($field->name, $input);
 				// Handle empty radio buttons etc. sending nothing in POST request
 				if (!array_key_exists($field->name, $input)) {
 					$input[$field->name] = null;
 				}
 
-
 				return $field->response($input[$field->name]);
-			})->toArray(),
+			})->keyBy('name')->toArray(),
 			'type' => $this->type,
 		];
 	}

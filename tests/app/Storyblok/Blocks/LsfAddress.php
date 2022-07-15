@@ -1,12 +1,16 @@
 <?php
 
-namespace Riclep\StoryblokForms\Blocks;
+namespace App\Storyblok\Blocks;
 
+use Illuminate\Support\Str;
+use Riclep\StoryblokForms\Blocks\LsfConditionalSelect;
 use Riclep\StoryblokForms\Input;
 
-class LsfFileUploader extends Input
+class LsfAddress extends Input
 {
-	protected $type = 'upload';
+	// Interface this....
+
+	protected $type = 'address';
 
 	/**
 	 * Returns the Input’s response after the form has been submitted and validated

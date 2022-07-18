@@ -15,6 +15,10 @@ class FormResponse
 	protected $page;
 
 	/**
+	 * You’ll most likely want to extend this class to add your own functionality. The FormResponse
+	 * is used when you’ve submitted your form for validation and further processing. If will
+	 * output a nested array of fields and the value inputted / selected.
+	 *
 	 * @param Request $request
 	 */
 	public function __construct(Request $request)
@@ -31,6 +35,10 @@ class FormResponse
 
 
 	/**
+	 * The FormResponse needs to load the form’s page from Storyblok so it can know
+	 * all the fields and inputs to expect. By default we pass the page’s slug
+	 * with the request so we know what to request
+	 *
 	 * @return void
 	 */
 	protected function requestPage() {
@@ -38,6 +46,8 @@ class FormResponse
 	}
 
 	/**
+	 * We need to know the field where the form definition begins
+	 *
 	 * @return \Illuminate\Support\Collection
 	 */
 	protected function form() {
@@ -45,16 +55,32 @@ class FormResponse
 	}
 
 
+	/**
+	 * Creates a Laravel Validator taking the request and the rules and messages from the Storyblok
+	 * form description. Failing validation redirects the user back to the form / returns a JSON
+	 * errorbag if you’re posting asynchronously
+	 *
+	 * @return void
+	 */
 	public function validate()
 	{
 		Validator::make($this->request->all(), $this->form()->validationRules(), $this->form()->errorMessages())->validate();
 	}
 
+
+	/**
+	 * Get the validation rules for this form. It’ll load the ones defined in Storyblok but you can
+	 * override or extend them as needed - just return any valid rules.
+	 *
+	 * @return mixed
+	 */
 	public function validationRules() {
 		return $this->form()->validationRules();
 	}
 
 	/**
+	 * Returns the fields and their innput
+	 *
 	 * @return mixed
 	 */
 	public function fields() {
@@ -62,6 +88,8 @@ class FormResponse
 	}
 
 	/**
+	 * Converts the fields and their input to JSON
+	 *
 	 * @return false|string
 	 */
 	public function json() {
@@ -69,6 +97,9 @@ class FormResponse
 	}
 
 	/**
+	 * Loops over all the fields and passes the input into them so we can build
+	 * a nested array of every field and it’s inputted / selected values
+	 *
 	 * @return mixed
 	 */
 	protected function responses() {
@@ -97,6 +128,12 @@ class FormResponse
 		return Arr::flatten($this->fields());
 	}
 
+
+	/**
+	 * Find any uplaoded files so we’re easily able to handle them
+	 *
+	 * @return array
+	 */
 	public function files() {
 		return array_values(array_filter($this->flatten(), function ($response) {
 			return $response instanceof UploadedFile;

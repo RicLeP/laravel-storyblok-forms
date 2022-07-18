@@ -8,6 +8,11 @@ use Illuminate\Support\Str;
 class MultiInput extends Input
 {
 
+	/**
+	 * Adds extra data to the JSON interpretation of the field
+	 *
+	 * @return array
+	 */
 	protected function addToJson() {
 		$json['options'] = $this->options();
 
@@ -15,6 +20,8 @@ class MultiInput extends Input
 	}
 
 	/**
+	 * Processes the options entered in Storyblok
+	 *
 	 * @return \Illuminate\Support\Collection
 	 */
 	public function options() {
@@ -45,6 +52,13 @@ class MultiInput extends Input
 		})->values();
 	}
 
+
+	/**
+	 * Checks if an option was preselected or in old input
+	 *
+	 * @param $formInput
+	 * @return bool
+	 */
 	protected function optionIsSelected($formInput) {
 		return request()->old($this->input_name) && (in_array(Str::slug($formInput), Arr::wrap(request()->old($this->input_name))));
 	}

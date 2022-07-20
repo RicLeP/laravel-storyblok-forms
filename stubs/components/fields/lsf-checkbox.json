@@ -11,12 +11,13 @@
 			},
 			"name": {
 				"type": "text",
-				"required": true
+				"required": true,
+				"description": "The internal name used for this input, it must be only use lowercase letters, numbers or _ characters."
 			},
 			"checkboxes": {
 				"type": "textarea",
 				"required": true,
-				"description": "Put each checkbox on a new line. To pre-select a box start the line with [x]"
+				"description": "Put each radio button on a new line. Optionally add a key [key]label. To pre-select an item add [key][*]item."
 			},
 			"validators": {
 				"type": "bloks",
@@ -24,6 +25,14 @@
 				"restrict_type": "groups",
 				"component_group_whitelist": [
 					"Form validators"
+				]
+			},
+			"settings": {
+				"type": "bloks",
+				"restrict_components": true,
+				"restrict_type": "groups",
+				"component_group_whitelist": [
+					"Form settings"
 				]
 			}
 		}

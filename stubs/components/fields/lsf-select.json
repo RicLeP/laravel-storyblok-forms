@@ -12,12 +12,12 @@
 			"name": {
 				"type": "text",
 				"required": true,
-				"description": "Format: Must be lowercase letters, numbers and _ only"
+				"description": "The internal name used for this input, it must be only use lowercase letters, numbers or _ characters."
 			},
 			"options": {
 				"type": "textarea",
 				"required": true,
-				"description": "Put each option on a new line"
+				"description": "Put each radio button on a new line. Optionally add a key [key]label. To pre-select an item add [key][*]item."
 			},
 			"show_empty_option": {
 				"type": "boolean",
@@ -25,7 +25,7 @@
 			},
 			"placeholder": {
 				"type": "text",
-				"description": "Text to show before selecting an item. Can be selected by user but will have no value."
+				"description": "Text to show before user selects an item."
 			},
 			"validators": {
 				"type": "bloks",
@@ -33,6 +33,14 @@
 				"restrict_type": "groups",
 				"component_group_whitelist": [
 					"Form validators"
+				]
+			},
+			"settings": {
+				"type": "bloks",
+				"restrict_components": true,
+				"restrict_type": "groups",
+				"component_group_whitelist": [
+					"Form settings"
 				]
 			}
 		}

@@ -12,7 +12,7 @@
 			"name": {
 				"type": "text",
 				"required": true,
-				"description": "Format: Must be lowercase letters, numbers and _ only"
+				"description": "The internal name used for this input, it must be only use lowercase letters, numbers or _ characters."
 			},
 			"type": {
 				"type": "option",
@@ -33,6 +33,10 @@
 					{
 						"value": "number",
 						"name": "Number"
+					},
+					{
+						"value": "date",
+						"name": "Date"
 					}
 				]
 			},
@@ -45,6 +49,14 @@
 				"restrict_type": "groups",
 				"component_group_whitelist": [
 					"Form validators"
+				]
+			},
+			"settings": {
+				"type": "bloks",
+				"restrict_components": true,
+				"restrict_type": "groups",
+				"component_group_whitelist": [
+					"Form settings"
 				]
 			}
 		}

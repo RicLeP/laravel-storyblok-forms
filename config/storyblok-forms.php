@@ -12,5 +12,5 @@ return [
     | in the editor or when debug mode is enabled.
     |
     */
-	'component_groups' => ['Forms', 'Form fields', 'Form validators'],
+	'component_groups' => ['Forms', 'Form fields', 'Form settings', 'Form validators'],
 ];

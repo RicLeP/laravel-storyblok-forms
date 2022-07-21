@@ -35,6 +35,7 @@
 					"Form settings"
 				]
 			}
-		}
+		},
+		"preview_tmpl": "<strong>{{ label }}</strong> ({{ name }})"
 	}
 }

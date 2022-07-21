@@ -1,13 +1,18 @@
 {
 	"component": {
 		"name": "lsf-fieldset",
-		"display_name": "Field Group",
+		"display_name": "Field set",
 		"is_root": false,
 		"component_group_uuid": "Form fields",
 		"schema": {
-			"title": {
+			"label": {
 				"type": "text",
 				"required": true
+			},
+			"name": {
+				"type": "text",
+				"required": true,
+				"description": "The internal name used for this input, it must be only use lowercase letters, numbers or _ characters."
 			},
 			"fields": {
 				"type": "bloks",

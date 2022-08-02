@@ -138,7 +138,7 @@ class LsfConditionalSelect extends MultiInput
 
 		$formatted['response']['fields'] = $this->fields->map(function ($field) use ($input) {
 			if (!$input) {
-				return null; // TODO is this needed? When no conditional fields are added for this value?
+				return $field->response($input);
 			}
 
 			///// no required child fields?

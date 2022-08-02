@@ -15,6 +15,9 @@ class Input extends \Riclep\Storyblok\Block
 	protected $key;
 
 	/**
+	 * Casting validators to Validators allow us to take control of how we process the
+	 * JSON from Storyblok by breaking out of the standard nested Blocks format
+	 *
 	 * @var string[] All the Validators for this Input
 	 */
 	protected $_casts = ['validators' => Validators::class];

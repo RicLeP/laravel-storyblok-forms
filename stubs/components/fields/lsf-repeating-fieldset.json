@@ -1,7 +1,7 @@
 {
 	"component": {
-		"name": "lsf-radio-button",
-		"display_name": "Radio button",
+		"name": "lsf-repeating-fieldset",
+		"display_name": "Field set",
 		"is_root": false,
 		"component_group_uuid": "Form fields",
 		"schema": {
@@ -14,18 +14,28 @@
 				"required": true,
 				"description": "The internal name used for this input, it must be only use lowercase letters, numbers or _ characters."
 			},
-			"radio_buttons": {
-				"type": "textarea",
+			"item_name": {
+				"type": "text",
 				"required": true,
-				"description": "Put each radio button on a new line. Optionally add a key [key]label. To pre-select an item add [key][*]item."
+				"description": "What to name each ‘repeat’."
 			},
-			"validators": {
+			"fields": {
 				"type": "bloks",
 				"restrict_components": true,
 				"restrict_type": "groups",
 				"component_group_whitelist": [
-					"Form validators"
+					"Form fields"
 				]
+			},
+			"min": {
+				"type": "number",
+				"display_name": "Minimum repeats",
+				"description": "Optionally specify the minimum number of allowed repeats."
+			},
+			"max": {
+				"type": "number",
+				"display_name": "Maximum repeats",
+				"description": "Optionally specify the maximum number of allowed repeats."
 			},
 			"settings": {
 				"type": "bloks",
@@ -35,7 +45,6 @@
 					"Form settings"
 				]
 			}
-		},
-		"preview_tmpl": "<strong>{{ label }}</strong> ({{ name }})"
+		}
 	}
 }

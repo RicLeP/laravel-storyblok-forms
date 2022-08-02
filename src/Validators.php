@@ -3,17 +3,16 @@
 namespace Riclep\StoryblokForms;
 
 use ArrayAccess;
-use Illuminate\Support\Arr;
 
 class Validators implements ArrayAccess
 {
 	/**
-	 * @var
+	 * @var array All the validation rules
 	 */
 	public $rules;
 
 	/**
-	 * @var
+	 * @var Input The field the rules are applied to
 	 */
 	protected $field;
 
@@ -29,6 +28,9 @@ class Validators implements ArrayAccess
 	}
 
 	/**
+	 * Get all the rules that have been added and push them into an array
+	 * for Laravel’s validation
+	 *
 	 * @return array
 	 */
 	public function validationRules() {
@@ -46,6 +48,8 @@ class Validators implements ArrayAccess
 	}
 
 	/**
+	 * Get all the error messages for the rules and push them into an array
+	 *
 	 * @return array
 	 */
 	public function errorMessages() {
@@ -67,9 +71,11 @@ class Validators implements ArrayAccess
 	}
 
 	/**
+	 * Formats the rule’s name/key correctly for Laravel’s validator
+	 *
 	 * @return string
 	 */
-	protected function nameToValidationKey(): string|array
+	protected function nameToValidationKey()
 	{
 		$validationKey = str_replace([
 			'[]',
@@ -85,6 +91,9 @@ class Validators implements ArrayAccess
 	}
 
 	/**
+	 * Tidy up the Validator JSON from Storyblok as it contains
+	 * more than we require
+	 *
 	 * @param $validators
 	 * @return void
 	 */

@@ -129,7 +129,7 @@ class LsfConditionalSelect extends MultiInput
 		];
 
 		$this->options()->map(function ($formInput) use ($input, &$formatted) {
-			if (in_array($formInput['value'], Arr::wrap($input))) {
+			if ($formInput['value'] === $input['selected']) {
 				return $formatted['response']['select']['selected'][$formInput['value']] = $formInput['label'];
 			}
 

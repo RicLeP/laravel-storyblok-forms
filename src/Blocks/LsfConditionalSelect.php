@@ -80,7 +80,7 @@ class LsfConditionalSelect extends MultiInput
 //dump($messages);
 		return array_merge($rules, $selectMessage);
 
-	//	dd($messages);
+		//	dd($messages);
 
 		// Should the Dot name always do this? Probably not as that would break children?
 //		$selectKey = $this->getInputDotNameAttribute()  . '.selected';
@@ -129,7 +129,7 @@ class LsfConditionalSelect extends MultiInput
 		];
 
 		$this->options()->map(function ($formInput) use ($input, &$formatted) {
-			if ($formInput['value'] === $input['selected']) {
+			if ($input && $formInput['value'] === $input['selected']) {
 				return $formatted['response']['select']['selected'][$formInput['value']] = $formInput['label'];
 			}
 

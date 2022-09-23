@@ -80,7 +80,7 @@ class MultiInput extends Input
 		];
 
 		$this->options()->map(function ($formInput) use ($input, &$formatted) {
-			if (in_array($formInput['value'], Arr::wrap($input))) { // should this be like conditional selects? what about checkboxes that may have several inputs? Multiselect should only really be items where you can select multiple choices
+			if (in_array($formInput['value'], Arr::wrap($input))) {
 				return $formatted['response']['selected'][$formInput['value']] = $formInput['label'];
 			}
 

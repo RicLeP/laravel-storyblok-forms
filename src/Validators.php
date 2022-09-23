@@ -3,6 +3,7 @@
 namespace Riclep\StoryblokForms;
 
 use ArrayAccess;
+use Riclep\StoryblokForms\Rules\ConditionallyRequired;
 
 class Validators implements ArrayAccess
 {
@@ -39,6 +40,13 @@ class Validators implements ArrayAccess
 		$hasRules = array_values($this->rules->map(function ($rule) {
 			return $rule->rule();
 		})->toArray());
+
+		// We need to inject this at Validators level not Validator level so it
+		// has access to all the required data as we’re referencing other fields
+		// and properties
+		if ($this->field->hasSettings('lsf_conditional')) {
+			$hasRules[] = new ConditionallyRequired($this->field->settings('lsf_conditional'));
+		}
 
 		if ($hasRules) {
 			$rules[$this->nameToValidationKey()] = $hasRules;

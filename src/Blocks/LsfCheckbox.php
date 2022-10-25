@@ -7,9 +7,9 @@ use Riclep\StoryblokForms\MultiInput;
 class LsfCheckbox extends MultiInput
 {
 	/**
-	 * @var string The name of the textarea in Storyblok holding the checkbox options
+	 * @var string The name of the textarea field in Storyblok holding the checkbox options
 	 */
-	protected $optionsName = 'checkboxes';
+	protected string $optionsName = 'checkboxes';
 
-	protected $type = 'multi-input';
+	protected string $type = 'multi-input';
 }

@@ -10,6 +10,8 @@ use Storyblok\ManagementClient;
 
 class InstallCommand extends Command
 {
+	// TODO - refactor to use Laravel Storyblok CLI package
+
 	/**
 	 * @var string
 	 */
@@ -63,7 +65,8 @@ class InstallCommand extends Command
 	/**
 	 * @throws \JsonException
 	 */
-	protected function makeComponents() {
+	protected function makeComponents(): void
+	{
 		// TODO - allow publishing and using custom stubs
 		$templates = File::allFiles(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR  . '..' . DIRECTORY_SEPARATOR . 'stubs' . DIRECTORY_SEPARATOR . 'components');
 

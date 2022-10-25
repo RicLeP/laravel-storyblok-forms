@@ -9,14 +9,15 @@ class LsfInput extends Input
 {
 	// Interface this....
 
-	protected $type = 'input';
+	protected string $type = 'input';
 
 	/**
 	 * All the Validation rules for this Input
 	 *
 	 * @return mixed
 	 */
-	public function errorMessages() {
+	public function errorMessages(): mixed
+	{
 		$messages = $this->validators->errorMessages();
 
 		/**
@@ -39,9 +40,10 @@ class LsfInput extends Input
 	 * Returns the Input’s response after the form has been submitted and validated
 	 *
 	 * @param $input
-	 * @return mixed
+	 * @return array
 	 */
-	public function response($input) {
+	public function response($input): array
+	{
 		return [
 			'label' => $this->label,
 			'name' => $this->name,

@@ -8,7 +8,12 @@ use Illuminate\Contracts\Validation\InvokableRule;
 class ConditionallyRequired implements DataAwareRule, InvokableRule
 {
 
-	protected $conditional;
+	/**
+	 * The condition we want to check the validity of.
+	 *
+	 * @var array
+	 */
+	protected array $conditional;
 
 	public function __construct($conditional) {
 		$this->conditional = $conditional;
@@ -17,12 +22,12 @@ class ConditionallyRequired implements DataAwareRule, InvokableRule
     /**
      * Run the validation rule.
      *
-     * @param  string  $attribute
+     * @param string $attribute
      * @param  mixed  $value
-     * @param  \Closure(string): \Illuminate\Translation\PotentiallyTranslatedString  $fail
+     * @param \Closure(string): \Illuminate\Translation\PotentiallyTranslatedString $fail
      * @return void
      */
-    public function __invoke($attribute, $value, $fail)
+    public function __invoke(string $attribute, mixed $value, \Closure $fail): void
     {
 	    $causationFieldValue = data_get($this->data, $this->conditional['field']);
 

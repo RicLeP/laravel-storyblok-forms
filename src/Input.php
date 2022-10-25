@@ -22,7 +22,14 @@ class Input extends \Riclep\Storyblok\Block
 	 */
 	protected $_casts = ['validators' => Validators::class];
 
-	public function loopKey($key) {
+	/**
+	 * Creates a key to be used for the VueJS :key on this input
+	 *
+	 * @param $key
+	 * @return $this
+	 */
+	public function loopKey($key): Input
+	{
 		$this->key = $key;
 
 		return $this;
@@ -34,7 +41,8 @@ class Input extends \Riclep\Storyblok\Block
 	 *
 	 * @return mixed
 	 */
-	public function validationRules() {
+	public function validationRules(): mixed
+	{
 		$rules = $this->validators->validationRules();
 
 		if ($this->parent() instanceof LsfConditionalSelect) {
@@ -45,7 +53,7 @@ class Input extends \Riclep\Storyblok\Block
 			}
 
 			foreach ($rules as $key => $rule) {
-				if (in_array('required', $rule)) {
+				if (in_array('required', $rule, true)) {
 					$requiredKey = array_search('required', $rule);
 
 					$rules[$key][$requiredKey] = 'required_if:' . $this->parent()->input_dot_name . '.selected,' . $requiredWhen;
@@ -61,7 +69,8 @@ class Input extends \Riclep\Storyblok\Block
 	 *
 	 * @return mixed
 	 */
-	public function errorMessages() {
+	public function errorMessages(): mixed
+	{
 		$messages = $this->validators->errorMessages();
 
 		/**
@@ -70,7 +79,7 @@ class Input extends \Riclep\Storyblok\Block
 		if ($this->parent() instanceof LsfConditionalSelect) {
 			foreach ($messages as $key => $rule) {
 				if (Str::endsWith($key, 'required')) {
-					$messages[$key . '_if'] = $messages[$key];
+					$messages[$key . '_if'] = $rule;
 
 					unset($messages[$key]);
 				}

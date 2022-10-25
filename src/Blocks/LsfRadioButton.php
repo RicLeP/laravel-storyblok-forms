@@ -7,9 +7,9 @@ use Riclep\StoryblokForms\MultiInput;
 class LsfRadioButton extends MultiInput
 {
 	/**
-	 * @var string The name of the textarea in Storyblok holding the radio button options
+	 * @var string The name of the textarea field in Storyblok holding the radio button options
 	 */
-	protected $optionsName = 'radio_buttons';
+	protected string $optionsName = 'radio_buttons';
 
-	protected $type = 'multi-input';
+	protected string $type = 'multi-input';
 }

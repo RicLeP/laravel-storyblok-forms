@@ -9,13 +9,13 @@ class Validator
 	/**
 	 * @var array The definition of the rule from Storyblok
 	 */
-	protected $definition;
+	protected array $definition;
 
 
 	/**
 	 * @var Input The Field on which the validation is being applied
 	 */
-	protected $field;
+	protected Input $field;
 
 	/**
 	 * @param $definition
@@ -32,7 +32,8 @@ class Validator
 	 *
 	 * @return mixed
 	 */
-	public function rule() {
+	public function rule(): mixed
+	{
 		// If using a Class based rule return a new instant
 		if ($this->definition['component'] === 'lsf-validator-class') {
 			$class = 'App\Rules\\' . $this->definition['class'];
@@ -54,7 +55,8 @@ class Validator
 	 *
 	 * @return mixed
 	 */
-	public function errorMessage() {
+	public function errorMessage(): mixed
+	{
 		// Class validators
 		if ($this->definition['component'] === 'lsf-validator-class') {
 			$class = 'App\Rules\\' . $this->definition['class'];

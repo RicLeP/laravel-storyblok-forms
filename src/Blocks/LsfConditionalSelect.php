@@ -2,7 +2,6 @@
 
 namespace Riclep\StoryblokForms\Blocks;
 
-use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Riclep\StoryblokForms\MultiInput;
 use Riclep\StoryblokForms\Traits\HasNames;
@@ -16,19 +15,17 @@ class LsfConditionalSelect extends MultiInput
 	/**
 	 * @var string
 	 */
-	protected $optionsName = 'options';
+	protected string $optionsName = 'options';
 
-	protected $type = 'conditional-select';
-
-
-
+	protected string $type = 'conditional-select';
 
 	/**
-	 * Returns all the validation rules for the fields in this Fieldset
+	 * Returns all the validation rules for the field
 	 *
 	 * @return array
 	 */
-	public function validationRules() {
+	public function validationRules(): array
+	{
 		// TODO - loop over all children looking for required validation and update to required_if
 
 		$rules = [];
@@ -46,11 +43,11 @@ class LsfConditionalSelect extends MultiInput
 	}
 
 	/**
-	 * Returns all the error messages for the fields in this Fieldset
-	 *
+	 * Returns all the error messages for the field
 	 * @return array
 	 */
-	public function errorMessages() {
+	public function errorMessages(): array
+	{
 		$rules = [];
 
 		$this->fields->each(function ($field) use (&$rules) {
@@ -59,10 +56,10 @@ class LsfConditionalSelect extends MultiInput
 
 		$messages = $this->validators->errorMessages();
 
-		if ($this->parent() instanceof LsfConditionalSelect) {
+		if ($this->parent() instanceof self) {
 			foreach ($messages as $key => $rule) {
 				if (Str::endsWith($key, 'required')) {
-					$messages[$key . '_if'] = $messages[$key];
+					$messages[$key . '_if'] = $rule;
 
 					unset($messages[$key]);
 				}
@@ -75,43 +72,10 @@ class LsfConditionalSelect extends MultiInput
 			$selectMessage = [$selectKey => $messages[$this->getInputDotNameAttribute() . '.required']];
 		}
 
-
-//		[$selectKey => $messages[$this->getInputDotNameAttribute() . '.required']];
-//dump($messages);
 		return array_merge($rules, $selectMessage);
-
-		//	dd($messages);
-
-		// Should the Dot name always do this? Probably not as that would break children?
-//		$selectKey = $this->getInputDotNameAttribute()  . '.selected';
-//
-//		return array_merge($rules, [
-//			$selectKey =>
-//				$messages[$this->getInputDotNameAttribute()
-//				]]);
-
-		//return $rules;
-
-
-
-
-//		$messages = $this->validators->errorMessages();
-//
-//		/**
-//		 * Rewrite required to required_if for items inside conditional selects
-//		 */
-//		if ($this->parent() instanceof LsfConditionalSelect) {
-//			foreach ($messages as $key => $rule) {
-//				if (Str::endsWith($key, 'required')) {
-//					$messages[$key . '_if'] = $messages[$key];
-//
-//					unset($messages[$key]);
-//				}
-//			}
-//		}
-//
-//		return $messages;
 	}
+
+
 	/**
 	 * Returns the Input’s response after the form has been submitted and validated
 	 * All options are returned as an array with their name and a selected boolean
@@ -120,11 +84,12 @@ class LsfConditionalSelect extends MultiInput
 	 * @param $input
 	 * @return array
 	 */
-	public function response($input) {
+	public function response($input): array
+	{
 		$formatted = [
 			'label' => $this->label,
 			'name' => $this->name,
-			'response' => ['select' => ['selected' => [], 'unselected' => []]], // TODO multi dimensional - selected and child fields...
+			'response' => ['select' => ['selected' => [], 'unselected' => []]],
 			'type' => $this->type,
 		];
 

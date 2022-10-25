@@ -10,27 +10,30 @@ use Storyblok\ManagementClient;
 
 class ComponentMaker
 {
+	// TODO - refactor to use Laravel Storyblok CLI package
+
+
 	use GetsComponentGroups;
 
 	/**
 	 * @var array Component definition
 	 */
-	protected $schema;
+	protected array $schema;
 
 	/**
 	 * @var Collection A list of all component groups
 	 */
-	protected $componentGroups;
+	protected Collection $componentGroups;
 
 	/**
 	 * @var ManagementClient Storyblok Management Client
 	 */
-	protected $managementClient;
+	protected ManagementClient $managementClient;
 
 	/**
 	 * @var InstallCommand The package’s command
 	 */
-	protected $command;
+	protected InstallCommand $command;
 
 	/**
 	 * @param InstallCommand $command
@@ -50,7 +53,8 @@ class ComponentMaker
 	 * @return void
 	 * @throws \Storyblok\ApiException
 	 */
-	public function import() {
+	public function import(): void
+	{
 		// TODO - validate json.....
 
 		$this->getGroups();
@@ -64,7 +68,8 @@ class ComponentMaker
 	 *
 	 * @return void
 	 */
-	protected function updatedGroupToUuid() {
+	protected function updatedGroupToUuid(): void
+	{
 		// see if UUID is known or name needs replacing
 		if (!Str::isUuid($this->schema['component']['component_group_uuid'])) {
 			if ($uuid = $this->groupUuidFromName($this->schema['component']['component_group_uuid'])) {
@@ -83,7 +88,8 @@ class ComponentMaker
 	 *
 	 * @return void
 	 */
-	protected function processBlokFields() {
+	protected function processBlokFields(): void
+	{
 		// Bloks fields - set up component group whitelist
 		foreach ($this->schema['component']['schema'] as $fieldKey => $field) {
 			if ($field['type'] === 'bloks' && array_key_exists('component_group_whitelist', $field)) {
@@ -106,7 +112,8 @@ class ComponentMaker
 	 * @return void
 	 * @throws \Storyblok\ApiException
 	 */
-	protected function createComponent() {
+	protected function createComponent(): void
+	{
 		$response = $this->managementClient->get('spaces/'.config('storyblok.space_id').'/components/')->getBody();
 
 		if (collect($response['components'])->keyBy('name')->has($this->schema['component']['name'])) {
@@ -152,7 +159,8 @@ class ComponentMaker
 	 * @param $name
 	 * @return false|mixed
 	 */
-	protected function groupUuidFromName($name) {
+	protected function groupUuidFromName($name): mixed
+	{
 		if ($this->componentGroups->has($name)) {
 			return $this->componentGroups[$name]['uuid'];
 		}

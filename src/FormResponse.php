@@ -62,9 +62,8 @@ class FormResponse
 	/**
 	 * The Field that holds the form on the Page from Storyblok
 	 *
-	 * @return \Illuminate\Support\Collection
 	 */
-	protected function form(): \Illuminate\Support\Collection
+	protected function form()
 	{
 		return $this->page->form;
 	}

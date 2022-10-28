@@ -43,6 +43,10 @@ class Input extends \Riclep\Storyblok\Block
 	 */
 	public function validationRules(): mixed
 	{
+		if (!$this->validators) {
+			return [];
+		}
+
 		$rules = $this->validators->validationRules();
 
 		if ($this->parent() instanceof LsfConditionalSelect) {

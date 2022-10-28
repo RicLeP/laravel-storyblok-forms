@@ -3,14 +3,15 @@
 namespace Riclep\StoryblokForms;
 
 use ArrayAccess;
+use Illuminate\Support\Collection;
 use Riclep\StoryblokForms\Rules\ConditionallyRequired;
 
 class Validators implements ArrayAccess
 {
 	/**
-	 * @var array All the validation rules
+	 * @var Collection All the validation rules
 	 */
-	public array $rules;
+	public Collection $rules;
 
 	/**
 	 * @var Input The field the rules are applied to

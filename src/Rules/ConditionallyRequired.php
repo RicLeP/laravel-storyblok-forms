@@ -4,6 +4,7 @@ namespace Riclep\StoryblokForms\Rules;
 
 use Illuminate\Contracts\Validation\DataAwareRule;
 use Illuminate\Contracts\Validation\InvokableRule;
+use Illuminate\Support\Collection;
 
 class ConditionallyRequired implements DataAwareRule, InvokableRule
 {
@@ -13,7 +14,7 @@ class ConditionallyRequired implements DataAwareRule, InvokableRule
 	 *
 	 * @var array
 	 */
-	protected array $conditional;
+	protected Collection $conditional;
 
 	public function __construct($conditional) {
 		$this->conditional = $conditional;
@@ -27,7 +28,7 @@ class ConditionallyRequired implements DataAwareRule, InvokableRule
      * @param \Closure(string): \Illuminate\Translation\PotentiallyTranslatedString $fail
      * @return void
      */
-    public function __invoke(string $attribute, mixed $value, \Closure $fail): void
+    public function __invoke($attribute, $value, $fail): void
     {
 	    $causationFieldValue = data_get($this->data, $this->conditional['field']);
 

@@ -62,7 +62,7 @@ class LsfConditionalSelect extends MultiInput
 
 		$messages = $this->validators->errorMessages();
 
-		if ($this->parent() instanceof self) {
+		if ($this->parent() instanceof LsfConditionalSelect) {
 			foreach ($messages as $key => $rule) {
 				if (Str::endsWith($key, 'required')) {
 					$messages[$key . '_if'] = $rule;

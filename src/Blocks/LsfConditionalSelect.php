@@ -30,7 +30,9 @@ class LsfConditionalSelect extends MultiInput
 
 		$rules = [];
 
-		$this->fields->each(function ($field) use (&$rules) {
+		$this->fields->filter(function($field) {
+			return $field->component() !== 'lsf-text-note';
+		})->each(function ($field) use (&$rules) {
 			$rules = array_merge($rules, $field->validationRules());
 		});
 
@@ -39,7 +41,11 @@ class LsfConditionalSelect extends MultiInput
 		// Should the Dot name always do this? Probably not as that would break children?
 		$selectKey = $this->getInputDotNameAttribute()  . '.selected';
 
-		return array_merge($rules, [$selectKey => $fieldRules[$this->getInputDotNameAttribute()]]);
+		if (array_key_exists($this->getInputDotNameAttribute(), $fieldRules)) {
+			return array_merge($rules, [$selectKey => $fieldRules[$this->getInputDotNameAttribute()]]);
+		}
+
+		return $rules;
 	}
 
 	/**

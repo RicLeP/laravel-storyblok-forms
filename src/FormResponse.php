@@ -19,7 +19,6 @@ class FormResponse
 	 */
 	public Request $request;
 
-
 	/**
 	 * The Storyblok page for this form
 	 *

@@ -26,7 +26,9 @@ class LsfFieldset extends \Riclep\Storyblok\Block
 	{
 		$rules = [];
 
-		$this->fields->each(function ($field) use (&$rules) {
+		$this->fields->filter(function($field) {
+			return $field->component() !== 'lsf-text-note';
+		})->each(function ($field) use (&$rules) {
 			$rules = array_merge($rules, $field->validationRules());
 		});
 

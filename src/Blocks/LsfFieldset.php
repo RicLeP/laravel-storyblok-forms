@@ -65,7 +65,8 @@ class LsfFieldset extends \Riclep\Storyblok\Block
 			'response' => $this->fields->map(function ($field) use ($input) {
 
 				// Handle empty radio buttons etc. sending nothing in POST request
-				if (!array_key_exists($field->name, $input)) {
+				// does allow empty $input break anything?
+				if (!$input || !array_key_exists($field->name, $input)) {
 					$input[$field->name] = null;
 				}
 

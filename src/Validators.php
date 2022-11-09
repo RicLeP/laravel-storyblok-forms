@@ -50,6 +50,11 @@ class Validators implements ArrayAccess
 			$hasRules[] = new ConditionallyRequired($this->field->settings('lsf_conditional'));
 		}
 
+		// fields inside a conditionally visible fieldset - added via settings (not conditional field set)
+		if ($this->field->parent()->hasSettings('lsf_conditional')) {
+			$hasRules[] = new ConditionallyRequired($this->field->parent()->settings('lsf_conditional'));
+		}
+
 		if ($hasRules) {
 			$rules[$this->nameToValidationKey()] = $hasRules;
 		}

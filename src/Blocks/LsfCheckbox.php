@@ -11,5 +11,5 @@ class LsfCheckbox extends MultiInput
 	 */
 	protected string $optionsName = 'checkboxes';
 
-	protected string $type = 'multi-input';
+	protected string $type = 'input';
 }

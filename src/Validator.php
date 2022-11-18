@@ -37,6 +37,11 @@ class Validator
 		// If using a Class based rule return a new instant
 		if ($this->definition['component'] === 'lsf-validator-class') {
 			$class = 'App\Rules\\' . $this->definition['class'];
+
+			if ($this->definition['parameter']) {
+				return new $class($this->definition['parameter']);
+			}
+
 			return new $class;
 		}
 
@@ -55,12 +60,13 @@ class Validator
 	 *
 	 * @return mixed
 	 */
-	public function errorMessage(): mixed
+	public function errorMessage()
 	{
 		// Class validators
 		if ($this->definition['component'] === 'lsf-validator-class') {
 			$class = 'App\Rules\\' . $this->definition['class'];
-			return (new $class)->errorMessage();
+
+			return;
 		}
 
 		// If an error message was defined in Storyblok

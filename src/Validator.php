@@ -47,6 +47,10 @@ class Validator
 
 		// named rule with a parameter
 		if (array_key_exists('parameter', $this->definition)) {
+			if (array_key_exists('value', $this->definition)) {
+				return Str::afterLast($this->definition['component'], '-') . ':' . $this->definition['parameter'] . ',' . $this->definition['value'];
+			}
+
 			return Str::afterLast($this->definition['component'], '-') . ':' . $this->definition['parameter'];
 		}
 

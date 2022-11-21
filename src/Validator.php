@@ -38,7 +38,7 @@ class Validator
 		if ($this->definition['component'] === 'lsf-validator-class') {
 			$class = 'App\Rules\\' . $this->definition['class'];
 
-			if ($this->definition['parameter']) {
+			if (array_key_exists('parameter', $this->definition) && $this->definition['parameter']) {
 				return new $class($this->definition['parameter']);
 			}
 

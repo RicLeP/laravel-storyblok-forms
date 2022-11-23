@@ -20,7 +20,7 @@ class Input extends \Riclep\Storyblok\Block
 	 *
 	 * @var string[] All the Validators for this Input
 	 */
-	protected $_casts = ['validators' => Validators::class];
+	protected array $_casts = ['validators' => Validators::class];
 
 	/**
 	 * Creates a key to be used for the VueJS :key on this input

@@ -77,7 +77,7 @@ class Validators implements ArrayAccess
 
 				$messages = array_merge($messages, [$messageKey => $rule->errorMessage()]);
 			} else {
-				$messageKey = $this->nameToValidationKey() . '.' . $rule->rule();
+				$messageKey = $this->nameToValidationKey() . '.' . $rule->ruleForValidation();
 
 				$messages = array_merge($messages, [$messageKey => $rule->errorMessage()]);
 			}

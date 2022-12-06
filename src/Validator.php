@@ -59,6 +59,17 @@ class Validator
 	}
 
 	/**
+	 * Returns the validation rule in a format for the message bag
+	 * removing :somevalue etc.
+	 *
+	 * @return string
+	 */
+	public function ruleForValidation(): string
+	{
+		return Str::before($this->rule(), ':');
+	}
+
+	/**
 	 * Get the error messages for the rule. Class validators must implement
 	 * an errorMessage() method
 	 *
@@ -83,6 +94,6 @@ class Validator
 			return __('validation.' . $this->rule(), ['attribute' => $this->field->label]);
 		}
 
-		return [];
+		return '';
 	}
 }

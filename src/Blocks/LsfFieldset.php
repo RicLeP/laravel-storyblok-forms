@@ -10,7 +10,7 @@ class LsfFieldset extends \Riclep\Storyblok\Block
 {
 	use HasNames, InFieldset, ToJson;
 
-	protected $type = 'fieldset';
+	protected string $type = 'fieldset';
 
 	//// potentially all fields in a fieldset could be name <input name="fieldsetname[fieldname]">
 	/// this would out a multidimensional array in the response.
@@ -22,10 +22,13 @@ class LsfFieldset extends \Riclep\Storyblok\Block
 	 *
 	 * @return array
 	 */
-	public function validationRules() {
+	public function validationRules(): array
+	{
 		$rules = [];
 
-		$this->fields->each(function ($field) use (&$rules) {
+		$this->fields->filter(function($field) {
+			return $field->component() !== 'lsf-text-note';
+		})->each(function ($field) use (&$rules) {
 			$rules = array_merge($rules, $field->validationRules());
 		});
 
@@ -37,7 +40,8 @@ class LsfFieldset extends \Riclep\Storyblok\Block
 	 *
 	 * @return array
 	 */
-	public function errorMessages() {
+	public function errorMessages(): array
+	{
 		$rules = [];
 
 		$this->fields->each(function ($field) use (&$rules) {
@@ -47,14 +51,22 @@ class LsfFieldset extends \Riclep\Storyblok\Block
 		return $rules;
 	}
 
-	public function response($input) {
+	/**
+	 * Returns the Fieldset’s response after the form has been submitted and validated
+	 *
+	 * @param $input
+	 * @return array
+	 */
+	public function response($input): array
+	{
 		return [
 			'label' => $this->label,
 			'name' => $this->name,
 			'response' => $this->fields->map(function ($field) use ($input) {
-				//dump($field->name, $input);
+
 				// Handle empty radio buttons etc. sending nothing in POST request
-				if (!array_key_exists($field->name, $input)) {
+				// does allow empty $input break anything?
+				if (!$input || !array_key_exists($field->name, $input)) {
 					$input[$field->name] = null;
 				}
 

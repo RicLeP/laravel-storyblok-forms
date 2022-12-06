@@ -9,6 +9,8 @@ use Storyblok\ManagementClient;
 
 class ComponentGroupMaker
 {
+	// TODO - refactor to use Laravel Storyblok CLI package
+
 	use GetsComponentGroups;
 
 	/**
@@ -42,7 +44,8 @@ class ComponentGroupMaker
 	 * @return void
 	 * @throws \Storyblok\ApiException
 	 */
-	public function import() {
+	public function import(): void
+	{
 		$this->getGroups();
 
 		$groups = config('storyblok-forms.component_groups');
@@ -59,7 +62,8 @@ class ComponentGroupMaker
 	 * @return void
 	 * @throws \Storyblok\ApiException
 	 */
-	protected function createGroup($group) {
+	protected function createGroup($group): void
+	{
 		if (!$this->componentGroups->has($group)) {
 			$response = $this->managementClient->post('spaces/'.config('storyblok.space_id').'/component_groups', [
 				'component_group' =>  [

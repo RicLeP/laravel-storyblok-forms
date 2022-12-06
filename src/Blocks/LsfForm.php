@@ -9,7 +9,8 @@ class LsfForm extends \Riclep\Storyblok\Block
 	 *
 	 * @return array
 	 */
-	public function validationRules() {
+	public function validationRules(): array
+	{
 		$rules = [];
 
 		$this->fields->each(function ($field) use (&$rules) {
@@ -24,7 +25,8 @@ class LsfForm extends \Riclep\Storyblok\Block
 	 *
 	 * @return array
 	 */
-	public function errorMessages() {
+	public function errorMessages(): array
+	{
 		$errorMessages = [];
 
 		$this->fields->each(function ($field) use (&$errorMessages) {

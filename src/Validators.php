@@ -3,19 +3,20 @@
 namespace Riclep\StoryblokForms;
 
 use ArrayAccess;
+use Illuminate\Support\Collection;
 use Riclep\StoryblokForms\Rules\ConditionallyRequired;
 
 class Validators implements ArrayAccess
 {
 	/**
-	 * @var array All the validation rules
+	 * @var Collection All the validation rules
 	 */
-	public $rules;
+	public Collection $rules;
 
 	/**
 	 * @var Input The field the rules are applied to
 	 */
-	protected $field;
+	protected Input $field;
 
 	/**
 	 * @param $validators
@@ -34,7 +35,8 @@ class Validators implements ArrayAccess
 	 *
 	 * @return array
 	 */
-	public function validationRules() {
+	public function validationRules(): array
+	{
 		$rules = [];
 
 		$hasRules = array_values($this->rules->map(function ($rule) {
@@ -44,8 +46,13 @@ class Validators implements ArrayAccess
 		// We need to inject this at Validators level not Validator level so it
 		// has access to all the required data as we’re referencing other fields
 		// and properties
-		if ($this->field->hasSettings('lsf_conditional')) {
+		if ($this->field->hasSetting('lsf_conditional')) {
 			$hasRules[] = new ConditionallyRequired($this->field->settings('lsf_conditional'));
+		}
+
+		// fields inside a conditionally visible fieldset - added via settings (not conditional field set)
+		if ($this->field->parent()->hasSetting('lsf_conditional')) {
+			$hasRules[] = new ConditionallyRequired($this->field->parent()->settings('lsf_conditional'));
 		}
 
 		if ($hasRules) {
@@ -60,7 +67,8 @@ class Validators implements ArrayAccess
 	 *
 	 * @return array
 	 */
-	public function errorMessages() {
+	public function errorMessages(): array
+	{
 		$messages = [];
 
 		$this->rules->each(function ($rule) use (&$messages) {
@@ -83,9 +91,9 @@ class Validators implements ArrayAccess
 	 *
 	 * @return string
 	 */
-	protected function nameToValidationKey()
+	protected function nameToValidationKey(): string
 	{
-		$validationKey = str_replace([
+		return str_replace([
 			'[]',
 			'[',
 			']'
@@ -94,49 +102,55 @@ class Validators implements ArrayAccess
 			'.',
 			''
 		], $this->field->input_name);
-
-		return $validationKey;
 	}
 
 	/**
-	 * Tidy up the Validator JSON from Storyblok as it contains
-	 * more than we require
+	 * Tidy up the Validator block JSON from Storyblok as it contains
+	 * more fields than we require
 	 *
 	 * @param $validators
 	 * @return void
 	 */
-	protected function process($validators) {
-		$this->rules = collect($validators)->map(function ($validator) {
-			return (new Validator(
-				array_diff_key($validator, array_flip(['_editable', '_uid']))
-				, $this->field));
-		});
+	protected function process($validators): void
+	{
+		$this->rules = collect($validators)->map(fn($validator) => (
+			new Validator(
+				array_diff_key($validator, array_flip(['_editable', '_uid'])),
+				$this->field
+			)
+		));
 	}
 
 	/**
+	 * ArrayAccess: Check if an offset exists
+	 *
 	 * @param $offset
 	 * @return bool
 	 */
-	public function offsetExists($offset)
+	public function offsetExists($offset): bool
 	{
 		return isset($this->rules[$offset]);
 	}
 
 	/**
+	 * ArrayAccess: Get a rule by its offset
+	 *
 	 * @param $offset
 	 * @return mixed|null
 	 */
-	public function offsetGet($offset)
+	public function offsetGet($offset): mixed
 	{
 		return $this->rules[$offset] ?? null;
 	}
 
 	/**
+	 * ArrayAcess: Set a value
+	 *
 	 * @param $offset
 	 * @param $value
 	 * @return void
 	 */
-	public function offsetSet($offset, $value)
+	public function offsetSet($offset, $value): void
 	{
 		if (is_null($offset)) {
 			$this->rules[] = $value;
@@ -146,10 +160,12 @@ class Validators implements ArrayAccess
 	}
 
 	/**
+	 * ArrayAccess: Unset an offset
+	 *
 	 * @param $offset
 	 * @return void
 	 */
-	public function offsetUnset($offset)
+	public function offsetUnset($offset): void
 	{
 		unset($this->rules[$offset]);
 	}

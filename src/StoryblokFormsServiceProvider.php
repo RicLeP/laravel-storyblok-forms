@@ -11,7 +11,7 @@ class StoryblokFormsServiceProvider extends ServiceProvider
     /**
      * Bootstrap the application services.
      */
-    public function boot()
+    public function boot(): void
     {
 	    if ($this->app->runningInConsole()) {
 		    $this->publishes([
@@ -28,7 +28,7 @@ class StoryblokFormsServiceProvider extends ServiceProvider
     /**
      * Register the application services.
      */
-    public function register()
+    public function register(): void
     {
 	    $this->mergeConfigFrom(__DIR__.'/../config/storyblok-forms.php', 'storyblok-forms');
     }

@@ -5,7 +5,7 @@ namespace Riclep\StoryblokForms\Blocks;
 use Illuminate\Support\Str;
 use Riclep\StoryblokForms\Input;
 
-class LsfInput extends Input
+class LsfHidden extends Input
 {
 	// Interface this....
 
@@ -18,22 +18,7 @@ class LsfInput extends Input
 	 */
 	public function errorMessages(): mixed
 	{
-		$messages = $this->validators->errorMessages();
-
-		/**
-		 * Rewrite required to required_if for items inside conditional selects
-		 */
-		if ($this->parent() instanceof LsfConditionalSelect) {
-			foreach ($messages as $key => $rule) {
-				if (Str::endsWith($key, 'required')) {
-					$messages[$key . '_if'] = $messages[$key];
-
-					unset($messages[$key]);
-				}
-			}
-		}
-
-		return $messages;
+		return [];
 	}
 
 	/**

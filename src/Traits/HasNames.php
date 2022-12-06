@@ -9,9 +9,10 @@ trait HasNames
 	/**
 	 * @property-read $input_name
 	 *
-	 * @return mixed|string
+	 * @return string
 	 */
-	public function getInputNameAttribute() {
+	public function getInputNameAttribute(): string
+	{
 		if ($this->isRepeating) {
 			return $this->parent()->input_name . '[' . $this->key . '][' . $this->content()['name'] . ']';
 		}
@@ -24,11 +25,12 @@ trait HasNames
 	}
 
 	/**
-	 * @property-read $input_dot_name
+	 * @return string
+	 *@property-read $input_dot_name
 	 *
-	 * @return mixed|string
 	 */
-	public function getInputDotNameAttribute() {
+	public function getInputDotNameAttribute(): string
+	{
 		return str_replace([
 			'[]',
 			'[',
@@ -43,9 +45,10 @@ trait HasNames
 	/**
 	 * @property-read $input_dot_name
 	 *
-	 * @return mixed|string
+	 * @return string
 	 */
-	public function getInputJsonDotNameAttribute() {
+	public function getInputJsonDotNameAttribute(): string
+	{
 		return str_replace([
 			'[]',
 			'[',

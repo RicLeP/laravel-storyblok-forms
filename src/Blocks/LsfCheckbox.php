@@ -2,14 +2,25 @@
 
 namespace Riclep\StoryblokForms\Blocks;
 
-use Riclep\StoryblokForms\MultiInput;
+use Riclep\StoryblokForms\Input;
 
-class LsfCheckbox extends MultiInput
+class LsfCheckbox extends Input
 {
-	/**
-	 * @var string The name of the textarea in Storyblok holding the checkbox options
-	 */
-	protected $optionsName = 'checkboxes';
+	protected string $type = 'input';
 
-	protected $type = 'multi-input';
+	/**
+	 * Returns the Input’s response after the form has been submitted and validated
+	 *
+	 * @param $input
+	 * @return array
+	 */
+	public function response($input): array
+	{
+		return [
+			'label' => $this->label,
+			'name' => $this->name,
+			'response' => $input,
+			'type' => $this->type,
+		];
+	}
 }

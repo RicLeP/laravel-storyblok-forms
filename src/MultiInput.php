@@ -13,7 +13,8 @@ class MultiInput extends Input
 	 *
 	 * @return array
 	 */
-	protected function addToJson() {
+	protected function addToJson(): array
+	{
 		$json['options'] = $this->options();
 
 		return $json;
@@ -24,7 +25,8 @@ class MultiInput extends Input
 	 *
 	 * @return \Illuminate\Support\Collection
 	 */
-	public function options() {
+	public function options(): \Illuminate\Support\Collection
+	{
 		return collect(preg_split('/\r\n|\r|\n/', $this->{$this->optionsName}))->filter()->map(function ($option) {
 
 			/**
@@ -59,7 +61,8 @@ class MultiInput extends Input
 	 * @param $formInput
 	 * @return bool
 	 */
-	protected function optionIsSelected($formInput) {
+	protected function optionIsSelected($formInput): bool
+	{
 		return request()->old($this->input_name) && (in_array(Str::slug($formInput), Arr::wrap(request()->old($this->input_name))));
 	}
 
@@ -71,7 +74,8 @@ class MultiInput extends Input
 	 * @param $input
 	 * @return array
 	 */
-	public function response($input) {
+	public function response($input): array
+	{
 		$formatted = [
 			'label' => $this->label,
 			'name' => $this->name,
@@ -80,7 +84,7 @@ class MultiInput extends Input
 		];
 
 		$this->options()->map(function ($formInput) use ($input, &$formatted) {
-			if (in_array($formInput['value'], Arr::wrap($input))) {
+			if (in_array($formInput['value'], Arr::wrap($input), true)) {
 				return $formatted['response']['selected'][$formInput['value']] = $formInput['label'];
 			}
 

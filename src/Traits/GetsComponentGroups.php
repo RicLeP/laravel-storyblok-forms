@@ -10,7 +10,8 @@ trait GetsComponentGroups
 	 * @return void
 	 * @throws \Storyblok\ApiException
 	 */
-	protected function getGroups() {
+	protected function getGroups(): void
+	{
 		$this->componentGroups = collect($this->managementClient->get('spaces/'.config('storyblok.space_id').'/component_groups')->getBody()['component_groups'])->keyBy('name');
 	}
 }

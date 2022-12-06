@@ -6,17 +6,29 @@ use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Validator;
+use JsonException;
 use Riclep\Storyblok\StoryblokFacade as StoryBlok;
 
 class FormResponse
 {
 	// TODO - pass extra data - imagine a staff contact form wrapped in a component where they select the email address this instance should go to
+
+
+	/**
+	 * @var Request
+	 */
 	public Request $request;
+
+	/**
+	 * The Storyblok page for this form
+	 *
+	 * @var
+	 */
 	protected $page;
 
 	/**
 	 * You’ll most likely want to extend this class to add your own functionality. The FormResponse
-	 * is used when you’ve submitted your form for validation and further processing. If will
+	 * is used when you’ve submitted your form for validation and further processing. It will
 	 * output a nested array of fields and the value inputted / selected.
 	 *
 	 * @param Request $request
@@ -41,16 +53,17 @@ class FormResponse
 	 *
 	 * @return void
 	 */
-	protected function requestPage() {
+	protected function requestPage(): void
+	{
 		$this->page = Storyblok::read($this->request->input('_slug'));
 	}
 
 	/**
-	 * We need to know the field where the form definition begins
+	 * The Field that holds the form on the Page from Storyblok
 	 *
-	 * @return \Illuminate\Support\Collection
 	 */
-	protected function form() {
+	protected function form()
+	{
 		return $this->page->form;
 	}
 
@@ -62,7 +75,7 @@ class FormResponse
 	 *
 	 * @return void
 	 */
-	public function validate()
+	public function validate(): void
 	{
 		Validator::make($this->request->all(), $this->form()->validationRules(), $this->form()->errorMessages())->validate();
 	}
@@ -74,7 +87,8 @@ class FormResponse
 	 *
 	 * @return mixed
 	 */
-	public function validationRules() {
+	public function validationRules(): mixed
+	{
 		return $this->form()->validationRules();
 	}
 
@@ -83,7 +97,8 @@ class FormResponse
 	 *
 	 * @return mixed
 	 */
-	public function fields() {
+	public function fields(): mixed
+	{
 		return $this->responses();
 	}
 
@@ -91,18 +106,21 @@ class FormResponse
 	 * Converts the fields and their input to JSON
 	 *
 	 * @return false|string
+	 * @throws JsonException
 	 */
-	public function json() {
-		return json_encode($this->fields());
+	public function json(): bool|string
+	{
+		return json_encode($this->fields(), JSON_THROW_ON_ERROR);
 	}
 
 	/**
 	 * Loops over all the fields and passes the input into them so we can build
 	 * a nested array of every field and it’s inputted / selected values
 	 *
-	 * @return mixed
+	 * @return array
 	 */
-	protected function responses() {
+	protected function responses(): array
+	{
 		$input = $this->request->except(['_token', '_slug']);
 
 		return $this->form()->fields->map(function ($field) use ($input) {
@@ -124,17 +142,19 @@ class FormResponse
 	 *
 	 * @return array
 	 */
-	public function flatten() {
+	public function flatten(): array
+	{
 		return Arr::flatten($this->fields());
 	}
 
 
 	/**
-	 * Find any uplaoded files so we’re easily able to handle them
+	 * Find any uploaded files so we’re easily able to handle them
 	 *
 	 * @return array
 	 */
-	public function files() {
+	public function files(): array
+	{
 		return array_values(array_filter($this->flatten(), function ($response) {
 			return $response instanceof UploadedFile;
 		}));

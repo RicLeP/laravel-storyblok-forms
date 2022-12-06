@@ -7,12 +7,9 @@ use Riclep\StoryblokForms\MultiInput;
 
 class LsfSelect extends MultiInput
 {
-	/**
-	 * @var string
-	 */
-	protected $optionsName = 'options';
+	protected string $optionsName = 'options';
 
-	protected $type = 'multi-input';
+	protected string $type = 'multi-input';
 
 
 	/**
@@ -20,7 +17,8 @@ class LsfSelect extends MultiInput
 	 *
 	 * @return mixed
 	 */
-	public function errorMessages() {
+	public function errorMessages(): mixed
+	{
 		$messages = $this->validators->errorMessages();
 
 		/**
@@ -29,7 +27,7 @@ class LsfSelect extends MultiInput
 		if ($this->parent() instanceof LsfConditionalSelect) {
 			foreach ($messages as $key => $rule) {
 				if (Str::endsWith($key, 'required')) {
-					$messages[$key . '_if'] = $messages[$key];
+					$messages[$key . '_if'] = $rule;
 
 					unset($messages[$key]);
 				}

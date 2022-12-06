@@ -4,11 +4,17 @@ namespace Riclep\StoryblokForms\Rules;
 
 use Illuminate\Contracts\Validation\DataAwareRule;
 use Illuminate\Contracts\Validation\InvokableRule;
+use Illuminate\Support\Collection;
 
 class ConditionallyRequired implements DataAwareRule, InvokableRule
 {
 
-	protected $conditional;
+	/**
+	 * The condition we want to check the validity of.
+	 *
+	 * @var array
+	 */
+	protected Collection $conditional;
 
 	public function __construct($conditional) {
 		$this->conditional = $conditional;
@@ -17,14 +23,16 @@ class ConditionallyRequired implements DataAwareRule, InvokableRule
     /**
      * Run the validation rule.
      *
-     * @param  string  $attribute
+     * @param string $attribute
      * @param  mixed  $value
-     * @param  \Closure(string): \Illuminate\Translation\PotentiallyTranslatedString  $fail
+     * @param \Closure(string): \Illuminate\Translation\PotentiallyTranslatedString $fail
      * @return void
      */
-    public function __invoke($attribute, $value, $fail)
+    public function __invoke($attribute, $value, $fail): void
     {
 	    $causationFieldValue = data_get($this->data, $this->conditional['field']);
+
+	    // $causationFieldValue is an array? always?
 
 		$condition = $this->conditional['condition'];
 		$operator = $this->conditional['operator'];
@@ -47,6 +55,8 @@ class ConditionallyRequired implements DataAwareRule, InvokableRule
 		    $fieldIsRequired = $causationFieldValue >= $condition;
 	    } else if ($operator === '<=') {
 		    $fieldIsRequired = $causationFieldValue <= $condition;
+	    } else if ($operator === 'one_of') {
+			$fieldIsRequired = in_array((int) $causationFieldValue[0], $condition); // always array?
 	    }
 
 	    if ($fieldIsRequired && !$value) {

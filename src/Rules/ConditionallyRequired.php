@@ -30,10 +30,9 @@ class ConditionallyRequired implements DataAwareRule, InvokableRule
      */
     public function __invoke($attribute, $value, $fail): void
     {
-	    $causationFieldValue = data_get($this->data, $this->conditional['field']);
+	    $causationFieldValue = data_get($this->data, $this->conditional['field'])[0];
 
 	    // $causationFieldValue is an array? always?
-
 		$condition = $this->conditional['condition'];
 		$operator = $this->conditional['operator'];
 

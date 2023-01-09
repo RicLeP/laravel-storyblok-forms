@@ -149,7 +149,7 @@ class InputTest extends TestCase
 			],
 			"basic_risk_details.basic_1" => [
 				"required",
-				new \App\Rules\NextThirtyDays(),
+				new \App\Rules\NextXDays(),
 
 			],
 			"basic_risk_details.basic_2" => [

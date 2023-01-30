@@ -5,7 +5,7 @@ namespace App\Rules;
 use Carbon\Carbon;
 use Illuminate\Contracts\Validation\InvokableRule;
 
-class NextThirtyDays implements InvokableRule
+class NextXDays implements InvokableRule
 {
 	protected $days = 30;
 

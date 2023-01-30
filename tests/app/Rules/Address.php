@@ -8,35 +8,35 @@ use Illuminate\Support\Arr;
 
 class Address implements DataAwareRule, InvokableRule
 {
-    /**
-     * Run the validation rule.
-     *
-     * @param  string  $attribute
-     * @param  mixed  $value
-     * @param  \Closure(string): \Illuminate\Translation\PotentiallyTranslatedString  $fail
-     * @return void
-     */
-    public function __invoke($attribute, $value, $fail)
-    {
+	/**
+	 * Run the validation rule.
+	 *
+	 * @param  string  $attribute
+	 * @param  mixed  $value
+	 * @param  \Closure(string): \Illuminate\Translation\PotentiallyTranslatedString  $fail
+	 * @return void
+	 */
+	public function __invoke($attribute, $value, $fail)
+	{
 		if (!$value) {
 			$fail($this->errorMessage());
 
 			return;
 		}
 
-	    $address = data_get($this->data, $attribute);
+		$address = data_get($this->data, $attribute);
 
-		if (!array_key_exists('line1', $address) || !array_key_exists('town', $address) || !array_key_exists('postcode', $address)) {
+		if (!array_key_exists('line1', $address) || !array_key_exists('line2', $address) || !array_key_exists('town', $address) || !array_key_exists('postcode', $address)) {
 			$fail($this->errorMessage());
 		}
-    }
+	}
 
 	/**
 	 * @return string
 	 */
 	public function errorMessage()
 	{
-		return 'Address line 1, town and postcode are required.';
+		return 'Address line 1, line 2, town and postcode are required.';
 	}
 
 	/**

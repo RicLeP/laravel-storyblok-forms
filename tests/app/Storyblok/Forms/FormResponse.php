@@ -42,11 +42,11 @@ class FormResponse extends \Riclep\StoryblokForms\FormResponse
 	}
 
 
-	public function validationRules() {
+	public function validationRules(): array{
 		return $this->form()->stepValidationRules($this->step);
 	}
 
-	public function validate()
+	public function validate(): void
 	{
 		Validator::make($this->request->except(['_token', '_slug']), $this->validationRules(), $this->form()->errorMessages())->validate();
 	}

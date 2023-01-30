@@ -326,7 +326,7 @@
 								},
 								{
 									"_uid": "0dbc17a6-e306-4a35-8c41-730557a25bcd",
-									"class": "NextThirtyDays",
+									"class": "NextXDays",
 									"component": "lsf-validator-class",
 									"_editable": "\u003c!--#storyblok#{\"name\": \"lsf-validator-class\", \"space\": \"162134\", \"uid\": \"0dbc17a6-e306-4a35-8c41-730557a25bcd\", \"id\": \"150400196\"}--\u003e"
 								}

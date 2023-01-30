@@ -32,35 +32,41 @@ class ConditionallyRequired implements DataAwareRule, InvokableRule
     {
 	    $causationFieldValue = data_get($this->data, $this->conditional['field'])[0];
 
-	    // $causationFieldValue is an array? always?
-		$condition = $this->conditional['condition'];
-		$operator = $this->conditional['operator'];
+		if (!$causationFieldValue) {
 
-		$fieldIsRequired = false;
+			$fail('Causation field required');
 
-	    if ($operator === '>') {
-		    $fieldIsRequired = $causationFieldValue > $condition;
-	    } else if ($operator === '<') {
-		    $fieldIsRequired = $causationFieldValue < $condition;
-	    } else if ($operator === '==') {
-		    $fieldIsRequired = $causationFieldValue == $condition;
-	    }  else if ($operator === '===') {
-		    $fieldIsRequired = $causationFieldValue === $condition;
-	    } else if ($operator === '!=') {
-		    $fieldIsRequired = $causationFieldValue != $condition;
-	    }  else if ($operator === '!==') {
-		    $fieldIsRequired = $causationFieldValue !== $condition;
-	    } else if ($operator === '>=') {
-		    $fieldIsRequired = $causationFieldValue >= $condition;
-	    } else if ($operator === '<=') {
-		    $fieldIsRequired = $causationFieldValue <= $condition;
-	    } else if ($operator === 'one_of') {
-			$fieldIsRequired = in_array((int) $causationFieldValue[0], $condition); // always array?
-	    }
+		} else {
+			// $causationFieldValue is an array? always?
+			$condition = $this->conditional['condition'];
+			$operator = $this->conditional['operator'];
 
-	    if ($fieldIsRequired && !$value) {
-		    $fail('This field is required.');
-	    }
+			$fieldIsRequired = false;
+
+			if ($operator === '>') {
+				$fieldIsRequired = $causationFieldValue > $condition;
+			} else if ($operator === '<') {
+				$fieldIsRequired = $causationFieldValue < $condition;
+			} else if ($operator === '==') {
+				$fieldIsRequired = $causationFieldValue == $condition;
+			}  else if ($operator === '===') {
+				$fieldIsRequired = $causationFieldValue === $condition;
+			} else if ($operator === '!=') {
+				$fieldIsRequired = $causationFieldValue != $condition;
+			}  else if ($operator === '!==') {
+				$fieldIsRequired = $causationFieldValue !== $condition;
+			} else if ($operator === '>=') {
+				$fieldIsRequired = $causationFieldValue >= $condition;
+			} else if ($operator === '<=') {
+				$fieldIsRequired = $causationFieldValue <= $condition;
+			} else if ($operator === 'one_of') {
+				$fieldIsRequired = in_array((int) $causationFieldValue[0], $condition); // always array?
+			}
+
+			if ($fieldIsRequired && !$value) {
+				$fail('This field is required.');
+			}
+		}
     }
 
 	/**

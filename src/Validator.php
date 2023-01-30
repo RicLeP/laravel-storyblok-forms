@@ -79,9 +79,11 @@ class Validator
 	{
 		// Class validators
 		if ($this->definition['component'] === 'lsf-validator-class') {
-			$class = 'App\Rules\\' . $this->definition['class'];
+			$className = 'App\Rules\\' . $this->definition['class'];
 
-			return;
+			$class = new $className();
+
+			return $class->errorMessage();
 		}
 
 		// If an error message was defined in Storyblok

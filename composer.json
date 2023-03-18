@@ -23,7 +23,7 @@
     "require": {
         "php": "^8.0|^8.1|^8.2",
         "ext-json": "*",
-        "illuminate/support": "^8.0|^9.0|10.0",
+        "illuminate/support": "10.4.1",
 		"riclep/laravel-storyblok": "^2.20"
     },
     "require-dev": {

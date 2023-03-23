@@ -61,6 +61,8 @@ class ConditionallyRequired implements DataAwareRule, InvokableRule
 				$fieldIsRequired = $causationFieldValue <= $condition;
 			} else if ($operator === 'one_of') {
 				$fieldIsRequired = in_array((int) $causationFieldValue[0], $condition); // always array?
+			} else if ($operator === 'not_one_of') {
+				$fieldIsRequired = !in_array((int) $causationFieldValue[0], $condition); // always array?
 			}
 
 			if ($fieldIsRequired && !$value) {

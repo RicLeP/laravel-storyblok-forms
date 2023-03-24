@@ -75,7 +75,11 @@ class LsfConditionalSelect extends MultiInput
 			$selectMessage = [$selectKey => $messages[$this->getInputDotNameAttribute() . '.required_if']];
 		} else {
 			$selectKey = $this->getInputDotNameAttribute()  . '.selected.required';
-			$selectMessage = [$selectKey => $messages[$this->getInputDotNameAttribute() . '.required']];
+			$selectMessage = [
+				$selectKey => $messages[
+					$this->getInputDotNameAttribute() . '.required'
+				]
+			];
 		}
 
 		return array_merge($rules, $selectMessage);

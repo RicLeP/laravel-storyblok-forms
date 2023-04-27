@@ -55,6 +55,7 @@ class LsfConditionalSelect extends MultiInput
 	public function errorMessages(): array
 	{
 		$rules = [];
+		$selectMessage = [];
 
 		$this->fields->each(function ($field) use (&$rules) {
 			$rules = array_merge($rules, $field->errorMessages());
@@ -74,12 +75,14 @@ class LsfConditionalSelect extends MultiInput
 			$selectKey = $this->getInputDotNameAttribute()  . '.selected.required_if';
 			$selectMessage = [$selectKey => $messages[$this->getInputDotNameAttribute() . '.required_if']];
 		} else {
-			$selectKey = $this->getInputDotNameAttribute()  . '.selected.required';
-			$selectMessage = [
-				$selectKey => $messages[
+			if (array_key_exists($this->getInputDotNameAttribute() . '.selected.required', $this->validationRules())) {
+				$selectKey = $this->getInputDotNameAttribute()  . '.selected.required';
+				$selectMessage = [
+					$selectKey => $messages[
 					$this->getInputDotNameAttribute() . '.required'
-				]
-			];
+					]
+				];
+			}
 		}
 
 		return array_merge($rules, $selectMessage);

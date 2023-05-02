@@ -30,12 +30,10 @@ class ConditionallyRequired implements DataAwareRule, InvokableRule
      */
     public function __invoke($attribute, $value, $fail): void
     {
-		$causationFieldValue = data_get($this->data, $this->conditional['field'])[0];
+		// $causationFieldValue = data_get($this->data, $this->conditional['field'])[0];
+	    $causationFieldValue = data_get($this->data, $this->conditional['field']);
 
-	    // make sure we don’t cast null to 0
-	    if (!is_null($causationFieldValue)) {
-		    $causationFieldValue = (int) $causationFieldValue;
-	    }
+	    // $causationFieldValue is an array? always?
 
 		$condition = $this->conditional['condition'];
 		$operator = $this->conditional['operator'];
@@ -59,9 +57,9 @@ class ConditionallyRequired implements DataAwareRule, InvokableRule
 	    } else if ($operator === '<=') {
 		    $fieldIsRequired = $causationFieldValue <= $condition;
 	    } else if ($operator === 'one_of') {
-			$fieldIsRequired = in_array($causationFieldValue, $condition); // always array?
+			$fieldIsRequired = in_array((int) $causationFieldValue[0], $condition); // always array?
 	    } else if ($operator === 'not_one_of') {
-			$fieldIsRequired = !in_array($causationFieldValue, $condition); // always array?
+			$fieldIsRequired = !in_array((int) $causationFieldValue[0], $condition); // always array?
 	    }
 
 	    if ($fieldIsRequired && !$value) {

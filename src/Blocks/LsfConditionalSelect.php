@@ -55,12 +55,15 @@ class LsfConditionalSelect extends MultiInput
 	public function errorMessages(): array
 	{
 		$rules = [];
+		$selectMessage = [];
 
 		$this->fields->each(function ($field) use (&$rules) {
 			$rules = array_merge($rules, $field->errorMessages());
 		});
 
 		$messages = $this->validators->errorMessages();
+
+
 
 		if ($this->parent() instanceof LsfConditionalSelect) {
 			foreach ($messages as $key => $rule) {
@@ -74,8 +77,20 @@ class LsfConditionalSelect extends MultiInput
 			$selectKey = $this->getInputDotNameAttribute()  . '.selected.required_if';
 			$selectMessage = [$selectKey => $messages[$this->getInputDotNameAttribute() . '.required_if']];
 		} else {
-			$selectKey = $this->getInputDotNameAttribute()  . '.selected.required';
-			$selectMessage = [$selectKey => $messages[$this->getInputDotNameAttribute() . '.required']];
+			/////// check for conditional select setting and only show message if not there?
+			/// all the messages are made but conditional selects have a .selected suffix
+			/// but if they are not always visible we can’t assume they are in existance
+			/// so we need to check for that in validation rules array
+			/// error is in ConditionallyRequired trait - need to branch based on input
+
+			dump($messages);
+
+//			$selectKey = $this->getInputDotNameAttribute()  . '.selected.required';
+//			$selectMessage = [
+//				$selectKey => $messages[
+//					$this->getInputDotNameAttribute() . '.required'
+//				]
+//			];
 		}
 
 		return array_merge($rules, $selectMessage);

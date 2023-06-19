@@ -39,7 +39,7 @@ class LsfConditionalSelect extends MultiInput
 		$fieldRules = parent::validationRules();
 
 		// Should the Dot name always do this? Probably not as that would break children?
-		$selectKey = $this->getInputDotNameAttribute(); // had . '.selected'  - is that needed in some places?
+		$selectKey = $this->getInputDotNameAttribute() . '.selected';  //- is that needed in some places?
 
 		if (array_key_exists($this->getInputDotNameAttribute(), $fieldRules)) {
 			return array_merge($rules, [$selectKey => $fieldRules[$this->getInputDotNameAttribute()]]);
@@ -77,6 +77,15 @@ class LsfConditionalSelect extends MultiInput
 		} else {
 			if (array_key_exists($this->getInputDotNameAttribute() . '.selected.required', $this->validationRules())) {
 				$selectKey = $this->getInputDotNameAttribute()  . '.selected.required';
+				$selectMessage = [
+					$selectKey => $messages[
+						$this->getInputDotNameAttribute() . '.required'
+					]
+				];
+			}
+
+			if (array_key_exists($this->getInputDotNameAttribute() . '.selected', $this->validationRules())) {
+				$selectKey = $this->getInputDotNameAttribute()  . '.selected';
 				$selectMessage = [
 					$selectKey => $messages[
 						$this->getInputDotNameAttribute() . '.required'

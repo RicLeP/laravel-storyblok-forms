@@ -46,12 +46,12 @@ class Validators implements ArrayAccess
 		// We need to inject this at Validators level not Validator level so it
 		// has access to all the required data as we’re referencing other fields
 		// and properties
-		if ($this->field->hasSetting('lsf_conditional')) {
+		if (method_exists($this, 'hasSetting') && $this->field->hasSetting('lsf_conditional')) {
 			$hasRules[] = new ConditionallyRequired($this->field->settings('lsf_conditional'));
 		}
 
 		// fields inside a conditionally visible fieldset - added via settings (not conditional field set)
-		if ($this->field->parent() && $this->field->parent()->hasSetting('lsf_conditional')) {
+		if ($this->field->parent() && method_exists($this->field->parent(), 'hasSetting') &&  $this->field->parent()->hasSetting('lsf_conditional')) {
 			$hasRules[] = new ConditionallyRequired($this->field->parent()->settings('lsf_conditional'));
 		}
 

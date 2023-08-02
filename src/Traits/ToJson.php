@@ -23,7 +23,7 @@ trait ToJson
 		$content['dot_name'] = $this->input_json_dot_name;
 
 		// see if any settings fields have been added to the field
-		if ($this->hasSettings()) {
+		if (method_exists($this, 'hasSettings') && $this->hasSettings()) {
 			$content['settings'] = $this->settings();
 		}
 

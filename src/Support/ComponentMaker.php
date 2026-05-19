@@ -44,7 +44,11 @@ class ComponentMaker
 		$this->command = $command;
 		$this->schema = $schema;
 
-		$this->managementClient = new ManagementClient(config('storyblok.oauth_token'));
+        $this->managementClient = new ManagementClient(
+            apiKey: config('storyblok.oauth_token'),
+            apiEndpoint: config('storyblok.management_api_base_url'),
+            ssl: config('storyblok.use_ssl')
+        );
 	}
 
 	/**

@@ -21,15 +21,15 @@
         }
     ],
     "require": {
-        "php": "^8.0|^8.1|^8.2",
+        "php": "^8.3|^8.4|^8.5",
         "ext-json": "*",
-        "illuminate/support": "^8.0|^9.0|^10.0",
-		"riclep/laravel-storyblok": "^2.20"
+        "illuminate/support": "^12.0|^13.0",
+		"riclep/laravel-storyblok": "^3.0"
     },
     "require-dev": {
         "mockery/mockery": "^1.2",
-        "orchestra/testbench": "7.0.*|^8.0",
-        "phpunit/phpunit": "^9.0"
+        "orchestra/testbench": "^8.0|^9.0|^10.0",
+        "phpunit/phpunit": "^11.0"
     },
     "autoload": {
 	    "files": [

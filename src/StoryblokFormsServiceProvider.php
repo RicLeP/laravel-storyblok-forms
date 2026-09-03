@@ -19,10 +19,6 @@ class StoryblokFormsServiceProvider extends ServiceProvider
 			    __DIR__.'/../stubs/views' => resource_path('views/storyblok')
 		    ], 'storyblok-forms');
 	    }
-
-	    $this->commands([
-		    InstallCommand::class,
-	    ]);
     }
 
     /**
